@@ -1,59 +1,82 @@
-nav{
-    .navbar-brand{
-        width: 3em;
-        img{
-            width: 100%;
-        }
-    }
+// nav{
+//     .navbar-brand{
+//         width: 3em;
+//         img{
+//             width: 100%;
+//         }
+//     }
+// }
+@font-face {
+    font-family: 'Iceland';
+    src: url('../font/Iceland-Regular.ttf') format('truetype');
+}
+*{
+    box-sizing: border-box;
 }
 body{
+    box-sizing: border-box;
     margin: 0;
+    // padding: 2em 5em 0;
+    background-color: black;
+    width: 94vw;
+    max-height: 100vh;
+    overflow: hidden;
 }
 
+
 div.teaser{
-    height: 100vh;
-    background-color: black;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    padding: 0 0 5em 0;
     justify-content: space-between;
     img{
         width: 35%;
+        margin: 1em 0 0 5em;
     }
 }
-
 div.footer{
     position:relative;
     // display: flex;
     // align-items: center;
     // justify-content: center;
-    align-self: center;
+    // align-self: center;
     margin: 0 auto;
+    a.reseaux{
+        width: 3em;
+        height: 3em;
+    }
 }
-
 a.reseaux{
     position: absolute;
     display: inline-block;
-    width: 1.5em; 
+    width: 3em;
+    height: 3em;
     opacity: 0;
     transition: ease-in-out .9s;
+    display: flex;
+    justify-content: center;
+    align-items: end;
     img{
-        width: 100%;
+        width: 1.5em;
+        height: 1.5em;
+        object-fit: cover;
     }
 }
-
-
-// .reseaux.none{
-//     display: none;
-// }
 
 
 #discorde{
     display: inline-block;
     width: 3em;
-    // background-color: black;
+    height: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: end;
     opacity: 1;
     img{
-        width: 100%;
+        width: 3em;
+        height: 2.3em;
+        object-fit: cover;  
     }
 }
 
@@ -64,37 +87,49 @@ a.reseaux{
     opacity: 1;
 }
 #tiktok.active{
-    transform: translateX(6em);
+    transform: translateX(5.5em);
     transition: ease-in-out .9s;
     opacity: 1;
-
+    
 }
 #twitter.active{
-    transform: translateX(-2em);
+    transform: translateX(-3em);
     transition: ease-in-out .9s;
     opacity: 1;
 
 }
 #youtube.active{
-    transform: translateX(-5em);
+    transform: translateX(-5.5em);
     transition: ease-in-out .9s;
     opacity: 1;
-
+    
 }
 
-#discorde:hover{
-    transform: scale(1.1);
-    transition: ease-in-out .2s;
-    opacity: 1;
 
-}
+
+
 
 
 #compte{
-    color: white;
+    font-family: 'Iceland',cursive;
+    color: #fba808;
     position: absolute;
-    top: 50%;
-    width: 100%;
+    top: 40%;
+    width: 100vw;
     text-align: center;
-    font-size: 3.5em;
+    font-size: 5em;
 }
+
+
+
+//    body:has(#discorde:hover)#youtube.active{
+    
+    //     transform: translateX(-5em);
+//     transition: ease-in-out .9s;
+//     opacity: 1;
+
+//    }
+
+    // .reseaux.none{
+    //     display: none;
+    // }
