@@ -1,0 +1,83 @@
+nav{
+    .navbar-brand{
+        width: 3em;
+        img{
+            width: 100%;
+        }
+    }
+}
+body{
+    margin: 0;
+}
+
+div.teaser{
+    height: 100vh;
+    background-color: black;
+    // display: flex;
+    // flex-direction: column;
+    img{
+        width: 35%;
+    }
+}
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+a.reseaux{
+    position: absolute;
+    display: inline-block;
+    width: 1.5em; 
+    transition: ease-in-out .3s;
+    img{
+        width: 100%;
+    }
+}
+
+
+#discorde{
+    display: inline-block;
+    width: 3em;
+    img{
+        width: 100%;
+    }
+}
+
+
+#facebook.active{
+    transform: translateX(3em);
+    transition: ease-in-out .3s;
+}
+#tiktok.active{
+    transform: translateX(6em);
+    transition: ease-in-out .3s;
+
+}
+#twitter.active{
+    transform: translateX(-2em);
+    transition: ease-in-out .3s;
+
+}
+#youtube.active{
+    transform: translateX(-5em);
+    transition: ease-in-out .3s;
+
+}
+
+#discorde:hover{
+    transform: scale(1.1);
+    transition: ease-in-out .3s;
+
+}
+
+
+#compte{
+    color: white;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 3.5em;
+}
