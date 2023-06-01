@@ -12,22 +12,26 @@ body {
 div.teaser {
   height: 100vh;
   background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 div.teaser img {
   width: 35%;
 }
 
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+div.footer {
+  position: relative;
+  align-self: center;
+  margin: 0 auto;
 }
 
 a.reseaux {
   position: absolute;
   display: inline-block;
   width: 1.5em;
-  transition: ease-in-out 0.3s;
+  opacity: 0;
+  transition: ease-in-out 0.9s;
 }
 a.reseaux img {
   width: 100%;
@@ -36,6 +40,7 @@ a.reseaux img {
 #discorde {
   display: inline-block;
   width: 3em;
+  opacity: 1;
 }
 #discorde img {
   width: 100%;
@@ -43,27 +48,32 @@ a.reseaux img {
 
 #facebook.active {
   transform: translateX(3em);
-  transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.9s;
+  opacity: 1;
 }
 
 #tiktok.active {
   transform: translateX(6em);
-  transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.9s;
+  opacity: 1;
 }
 
 #twitter.active {
   transform: translateX(-2em);
-  transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.9s;
+  opacity: 1;
 }
 
 #youtube.active {
   transform: translateX(-5em);
-  transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.9s;
+  opacity: 1;
 }
 
 #discorde:hover {
   transform: scale(1.1);
-  transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.2s;
+  opacity: 1;
 }
 
 #compte {

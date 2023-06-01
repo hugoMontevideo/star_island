@@ -15,18 +15,19 @@
     
     <div class="teaser">
         <img src=" <?= BASE_PATH.'assets/pictures/Perso1.png' ?> " alt="">
-        <div id="compte"></div>
 
+        
         <div.footer>
-            <a id="facebook" class="reseaux " href=""><img src="<?= BASE_PATH.'assets/pictures/icons8-facebook.png' ?>" alt="discorde"></a>
-            <a id="tiktok" class="reseaux " href=""><img src="<?= BASE_PATH.'assets/pictures/icons8-tiktok.png' ?>" alt="discorde"></a>
+            <a id="facebook" class="reseaux none" href=""><img src="<?= BASE_PATH.'assets/pictures/icons8-facebook.png' ?>" alt="discorde"></a>
+            <a id="tiktok" class="reseaux none" href=""><img src="<?= BASE_PATH.'assets/pictures/icons8-tiktok.png' ?>" alt="discorde"></a>
             <!-- <a class="reseaux" href=""><img src="<?php //BASE_PATH.'assets/pictures/icons8-discorde.png' ?>" alt="discorde"></a> -->
-            <a id="twitter" class="reseaux " href=""><img src="<?= BASE_PATH.'assets/pictures/icons8-twitter.png' ?>" alt="discorde"></a>
-            <a id="youtube" class="reseaux " href=""><img src="<?= BASE_PATH.'assets/pictures/icons8-youtube.png' ?>" alt="discorde"></a>
-            <a id="discorde" class="reseaux" href=""><img src="<?= BASE_PATH.'assets/pictures/icons8-discorde.png' ?>" alt="discorde"></a>
+            <a id="twitter" class="reseaux none" href=""><img src="<?= BASE_PATH.'assets/pictures/icons8-twitter.png' ?>" alt="discorde"></a>
+            <a id="youtube" class="reseaux none" href=""><img src="<?= BASE_PATH.'assets/pictures/icons8-youtube.png' ?>" alt="discorde"></a>
+            <a id="discorde" class="reseaux " href=""><img src="<?= BASE_PATH.'assets/pictures/icons8-discorde.png' ?>" alt="discorde"></a>
         </div>
-
+        
     </div>
+    <div id="compte"></div>
     <script type="text/javascript">
         const Affiche=document.getElementById("compte");
         const discorde = document.querySelector("#discorde img");
@@ -51,11 +52,14 @@
         Rebour();
 
         discorde.addEventListener('mouseenter', function(){
+            // reseaux.forEach( element => element.classList.remove('none') )
             reseaux.forEach( element => element.classList.add('active') )
             // reseaux.forEach( element => element.classList.toggle) )
         })
         discorde.addEventListener('mouseleave', function(){
             reseaux.forEach( element => element.classList.remove('active') )
+            // reseaux.forEach( element => element.classList.add('none'))
+
             // reseaux.forEach( element => element.classList.toggle) )
         })
 

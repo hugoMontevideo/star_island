@@ -13,33 +13,45 @@ body{
 div.teaser{
     height: 100vh;
     background-color: black;
-    // display: flex;
-    // flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     img{
         width: 35%;
     }
 }
-.footer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
+div.footer{
+    position:relative;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    align-self: center;
+    margin: 0 auto;
+}
 
 a.reseaux{
     position: absolute;
     display: inline-block;
     width: 1.5em; 
-    transition: ease-in-out .3s;
+    opacity: 0;
+    transition: ease-in-out .9s;
     img{
         width: 100%;
     }
 }
 
 
+// .reseaux.none{
+//     display: none;
+// }
+
+
 #discorde{
     display: inline-block;
     width: 3em;
+    // background-color: black;
+    opacity: 1;
     img{
         width: 100%;
     }
@@ -48,27 +60,32 @@ a.reseaux{
 
 #facebook.active{
     transform: translateX(3em);
-    transition: ease-in-out .3s;
+    transition: ease-in-out .9s;
+    opacity: 1;
 }
 #tiktok.active{
     transform: translateX(6em);
-    transition: ease-in-out .3s;
+    transition: ease-in-out .9s;
+    opacity: 1;
 
 }
 #twitter.active{
     transform: translateX(-2em);
-    transition: ease-in-out .3s;
+    transition: ease-in-out .9s;
+    opacity: 1;
 
 }
 #youtube.active{
     transform: translateX(-5em);
-    transition: ease-in-out .3s;
+    transition: ease-in-out .9s;
+    opacity: 1;
 
 }
 
 #discorde:hover{
     transform: scale(1.1);
-    transition: ease-in-out .3s;
+    transition: ease-in-out .2s;
+    opacity: 1;
 
 }
 
