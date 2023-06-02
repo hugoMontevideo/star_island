@@ -12,33 +12,36 @@
     <title>Star Island</title>
 </head>
 <body>
-    
-    <div class="teaser">
+    <div class="layout">    
+        <div class="teaser">
 
-        <img src=" <?= BASE_PATH.'assets/pictures/Perso1.png' ?> " alt="">
+            <img src=" <?= BASE_PATH.'assets/pictures/Perso1.png' ?> " alt="">
 
-        <div.footer style="margin: 0 auto;">
-            <a id="facebook" class="reseaux" href="">
-                <img src="<?= BASE_PATH.'assets/pictures/icons8-facebook.png' ?>" alt="facebook">
-            </a>
-            <a id="tiktok" class="reseaux" href="">
-                <img src="<?= BASE_PATH.'assets/pictures/icons8-tiktok.png' ?>" alt="tiktok">
-            </a>
-            <!-- <a class="reseaux" href=""><img src="<?php //BASE_PATH.'assets/pictures/icons8-discorde.png' ?>" alt="discorde"></a> -->
-            <a id="twitter" class="reseaux" href="">
-                <img src="<?= BASE_PATH.'assets/pictures/icons8-twitter.png' ?>" alt="twitter">
-            </a>
-            <a id="youtube" class="reseaux" href="">
-                <img src="<?= BASE_PATH.'assets/pictures/icons8-youtube.png' ?>" alt="youtube">
-            </a>
-            <a id="discorde" class="reseaux" href="">
-                <img src="<?= BASE_PATH.'assets/pictures/icons8-discorde.png' ?>" alt="discorde">
-            </a>
+            <div class="footer" style="margin: 0 auto;">
+
+                <a id="facebook" class="reseaux facebook" href="">
+                    <img src="<?= BASE_PATH.'assets/pictures/icons8-facebook.png' ?>" alt="facebook">
+                </a>
+                <a id="tiktok" class="reseaux" href="">
+                    <img src="<?= BASE_PATH.'assets/pictures/icons8-tiktok.png' ?>" alt="tiktok">
+                </a>
+                <!-- <a class="reseaux" href=""><img src="<?php //BASE_PATH.'assets/pictures/icons8-discorde.png' ?>" alt="discorde"></a> -->
+                <a id="twitter" class="reseaux" href="">
+                    <img src="<?= BASE_PATH.'assets/pictures/icons8-twitter.png' ?>" alt="twitter">
+                </a>
+                <a id="youtube" class="reseaux" href="">
+                    <img src="<?= BASE_PATH.'assets/pictures/icons8-youtube.png' ?>" alt="youtube">
+                </a>
+                <a id="discorde" class="reseaux" href="">
+                    <img src="<?= BASE_PATH.'assets/pictures/icons8-discorde.png' ?>" alt="discorde">
+                </a>
+            </div>
+            
         </div>
-        
     </div>
 
     <div id="compte"></div>
+
     
     <script type="text/javascript">
         const Affiche=document.getElementById("compte");
@@ -63,17 +66,16 @@
         }
         Rebour();
 
-        discorde.addEventListener('mouseenter', function(){
-            // reseaux.forEach( element => element.classList.remove('none') )
-            reseaux.forEach( element => element.classList.add('active') )
-            // reseaux.forEach( element => element.classList.toggle) )
-        })
-        discorde.addEventListener('mouseleave', function(){
-            reseaux.forEach( element => element.classList.remove('active') )
-            // reseaux.forEach( element => element.classList.add('none'))
+        // discorde.addEventListener('mouseenter', function(){
+        //     reseaux.forEach( element => element.classList.add('active') )
+        //     // reseaux.forEach( element => element.classList.toggle) )
+        // })
+        // document.querySelector(".footer").addEventListener('click', function(){
+        //     reseaux.forEach( element => element.classList.remove('active') )
+        //     // reseaux.forEach( element => element.classList.add('none'))
 
-            // reseaux.forEach( element => element.classList.toggle) )
-        })
+        //     // reseaux.forEach( element => element.classList.toggle) )
+        // })
 
     </script>
 </body>

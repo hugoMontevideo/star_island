@@ -22,6 +22,10 @@ body{
     max-height: 100vh;
     overflow: hidden;
 }
+.layout{
+    background: linear-gradient(243deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8743697308024773) 26%, rgba(0,0,0,0.5550419997100402) 100%);
+    z-index: 10;
+}
 
 
 div.teaser{
@@ -80,32 +84,54 @@ a.reseaux{
     }
 }
 
-
-#facebook.active{
+.footer:hover #facebook{
     transform: translateX(3em);
-    transition: ease-in-out .9s;
     opacity: 1;
 }
-#tiktok.active{
+
+.footer:hover #tiktok{
     transform: translateX(5.5em);
     transition: ease-in-out .9s;
     opacity: 1;
-    
 }
-#twitter.active{
+
+
+// #facebook.active{
+//     transform: translateX(3em);
+//     transition: ease-in-out .9s;
+//     opacity: 1;
+// }
+// #tiktok.active{
+//     transform: translateX(5.5em);
+//     transition: ease-in-out .9s;
+//     opacity: 1;
+    
+// }
+.footer:hover #twitter{
     transform: translateX(-3em);
     transition: ease-in-out .9s;
     opacity: 1;
-
 }
-#youtube.active{
+// #twitter.active{
+//     transform: translateX(-3em);
+//     transition: ease-in-out .9s;
+//     opacity: 1;
+
+// }
+.footer:hover #youtube{
     transform: translateX(-5.5em);
     transition: ease-in-out .9s;
     opacity: 1;
     
 }
 
+//    body:has(.footer:hover) #youtube{
+    
+//         transform: translateX(-5em);
+//         transition: ease-in-out .9s;
+//         opacity: 1;
 
+//    }
 
 
 
@@ -119,6 +145,7 @@ a.reseaux{
     text-align: center;
     font-size: 5em;
 }
+
 
 
 
