@@ -10,7 +10,7 @@ body {
   box-sizing: border-box;
   margin: 0;
   background-color: black;
-  width: 94vw;
+  width: 100vw;
   max-height: 100vh;
   overflow: hidden;
 }
@@ -26,15 +26,17 @@ div.teaser {
   flex-direction: column;
   padding: 0 0 5em 0;
   justify-content: space-between;
+  height: 105vh;
+  width: 100vw;
 }
 div.teaser img {
-  width: 35%;
-  margin: 1em 0 0 5em;
+  margin: 4em 0 0;
 }
 
 div.footer {
   position: relative;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 div.footer a.reseaux {
   width: 3em;
@@ -44,8 +46,8 @@ div.footer a.reseaux {
 a.reseaux {
   position: absolute;
   display: inline-block;
-  width: 3em;
-  height: 3em;
+  width: 3.5em;
+  height: 3.5em;
   opacity: 0;
   transition: ease-in-out 0.9s;
   display: flex;
@@ -53,47 +55,49 @@ a.reseaux {
   align-items: end;
 }
 a.reseaux img {
-  width: 1.5em;
-  height: 1.5em;
+  width: 2em;
+  height: 2em;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
 #discorde {
+  z-index: 500;
   display: inline-block;
-  width: 3em;
-  height: 3em;
+  width: 3.5em;
+  height: 3.5em;
   display: flex;
   justify-content: center;
   align-items: end;
   opacity: 1;
+  cursor: pointer;
 }
 #discorde img {
-  width: 3em;
-  height: 2.3em;
+  width: 3.5em;
+  height: 2.7em;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.footer:hover #facebook {
-  transform: translateX(3em);
+#facebook.active {
+  transform: translateY(-2.5em);
   opacity: 1;
 }
 
-.footer:hover #tiktok {
-  transform: translateX(5.5em);
+#tiktok.active {
+  transform: translateY(-4.4em);
   transition: ease-in-out 0.9s;
   opacity: 1;
 }
 
-.footer:hover #twitter {
-  transform: translateX(-3em);
+#twitter.active {
+  transform: translateY(-6.3em);
   transition: ease-in-out 0.9s;
   opacity: 1;
 }
 
-.footer:hover #youtube {
-  transform: translateX(-5.5em);
+#youtube.active {
+  transform: translateY(-8.3em);
   transition: ease-in-out 0.9s;
   opacity: 1;
 }
@@ -102,8 +106,68 @@ a.reseaux img {
   font-family: "Iceland", cursive;
   color: #fba808;
   position: absolute;
-  top: 40%;
+  top: 55%;
   width: 100vw;
   text-align: center;
-  font-size: 5em;
+  font-size: 3.5em;
+}
+
+@media (min-width: 768px) {
+  .footer:hover #facebook {
+    transform: translateX(3em);
+    transition: ease-in-out 0.9s;
+    opacity: 1;
+  }
+  .footer:hover #tiktok {
+    transform: translateX(6em);
+    transition: ease-in-out 0.9s;
+    opacity: 1;
+  }
+  .footer:hover #twitter {
+    transform: translateX(-3em);
+    transition: ease-in-out 0.9s;
+    opacity: 1;
+  }
+  .footer:hover #youtube {
+    transform: translateX(-6em);
+    transition: ease-in-out 0.9s;
+    opacity: 1;
+  }
+  div.teaser {
+    padding: 0 0 5em 0;
+    height: 105vh;
+    width: 100vw;
+  }
+  div.teaser img {
+    width: 50em;
+    height: 30em;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  div.footer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  a.reseaux {
+    position: absolute;
+    display: inline-block;
+    width: 3.5em;
+    height: 3.5em;
+    opacity: 0;
+    transition: ease-in-out 0.9s;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+  }
+  a.reseaux img {
+    width: 2em;
+    height: 2em;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  #compte {
+    top: 45%;
+    font-size: 7.5em;
+  }
 }/*# sourceMappingURL=style.css.map */

@@ -18,7 +18,7 @@ body{
     margin: 0;
     // padding: 2em 5em 0;
     background-color: black;
-    width: 94vw;
+    width: 100vw;
     max-height: 100vh;
     overflow: hidden;
 }
@@ -34,18 +34,19 @@ div.teaser{
     flex-direction: column;
     padding: 0 0 5em 0;
     justify-content: space-between;
+    height: 105vh;
+    width: 100vw;
     img{
-        width: 35%;
-        margin: 1em 0 0 5em;
+        margin: 4em 0 0;
     }
 }
 div.footer{
     position:relative;
-    // display: flex;
+    display: flex;
     // align-items: center;
-    // justify-content: center;
+    justify-content: center;
     // align-self: center;
-    margin: 0 auto;
+    // margin: 0 auto;
     a.reseaux{
         width: 3em;
         height: 3em;
@@ -54,55 +55,58 @@ div.footer{
 a.reseaux{
     position: absolute;
     display: inline-block;
-    width: 3em;
-    height: 3em;
+    width: 3.5em;
+    height: 3.5em;
     opacity: 0;
     transition: ease-in-out .9s;
     display: flex;
     justify-content: center;
     align-items: end;
     img{
-        width: 1.5em;
-        height: 1.5em;
+        width: 2em;
+        height: 2em;
         object-fit: cover;
     }
 }
 
 
 #discorde{
+    z-index: 500;
     display: inline-block;
-    width: 3em;
-    height: 3em;
+    width: 3.5em;
+    height: 3.5em;
     display: flex;
     justify-content: center;
     align-items: end;
     opacity: 1;
+    cursor:pointer;
     img{
-        width: 3em;
-        height: 2.3em;
+        width: 3.5em;
+        height: 2.7em;
         object-fit: cover;  
     }
 }
 
-.footer:hover #facebook{
-    transform: translateX(3em);
+
+#facebook.active{
+    transform: translateY(-2.5em);
     opacity: 1;
 }
 
-.footer:hover #tiktok{
-    transform: translateX(5.5em);
+#tiktok.active{
+    transform: translateY(-4.4em);
     transition: ease-in-out .9s;
     opacity: 1;
 }
 
-.footer:hover #twitter{
-    transform: translateX(-3em);
+#twitter.active{
+    transform: translateY(-6.3em);
     transition: ease-in-out .9s;
     opacity: 1;
 }
 
-.footer:hover #youtube{
-    transform: translateX(-5.5em);
+#youtube.active{
+    transform: translateY(-8.3em);
     transition: ease-in-out .9s;
     opacity: 1;
     
@@ -112,11 +116,94 @@ a.reseaux{
     font-family: 'Iceland',cursive;
     color: #fba808;
     position: absolute;
-    top: 40%;
+    top: 55%;
     width: 100vw;
     text-align: center;
-    font-size: 5em;
+    font-size: 3.5em;
 }
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {  }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    .footer:hover #facebook{
+        transform: translateX(3em);
+        transition: ease-in-out .9s;
+        opacity: 1;
+    }
+
+    .footer:hover #tiktok{
+        transform: translateX(6em);
+        transition: ease-in-out .9s;
+        opacity: 1;
+    }
+
+    .footer:hover #twitter{
+        transform: translateX(-3em);
+        transition: ease-in-out .9s;
+        opacity: 1;
+    }
+
+    .footer:hover #youtube{
+        transform: translateX(-6em);
+        transition: ease-in-out .9s;
+        opacity: 1;
+        
+    }
+
+    div.teaser{
+        padding: 0 0 5em 0;
+        height: 105vh;
+        width: 100vw;
+        img{
+            width:50em;
+            height: 30em;
+            object-fit: contain;
+        }
+    }
+    div.footer{
+        position:relative;
+        display: flex;
+        // align-items: center;
+        justify-content: center;
+        // align-self: center;
+        // margin: 0 auto;
+        // a.reseaux{
+        //     width: 3em;
+        //     height: 3em;
+        // }
+    }
+    a.reseaux{
+        position: absolute;
+        display: inline-block;
+        width: 3.5em;
+        height: 3.5em;
+        opacity: 0;
+        transition: ease-in-out .9s;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        img{
+            width: 2em;
+            height: 2em;
+            object-fit: cover;
+        }
+    }
+    #compte{
+        top: 45%;
+        font-size: 7.5em;
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { }
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { }
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) { }
 
 
 
@@ -124,11 +211,34 @@ a.reseaux{
 //    body:has(#discorde:hover)#youtube.active{
     
     //     transform: translateX(-5em);
-//     transition: ease-in-out .9s;
-//     opacity: 1;
-
-//    }
-
+    //     transition: ease-in-out .9s;
+    //     opacity: 1;
+    
+    //    }
+    
     // .reseaux.none{
-    //     display: none;
-    // }
+        //     display: none;
+        // }
+        // .footer:hover #facebook{
+        //     transform: translateX(3em);
+        //     opacity: 1;
+        // }
+        
+        // .footer:hover #tiktok{
+        //     transform: translateX(5.5em);
+        //     transition: ease-in-out .9s;
+        //     opacity: 1;
+        // }
+        
+        // .footer:hover #twitter{
+        //     transform: translateX(-3em);
+        //     transition: ease-in-out .9s;
+        //     opacity: 1;
+        // }
+        
+        // .footer:hover #youtube{
+        //     transform: translateX(-5.5em);
+        //     transition: ease-in-out .9s;
+        //     opacity: 1;
+            
+        // }
