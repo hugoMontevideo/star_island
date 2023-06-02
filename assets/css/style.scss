@@ -95,46 +95,18 @@ a.reseaux{
     opacity: 1;
 }
 
-
-// #facebook.active{
-//     transform: translateX(3em);
-//     transition: ease-in-out .9s;
-//     opacity: 1;
-// }
-// #tiktok.active{
-//     transform: translateX(5.5em);
-//     transition: ease-in-out .9s;
-//     opacity: 1;
-    
-// }
 .footer:hover #twitter{
     transform: translateX(-3em);
     transition: ease-in-out .9s;
     opacity: 1;
 }
-// #twitter.active{
-//     transform: translateX(-3em);
-//     transition: ease-in-out .9s;
-//     opacity: 1;
 
-// }
 .footer:hover #youtube{
     transform: translateX(-5.5em);
     transition: ease-in-out .9s;
     opacity: 1;
     
 }
-
-//    body:has(.footer:hover) #youtube{
-    
-//         transform: translateX(-5em);
-//         transition: ease-in-out .9s;
-//         opacity: 1;
-
-//    }
-
-
-
 
 #compte{
     font-family: 'Iceland',cursive;

@@ -1,5 +1,9 @@
-<?php      
+<?php  
+
+
 require_once 'config/function.php';           
+header('location:./front/teaser.php');
+exit();
 require_once 'inc/header.inc.php';
 
 if (isset($_GET['a']) && $_GET['a']=='dis'){
