@@ -15,6 +15,7 @@ const CONFIG=[
     ],
     'app'=>[
         'name'=>'star_island',
+        'tmp_name'=>'Star Island - Teaser', // à utiliser dans le title
         'projecturl'=>'http://localhost/PHP/star_island'
     ]
 

@@ -64,11 +64,8 @@
         return this;
     };
 
-
     function init(elem, options){
         elem.addClass('countdownHolder');
-
-
     }
 
     // Creates an animated transition between the two numbers
@@ -130,11 +127,6 @@ $(function(){
     $('#countdown').countdown({
         timestamp	: ts,
         callback	: function(days, hours, minutes, seconds){
-
-
-
-
-
         }
     });
 

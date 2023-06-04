@@ -14,17 +14,16 @@ require_once '../config/function.php';
     <link rel="stylesheet" href="<?= BASE_PATH . 'assets/css/reboursCezaire.css' ?>">
     <link rel="stylesheet" href="<?= BASE_PATH . 'assets/css/style.css' ?>">
     <script src="<?= BASE_PATH . 'assets/jquery/jquery.min.js'?>" defer></script>
-    <!-- <script src="<?php // BASE_PATH . 'assets/script.js'?>" defer></script> -->
     <script src="<?= BASE_PATH . 'assets/js/links.js' ?>" defer></script>
     <script src="<?= BASE_PATH . 'assets/js/reboursCezaire.js' ?>" defer></script>
 
-    <title>Star Island</title>
+    <title><?= CONFIG['app']['tmp_name'] ?></title>
 </head>
-
 <body>
-
     <div class="logo">
-        <img src="../assets/pictures/logo_starIsl.png" alt="logo">
+        <a href="https://discord.com/channels/903237992729169920/903237993509310514">
+            <img src="../assets/pictures/logo_starIsl.png" alt="logo">
+        </a>
     </div>
 
     <div class="teaser">
@@ -36,27 +35,25 @@ require_once '../config/function.php';
     
     <div class="footer" >
 
-        <a id="facebook" class="reseaux" href="">
+        <a id="facebook" class="reseaux" href="https://www.facebook.com/StarIslandfr-108004258577047">
             <img src="<?= BASE_PATH . 'assets/pictures/icons8-facebook.png' ?>" alt="facebook">
         </a>
-        <a id="tiktok" class="reseaux" href="">
+        <a id="tiktok" class="reseaux" href="https://www.tiktok.com/@star.island?lang=fr">
             <img src="<?= BASE_PATH . 'assets/pictures/icons8-tiktok.png' ?>" alt="tiktok">
         </a>
-        <!-- <a class="reseaux" href=""><img src="<?php //BASE_PATH.'assets/pictures/icons8-discorde.png' 
-                                                    ?>" alt="discorde"></a> -->
-        <a id="twitter" class="reseaux" href="">
+        <a id="twitter" class="reseaux" href="https://twitter.com/StarIslandfr">
             <img src="<?= BASE_PATH . 'assets/pictures/icons8-twitter.png' ?>" alt="twitter">
         </a>
-        <a id="youtube" class="reseaux" href="">
+        <a id="youtube" class="reseaux" href="https://www.youtube.com/channel/UCI7G6fNN-17g1_tOVMKRCpQ">
             <img src="<?= BASE_PATH . 'assets/pictures/icons8-youtube.png' ?>" alt="youtube">
         </a>
-        <a id="twitch" class="reseaux" href="">
+        <a id="twitch" class="reseaux" href="https://discord.com/channels/903237992729169920/903237993509310514">
             <img src="<?= BASE_PATH . 'assets/pictures/logo_twitch.png' ?>" alt="twitch">
         </a>
-        <a id="instagram" class="reseaux" href="">
+        <a id="instagram" class="reseaux" href="https://www.instagram.com/starisland.fr/">
             <img src="<?= BASE_PATH . 'assets/pictures/logo_Instagram.png' ?>" alt="instagram">
         </a>
-        <a id="discorde" class="reseaux" href="">
+        <a id="discorde" class="reseaux" href="https://discord.com/channels/903237992729169920/903237993509310514">
             <img src="<?= BASE_PATH . 'assets/pictures/icons8-discorde.png' ?>" alt="discorde">
         </a>
         <div id="discorde-button">
@@ -89,7 +86,6 @@ require_once '../config/function.php';
                 <span class="digit static"></span>
             </span>
         </span>
-        <!-- <span class="separator"> : </span> -->
         <span class="countDiv countDiv1"></span>
 
         <span class="countText">Minutes</span>
@@ -114,9 +110,6 @@ require_once '../config/function.php';
             </span>
         </span>
     </div>
-
-    <div id="compte"></div>
-
 </body>
 
 </html>
