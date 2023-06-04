@@ -15,32 +15,51 @@ body {
   overflow: hidden;
 }
 
-.layout {
-  background: linear-gradient(243deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.8743697308) 26%, rgba(0, 0, 0, 0.5550419997) 100%);
+div.logo {
+  width: 100%;
+  position: fixed;
+  top: 0.8em;
   z-index: 10;
+  display: flex;
+  justify-content: center;
+}
+div.logo img {
+  width: 7em;
+  margin: 0;
 }
 
 div.teaser {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  padding: 0 0 5em 0;
+  padding: 4em 0 0;
   justify-content: space-between;
-  height: 105vh;
+  align-items: center;
   width: 100vw;
 }
-div.teaser img {
-  margin: 4em 0 0;
+div.teaser div.img {
+  position: relative;
+  width: 100%;
+}
+div.teaser div.img img {
+  width: 100%;
+}
+div.teaser div.img .layout-img {
+  background: rgb(6, 6, 6);
+  background: radial-gradient(circle, rgba(6, 6, 6, 0.2189075459) 0%, rgb(11, 11, 11) 100%);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 div.footer {
-  position: relative;
+  position: fixed;
+  bottom: 1.5em;
   display: flex;
+  width: 100%;
   justify-content: center;
-}
-div.footer a.reseaux {
-  width: 3em;
-  height: 3em;
 }
 
 a.reseaux {
@@ -61,8 +80,15 @@ a.reseaux img {
      object-fit: cover;
 }
 
-#discorde {
-  z-index: 500;
+#discorde img {
+  width: 3em;
+  height: 2.5em;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#discorde-button {
+  z-index: 10;
   display: inline-block;
   width: 3.5em;
   height: 3.5em;
@@ -72,34 +98,51 @@ a.reseaux img {
   opacity: 1;
   cursor: pointer;
 }
-#discorde img {
+#discorde-button img {
   width: 3.5em;
   height: 2.7em;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-#facebook.active {
-  transform: translateY(-2.5em);
+#instagram.active {
+  transform: translateY(-3em);
+  transition: ease-in-out 0.9s;
   opacity: 1;
 }
 
 #tiktok.active {
-  transform: translateY(-4.4em);
+  transform: translateY(-5.3em);
+  transition: ease-in-out 0.9s;
+  opacity: 1;
+}
+
+#twitch.active {
+  transform: translateY(-7.6em);
   transition: ease-in-out 0.9s;
   opacity: 1;
 }
 
 #twitter.active {
-  transform: translateY(-6.3em);
+  transform: translateY(-9.9em);
+  transition: ease-in-out 0.9s;
+  opacity: 1;
+}
+
+#facebook.active {
+  transform: translateY(-12.2em);
   transition: ease-in-out 0.9s;
   opacity: 1;
 }
 
 #youtube.active {
-  transform: translateY(-8.3em);
+  transform: translateY(-14.5em);
   transition: ease-in-out 0.9s;
   opacity: 1;
+}
+
+#discorde.active {
+  z-index: 11;
 }
 
 #compte {
@@ -114,40 +157,56 @@ a.reseaux img {
 
 @media (min-width: 768px) {
   .footer:hover #facebook {
-    transform: translateX(3em);
+    transform: translateX(3.5em);
     transition: ease-in-out 0.9s;
     opacity: 1;
   }
   .footer:hover #tiktok {
-    transform: translateX(6em);
+    transform: translateX(6.3em);
+    transition: ease-in-out 0.9s;
+    opacity: 1;
+  }
+  .footer:hover #instagram {
+    transform: translateX(9.2em);
     transition: ease-in-out 0.9s;
     opacity: 1;
   }
   .footer:hover #twitter {
-    transform: translateX(-3em);
+    transform: translateX(-3.3em);
     transition: ease-in-out 0.9s;
     opacity: 1;
   }
   .footer:hover #youtube {
-    transform: translateX(-6em);
+    transform: translateX(-6.3em);
     transition: ease-in-out 0.9s;
     opacity: 1;
   }
+  .footer:hover #twitch {
+    transform: translateX(-9.3em);
+    transition: ease-in-out 0.9s;
+    opacity: 1;
+  }
+  .footer:hover #discorde {
+    z-index: 11;
+  }
   div.teaser {
-    padding: 0 0 5em 0;
-    height: 105vh;
-    width: 100vw;
+    width: 100%;
   }
-  div.teaser img {
-    width: 50em;
-    height: 30em;
-    -o-object-fit: contain;
-       object-fit: contain;
+  div.teaser div.img {
+    width: 60%;
+    align-self: flex-end;
   }
-  div.footer {
-    position: relative;
-    display: flex;
-    justify-content: center;
+  div.teaser div.img img {
+    width: 100%;
+  }
+  div.teaser div.img .layout-img {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(165deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.1992997028) 72%, rgba(0, 0, 0, 0) 86%, rgb(0, 0, 0) 100%);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
   a.reseaux {
     position: absolute;
@@ -158,7 +217,7 @@ a.reseaux img {
     transition: ease-in-out 0.9s;
     display: flex;
     justify-content: center;
-    align-items: end;
+    align-items: center;
   }
   a.reseaux img {
     width: 2em;

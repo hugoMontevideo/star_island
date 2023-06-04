@@ -1,0 +1,96 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Iceland";
+  src: url("../font/Iceland-Regular.ttf") format("truetype");
+}
+.countdownHolder {
+  position: fixed;
+  font-family: "Iceland", "Open Sans Condensed", sans-serif;
+  font-size: 3.5em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  bottom: 3.5em;
+  right: 0.2em;
+}
+
+.position {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  width: 1em;
+  height: 1.2em;
+}
+
+.countText {
+  font-size: 0.3em;
+  margin: 0;
+  color: rgba(244, 201, 7, 0.8980392157);
+}
+
+.countDiv {
+  display: none;
+}
+
+.digit.static {
+  /*// Permet d’ajouter une ombre portée sur n’importe quel élément HTML*/
+  box-shadow: 1px 1px 1px rgba(4, 4, 4, 0.35);
+  /*// La valeur linear-gradient de la propriété background-image permet de générer*/
+  /*// des arrière-plans de couleur dégradée, d’une couleur à l’autre ou via plusieurs*/
+  /*// couleurs intermédiaires*/
+  /*// La notation est la suivante : (orientation du dégradé (top/right/bottom/left),*/
+  /*// couleurs (position en %))*/
+  background-color: rgba(255, 255, 255, 0.082);
+}
+
+.digit {
+  position: absolute;
+  display: block;
+  width: 1em;
+  background-color: rgba(255, 255, 255, 0.246);
+  border-radius: 0.2em;
+  text-align: center;
+  /*//couleur des chiffres*/
+  color: #dfb80d;
+  letter-spacing: -1px;
+}
+
+@media (min-width: 768px) {
+  .countdownHolder {
+    font-size: 3.5em;
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+    bottom: 2em;
+    right: 0;
+    font-size: 4em;
+  }
+  .position {
+    height: 1.2em;
+  }
+  .countText {
+    display: none;
+  }
+  .countDiv {
+    display: inline-block;
+    width: 1em;
+    height: 1.2em;
+    position: relative;
+    display: block;
+  }
+  .countDiv:before,
+  .countDiv:after {
+    position: absolute;
+    width: 0.2em;
+    height: 0.2em;
+    background-color: #dfb80d;
+    border-radius: 3px;
+    left: 50%;
+    margin-left: -3px;
+    content: "";
+  }
+  .countDiv:after {
+    top: 0.4em;
+  }
+}/*# sourceMappingURL=reboursCezaire.css.map */

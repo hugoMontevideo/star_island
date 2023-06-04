@@ -9,82 +9,114 @@ require_once '../config/function.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="<?= BASE_PATH . 'assets/pictures/favicon.ico'?>" type="image/x-icon">
+
+    <link rel="stylesheet" href="<?= BASE_PATH . 'assets/css/reboursCezaire.css' ?>">
     <link rel="stylesheet" href="<?= BASE_PATH . 'assets/css/style.css' ?>">
+    <script src="<?= BASE_PATH . 'assets/jquery/jquery.min.js'?>" defer></script>
+    <!-- <script src="<?php // BASE_PATH . 'assets/script.js'?>" defer></script> -->
+    <script src="<?= BASE_PATH . 'assets/js/links.js' ?>" defer></script>
+    <script src="<?= BASE_PATH . 'assets/js/reboursCezaire.js' ?>" defer></script>
 
     <title>Star Island</title>
 </head>
 
 <body>
 
-    <div class="teaser">
-
-        <img src=" <?= BASE_PATH . 'assets/pictures/Perso1.png' ?> " alt="">
-
-        <div class="footer" style="margin: 0 auto;">
-
-            <a id="facebook" class="reseaux" href="">
-                <img src="<?= BASE_PATH . 'assets/pictures/icons8-facebook.png' ?>" alt="facebook">
-            </a>
-            <a id="tiktok" class="reseaux" href="">
-                <img src="<?= BASE_PATH . 'assets/pictures/icons8-tiktok.png' ?>" alt="tiktok">
-            </a>
-            <!-- <a class="reseaux" href=""><img src="<?php //BASE_PATH.'assets/pictures/icons8-discorde.png' 
-                                                        ?>" alt="discorde"></a> -->
-            <a id="twitter" class="reseaux" href="">
-                <img src="<?= BASE_PATH . 'assets/pictures/icons8-twitter.png' ?>" alt="twitter">
-            </a>
-            <a id="youtube" class="reseaux" href="">
-                <img src="<?= BASE_PATH . 'assets/pictures/icons8-youtube.png' ?>" alt="youtube">
-            </a>
-            <div id="discorde" class="reseaux">
-                <img src="<?= BASE_PATH . 'assets/pictures/icons8-discorde.png' ?>" alt="discorde">
-            </div>
-        </div>
-
+    <div class="logo">
+        <img src="../assets/pictures/logo_starIsl.png" alt="logo">
     </div>
 
+    <div class="teaser">
+        <div class="img">
+            <img src=" <?= BASE_PATH . 'assets/pictures/predation.png' ?>" alt="">
+            <div class="layout-img"></div>
+        </div>        
+    </div>
+    
+    <div class="footer" >
+
+        <a id="facebook" class="reseaux" href="">
+            <img src="<?= BASE_PATH . 'assets/pictures/icons8-facebook.png' ?>" alt="facebook">
+        </a>
+        <a id="tiktok" class="reseaux" href="">
+            <img src="<?= BASE_PATH . 'assets/pictures/icons8-tiktok.png' ?>" alt="tiktok">
+        </a>
+        <!-- <a class="reseaux" href=""><img src="<?php //BASE_PATH.'assets/pictures/icons8-discorde.png' 
+                                                    ?>" alt="discorde"></a> -->
+        <a id="twitter" class="reseaux" href="">
+            <img src="<?= BASE_PATH . 'assets/pictures/icons8-twitter.png' ?>" alt="twitter">
+        </a>
+        <a id="youtube" class="reseaux" href="">
+            <img src="<?= BASE_PATH . 'assets/pictures/icons8-youtube.png' ?>" alt="youtube">
+        </a>
+        <a id="twitch" class="reseaux" href="">
+            <img src="<?= BASE_PATH . 'assets/pictures/logo_twitch.png' ?>" alt="twitch">
+        </a>
+        <a id="instagram" class="reseaux" href="">
+            <img src="<?= BASE_PATH . 'assets/pictures/logo_Instagram.png' ?>" alt="instagram">
+        </a>
+        <a id="discorde" class="reseaux" href="">
+            <img src="<?= BASE_PATH . 'assets/pictures/icons8-discorde.png' ?>" alt="discorde">
+        </a>
+        <div id="discorde-button">
+            <img 
+                id="discorde-button-img"
+                src="<?= BASE_PATH . 'assets/pictures/icons8-discorde.png' ?>" 
+                alt="discorde">
+        </div>
+    </div>
+
+    <div id="countdown" class="countdownHolder">
+        <span class="countText">Days</span>
+        <span class="countDays">      
+            <span class="position">
+                <span class="digit static"></span>
+            </span>
+            <span class="position">
+                <span class="digit static"></span>
+            </span>
+        </span>
+
+        <span class="countDiv countDiv0"></span>
+
+        <span class="countText">Hours</span>
+        <span class="countHours">
+            <span class="position">
+                <span class="digit static"></span>
+            </span>
+            <span class="position">
+                <span class="digit static"></span>
+            </span>
+        </span>
+        <!-- <span class="separator"> : </span> -->
+        <span class="countDiv countDiv1"></span>
+
+        <span class="countText">Minutes</span>
+        <span class="countMinutes">
+            <span class="position">
+                <span class="digit static"></span>
+            </span>
+            <span class="position">
+                <span class="digit static"></span>
+            </span>
+        </span>
+
+        <span class="countDiv countDiv2"></span>
+
+        <span class="countText">Seconds</span>
+        <span class="countSeconds">
+            <span class="position">
+                <span class="digit static"></span>
+            </span>
+            <span class="position">
+                <span class="digit static"></span>
+            </span>
+        </span>
+    </div>
 
     <div id="compte"></div>
 
-
-    <script type="text/javascript">
-        const Affiche = document.getElementById("compte");
-        const discorde = document.querySelector("#discorde img");
-
-        const reseaux = document.querySelectorAll(".reseaux");
-
-        function Rebour() {
-            var date1 = new Date();
-            var date2 = new Date("Jun 25, 2023 00:00:00");
-            var sec = (date2 - date1) / 1000;
-            var n = 24 * 3600;
-            if (sec > 0) {
-                j = Math.floor(sec / n);
-                h = Math.floor((sec - (j * n)) / 3600);
-                mn = Math.floor((sec - ((j * n + h * 3600))) / 60);
-                sec = Math.floor(sec - ((j * n + h * 3600 + mn * 60)));
-                Affiche.innerHTML = j + " : " + h + " : " + mn + " : " + sec;
-                //window.status = "Temps restant : " + j +" j "+ h +" h "+ mn +" min "+ sec + " s ";
-            }
-            tRebour = setTimeout("Rebour();", 1000);
-        }
-        Rebour();
-
-        discorde.addEventListener('click', function() {
-            console.log('hello')
-            reseaux.forEach(element => element.classList.toggle('active'));
-            // reseaux.forEach(function(item){
-            //                 item.classList.add('active');
-            //             });
-            // reseaux.forEach( element => element.classList.toggle) )
-        });
-        // document.querySelector(".footer").addEventListener('click', function(){
-        //     reseaux.forEach( element => element.classList.remove('active') )
-        //     // reseaux.forEach( element => element.classList.add('none'))
-
-        //     // reseaux.forEach( element => element.classList.toggle) )
-        // })
-    </script>
 </body>
 
 </html>
