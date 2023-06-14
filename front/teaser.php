@@ -64,6 +64,13 @@ require_once '../config/function.php';
         </div>
     </div>
 
+    <div class="information">
+        <h1>Bientôt disponible</h1>
+        <span>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta placeat totam voluptates maxime animi! Doloremque nobis, tempora doloribus ipsa error, ipsam molestiae modi debitis distinctio dolorum explicabo nostrum illum tenetur?
+        </span>
+    </div>
+
     <div id="countdown" class="countdownHolder">
         <span class="countText">Days</span>
         <span class="countDays">      

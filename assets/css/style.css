@@ -74,8 +74,8 @@ a.reseaux {
   align-items: end;
 }
 a.reseaux img {
-  width: 2em;
-  height: 2em;
+  width: 2.7em;
+  height: 2.7em;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -106,37 +106,37 @@ a.reseaux img {
 }
 
 #instagram.active {
-  transform: translateY(-3em);
+  transform: translate(-3.5em, -3em);
   transition: ease-in-out 0.9s;
   opacity: 1;
 }
 
 #tiktok.active {
-  transform: translateY(-5.3em);
+  transform: translate(-6.8em, -6em);
   transition: ease-in-out 0.9s;
   opacity: 1;
 }
 
 #twitch.active {
-  transform: translateY(-7.6em);
+  transform: translate(3.5em, -3em);
   transition: ease-in-out 0.9s;
   opacity: 1;
 }
 
 #twitter.active {
-  transform: translateY(-9.9em);
+  transform: translate(6.8em, -6em);
   transition: ease-in-out 0.9s;
   opacity: 1;
 }
 
 #facebook.active {
-  transform: translateY(-12.2em);
+  transform: translateY(-4.2em);
   transition: ease-in-out 0.9s;
   opacity: 1;
 }
 
 #youtube.active {
-  transform: translateY(-14.5em);
+  transform: translateY(-8.6em);
   transition: ease-in-out 0.9s;
   opacity: 1;
 }
@@ -153,6 +153,15 @@ a.reseaux img {
   width: 100vw;
   text-align: center;
   font-size: 3.5em;
+}
+
+.information {
+  position: fixed;
+  top: 40%;
+  width: 50%;
+  padding: 0 1em;
+  font-family: arial;
+  color: rgba(255, 255, 255, 0.7411764706);
 }
 
 @media (min-width: 768px) {
@@ -228,5 +237,13 @@ a.reseaux img {
   #compte {
     top: 45%;
     font-size: 7.5em;
+  }
+  .information {
+    position: absolute;
+    top: 20%;
+    margin: 0 auto;
+    max-width: 500px;
+    font-size: 1.7em;
+    padding: 0 0 0 4em;
   }
 }/*# sourceMappingURL=style.css.map */
