@@ -3,7 +3,7 @@ require_once 'config/function.php';
 
 // ***************** teaser ******************
 $current_date = new \DateTime();
-$expected_delivery_date = '2023-06-30 00:00:00';
+$expected_delivery_date = '2023-05-30 00:00:00';
 $nd = new \DateTime($expected_delivery_date);
 
 if($current_date<$nd){

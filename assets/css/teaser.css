@@ -15,33 +15,43 @@ body {
   overflow: hidden;
 }
 
-header .navbar {
-  padding: 0.5em;
-  height: 5.5em;
-  margin: 0;
+div.logo {
+  width: 100%;
+  position: fixed;
+  top: 0.8em;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
 }
-header .navbar button {
-  border: none;
-}
-header .container-fluid {
-  padding: 0;
-}
-header a.navbar-brand {
-  margin: 0;
-  padding: 0;
-}
-header a.navbar-brand img {
+div.logo img {
   width: 7em;
+  margin: 0;
 }
 
-main.container {
-  padding: 0;
+div.teaser {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 4em 0 0;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
 }
-
-section.home {
-  height: 95vh;
-  background-image: url("../pictures/gta_decors1-mob.jpg"), linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.731530112) 23%, rgba(0, 0, 0, 0) 70%, rgb(0, 0, 0) 100%);
-  background-size: 100%;
+div.teaser div.img {
+  position: relative;
+  width: 100%;
+}
+div.teaser div.img img {
+  width: 100%;
+}
+div.teaser div.img .layout-img {
+  background: rgb(6, 6, 6);
+  background: radial-gradient(circle, rgba(6, 6, 6, 0.2189075459) 0%, rgb(11, 11, 11) 100%);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 div.footer {
@@ -236,4 +246,4 @@ a.reseaux img {
     font-size: 1.7em;
     padding: 0 0 0 4em;
   }
-}/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=teaser.css.map */

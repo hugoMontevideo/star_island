@@ -12,7 +12,7 @@ require_once '../config/function.php';
     <link rel="shortcut icon" href="<?= BASE_PATH . 'assets/pictures/favicon.ico'?>" type="image/x-icon">
 
     <link rel="stylesheet" href="<?= BASE_PATH . 'assets/css/reboursCezaire.css' ?>">
-    <link rel="stylesheet" href="<?= BASE_PATH . 'assets/css/style.css' ?>">
+    <link rel="stylesheet" href="<?= BASE_PATH . 'assets/css/teaser.css' ?>">
     <script src="<?= BASE_PATH . 'assets/jquery/jquery.min.js'?>" defer></script>
     <script src="<?= BASE_PATH . 'assets/js/links.js' ?>" defer></script>
     <script src="<?= BASE_PATH . 'assets/js/reboursCezaire.js' ?>" defer></script>
