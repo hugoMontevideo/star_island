@@ -12,7 +12,7 @@ body {
   background-color: black;
   width: 100vw;
   max-height: 100vh;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 header .navbar {
@@ -23,6 +23,11 @@ header .navbar {
 header .navbar button {
   border: none;
 }
+header .navbar-collapse {
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 0px 1em 0.5em;
+}
 header .container-fluid {
   padding: 0;
 }
@@ -31,17 +36,13 @@ header a.navbar-brand {
   padding: 0;
 }
 header a.navbar-brand img {
+  position: relative;
+  z-index: 5;
   width: 7em;
 }
 
 main.container {
   padding: 0;
-}
-
-section.home {
-  height: 95vh;
-  background-image: url("../pictures/gta_decors1-mob.jpg"), linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.731530112) 23%, rgba(0, 0, 0, 0) 70%, rgb(0, 0, 0) 100%);
-  background-size: 100%;
 }
 
 div.footer {

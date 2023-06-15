@@ -12,7 +12,6 @@ if($current_date<$nd){
 }
 // ***************** end teaser ******************
 
-
 require_once 'inc/header.inc.php';
 
 if (isset($_GET['a']) && $_GET['a']=='dis'){
@@ -22,10 +21,15 @@ if (isset($_GET['a']) && $_GET['a']=='dis'){
     header('location:./');
     exit();
 }
-?>
 
+// grace a $action on pourra
+// inclure le contenu de la bonne page
+if ( isset($_GET['action'])){
+    $action = $_GET['action'];
+}else{
+    $action = 'home';
+}
 
+require_once "front/" . $action. ".php";                
 
-
-
-<?php     require_once 'inc/footer.inc.php';          ?>
+require_once 'inc/footer.inc.php';         

@@ -9,6 +9,8 @@
     <title>Star Island</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.2.3/lux/bootstrap.min.css" integrity="sha512-+TCHrZDlJaieLxYGAxpR5QgMae/jFXNkrc6sxxYsIVuo/28nknKtf9Qv+J2PqqPXj0vtZo9AKW/SMWXe8i/o6w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="<?= BASE_PATH.'assets/css/style.css' ?>">
+    <link rel="stylesheet" href="<?= BASE_PATH.'assets/css/home.css' ?>">
+    <script src="<?= BASE_PATH . 'assets/js/links.js' ?>" defer></script>
 </head>
 <body>
 
@@ -30,13 +32,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">GALERIE</a>
+                        <a class="nav-link" href="?action=galerie">GALERIE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">DEVENIR VIP</a>
+                        <a class="nav-link" href="?action=vip">DEVENIR VIP</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">SERVEUR</a>
+                        <a class="nav-link" href="?action=serveur">SERVEUR</a>
                     </li>
                     <?php     //if (admin()):           ?>
                     <li class="nav-item dropdown">
@@ -63,7 +65,7 @@
         </div>
     </nav>
 </header>
-<main class="container">
+<main class="">
     <?php     if (isset($_SESSION['messages']) && !empty($_SESSION['messages'])):           ?>
     <?php     foreach ($_SESSION['messages'] as $type=>$messages):
       ?>
@@ -75,6 +77,4 @@
     <?php   unset($_SESSION['messages'][$type][$key]);
             endforeach;  endforeach;  endif;           ?>
 
-    <section class="home">
-
-    </section>
+    
