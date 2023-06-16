@@ -67,7 +67,7 @@ require_once '../config/function.php';
     <div class="information">
         <h1>Bientôt disponible</h1>
         <span>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta placeat totam voluptates maxime animi! Doloremque nobis, tempora doloribus ipsa error, ipsam molestiae modi debitis distinctio dolorum explicabo nostrum illum tenetur?
+        Prochainement dans notre serveur GTA V, le lieu idéal pour vivre une expérience de simulation gratuite au sein d'une communauté dynamique. Rejoignez-nous très bientôt et explorez les possibilités infinies de GTA V avec d'autres joueurs passionnés.
         </span>
     </div>
 

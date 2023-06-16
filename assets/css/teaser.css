@@ -163,6 +163,10 @@ a.reseaux img {
   font-family: arial;
   color: rgba(255, 255, 255, 0.7411764706);
 }
+.information span {
+  line-height: 20px;
+  color: rgba(255, 255, 255, 0.631372549);
+}
 
 @media (min-width: 768px) {
   .footer:hover #facebook {

@@ -16,6 +16,11 @@
                 <h2>Bienvenue sur Star'Island</h2>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem culpa earum vel tempore voluptatibus, nesciunt corporis sint veritatis. Id sed repellat itaque architecto quibusdam, accusantium saepe aut laudantium illum fugiat.</p>
             </div>
+            <div class="puces">
+                <div class="active" data-set="1"></div>
+                <div data-set="2"></div>
+                <div data-set="3"></div>
+            </div>
         </div>
 
         <div class="layout-section"></div>
@@ -46,16 +51,16 @@
                     <img class="avatar" src="assets/pictures/avatar-homme4.jpg"  alt="avatar-profil">
                     <div class="avis-container">
                     <div class="etoiles">
-                            <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                            <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                            <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                            <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                            <img src="assets/pictures/icons8-star-nofill.png" alt="avis-star">
+                        <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
+                        <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
+                        <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
+                        <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
+                        <img src="assets/pictures/icons8-star-nofill.png" alt="avis-star">
 
-                        </div>
-                        <div class="texte">
-                            Lorem ipsum dolor sit amet consectetur unde.
-                        </div>
+                    </div>
+                    <div class="texte">
+                        Lorem ipsum dolor sit amet consectetur unde.
+                    </div>
                     </div>
                 </div>
                 <div class="avis">
@@ -91,6 +96,21 @@
                     </div>
                 </div>
             </div>
+            <form class="home2-form" action="">
+                <legend>Ton avis nous intéresse</legend>
+                <div class="etoiles">
+                        <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
+                        <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
+                        <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
+                        <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
+                        <img src="assets/pictures/icons8-star-nofill.png" alt="avis-star">
+
+                    </div>
+                <div>
+                    <textarea name="" id="home2-textarea" cols="30" rows="2">Ecris ton commentaire ici.</textarea>
+                </div>
+                <button type="submit">Publier</button>
+            </form>
         </div>
         <div class="layout-section2"></div>
     </section>
