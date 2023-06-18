@@ -1,4 +1,4 @@
-const Affiche = document.getElementById("compte");
+// const Affiche = document.getElementById("compte");
 const discordeButton = document.querySelector("#discorde-button-img");
 const reseaux = document.querySelectorAll(".reseaux");
 

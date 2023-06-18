@@ -16,7 +16,7 @@ body {
 }
 
 header .navbar {
-  padding: 0.5em;
+  padding: 0.5em 0;
   height: 5.5em;
   margin: 0;
 }
@@ -33,7 +33,7 @@ header .container-fluid {
 }
 header a.navbar-brand {
   margin: 0;
-  padding: 0;
+  padding: 0 0.5em;
 }
 header a.navbar-brand img {
   position: relative;

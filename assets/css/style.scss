@@ -17,7 +17,7 @@ body{
 
 header{
     .navbar{
-        padding: .5em;
+        padding: .5em 0;
         height: 5.5em;
         margin: 0;
         button{
@@ -34,7 +34,7 @@ header{
     }
     a.navbar-brand{
         margin: 0;
-        padding: 0;
+        padding: 0 .5em;
         img{
             position: relative;
             z-index: 5;

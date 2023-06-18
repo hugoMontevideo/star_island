@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.2.3/lux/bootstrap.min.css" integrity="sha512-+TCHrZDlJaieLxYGAxpR5QgMae/jFXNkrc6sxxYsIVuo/28nknKtf9Qv+J2PqqPXj0vtZo9AKW/SMWXe8i/o6w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="<?= BASE_PATH.'assets/css/style.css' ?>">
     <link rel="stylesheet" href="<?= BASE_PATH.'assets/css/home.css' ?>">
+    <link rel="shortcut icon" href="<?= BASE_PATH.'assets/pictures/favicon.ico' ?>" type="image/x-icon">
     <script src="<?= BASE_PATH . 'assets/js/links.js' ?>" defer></script>
 </head>
 <body>
