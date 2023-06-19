@@ -54,6 +54,24 @@
                     <div class="caption">
                         <h2>Bienvenue sur Star'Island</h2>
                     </div> 
+                    <form class="home-page3-form" action="">
+                        <fieldset> 
+                             
+                            <img id="top-serveur" src="assets/pictures/logo-topserveurs.svg" alt="logo top serveurs">              
+                            <legend>Star'Island</legend>
+                            <div class="etoiles">
+                                <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
+                                <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
+                                <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
+                                <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
+                                <img src="assets/pictures/icons8-star-nofill.png" alt="avis-star">
+                            </div>
+                            <div>
+                                <textarea name="" id="home2-textarea" rows="2">Ecris ton commentaire ici.</textarea>
+                            </div>
+                            <button type="submit">Publier</button>
+                        </fieldset>
+                    </form>
                 </div>
             </div>
             <div class="puces">
@@ -113,7 +131,6 @@
                             <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
                             <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
                             <img src="assets/pictures/icons8-star-nofill.png" alt="avis-star">
-
                         </div>
                         <div class="texte">
                             Lorem ipsum dolor sit amet consectetur unde.

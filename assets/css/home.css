@@ -35,7 +35,7 @@ section.home .layout-section {
 }
 .diaporama .caption {
   position: absolute;
-  top: 10%;
+  top: 15%;
   color: white;
   display: flex;
   flex-direction: column;
@@ -57,7 +57,7 @@ section.home .layout-section {
   justify-content: center;
   cursor: pointer;
   position: absolute;
-  bottom: 25%;
+  bottom: 20%;
   z-index: 10;
   transition: opacity 0.5s;
 }
@@ -78,10 +78,63 @@ section.home .layout-section {
 }
 .diaporama .element-slider #slider {
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
   width: 370px;
   transform: translate(-50%, -50%);
+}
+.diaporama .element-serveur .home-page3-form {
+  position: absolute;
+  top: 30%;
+  width: 90%;
+  left: 50%;
+  transform: translate(-50%);
+}
+.diaporama .element-serveur .home-page3-form fieldset {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(57, 51, 51, 0.59);
+  padding: 1em 1em;
+  border-radius: 8px;
+}
+.diaporama .element-serveur .home-page3-form fieldset img#top-serveur {
+  position: absolute;
+  width: 70px;
+  height: 40px;
+}
+.diaporama .element-serveur .home-page3-form fieldset legend {
+  color: white;
+  margin: 0.5em 0;
+  text-align: center;
+  font-size: 1.5em;
+}
+.diaporama .element-serveur .home-page3-form fieldset textarea {
+  border: none;
+  border-radius: 6px;
+  margin: 1em 0 0;
+  padding: 0.5em;
+  background-color: rgba(255, 255, 255, 0.46);
+  width: 100%;
+  color: white;
+}
+.diaporama .element-serveur .home-page3-form fieldset button {
+  width: 6em;
+  margin: 0.5em auto 0;
+  border: none;
+  border-radius: 4px;
+  background-color: #ffbe02;
+  color: black;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.diaporama .element-serveur .home-page3-form fieldset .etoiles {
+  display: flex;
+  justify-content: space-evenly;
+}
+.diaporama .element-serveur .home-page3-form fieldset .etoiles img {
+  width: 1.5em;
+  height: 1.5em;
 }
 
 .cascade-slider_container {
@@ -208,6 +261,7 @@ section.home2 .avis .texte {
 }
 section.home2 .home2-form fieldset {
   position: absolute;
+  width: 90%;
   bottom: 7em;
   left: 50%;
   display: flex;
@@ -216,7 +270,6 @@ section.home2 .home2-form fieldset {
   background-color: rgba(57, 51, 51, 0.7803921569);
   padding: 1em 1em;
   border-radius: 8px;
-  width: 90%;
 }
 section.home2 .home2-form fieldset legend {
   color: white;
