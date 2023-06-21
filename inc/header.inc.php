@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="<?= BASE_PATH.'assets/css/home.css' ?>">
     <link rel="stylesheet" href="<?= BASE_PATH.'assets/css/galerie.css' ?>">
     <link rel="stylesheet" href="<?= BASE_PATH.'assets/css/vip.css' ?>">
+    <link rel="stylesheet" href="<?= BASE_PATH.'assets/css/team.css' ?>">
     <link rel="shortcut icon" href="<?= BASE_PATH.'assets/pictures/favicon.ico' ?>" type="image/x-icon">
     <script src="<?= BASE_PATH . 'assets/js/links.js' ?>" defer></script>
 </head>
@@ -42,6 +43,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="?action=serveur">SERVEUR</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?action=team">L'EQUIPE</a>
                     </li>
                     <?php     //if (admin()):           ?>
                     <li class="nav-item dropdown">
