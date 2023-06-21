@@ -1,4 +1,5 @@
 <section class="galerie">
+
     <div class="layout-section"></div><!-- filtre de l'image de fond -->
 
     <div class="galerie-layout">
@@ -38,4 +39,5 @@
         </div> <!--end .slider -->
         
     </div>
+    
 </section>
