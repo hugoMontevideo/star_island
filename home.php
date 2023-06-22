@@ -6,16 +6,16 @@
                     <img src="assets/pictures/gta_decors1-mob.jpg" alt=""> 
                     <div class="layout-section"></div><!-- filtre de l'image de fond -->
                     <div class="caption">
-                        <h2>Bienvenue sur Star'Island</h2>
+                        <h1>Bienvenue sur STAR'ISLAND</h1>
                         <p id="home-p">Relevez des défis passionnants, participez à des courses effrénées et explorez un monde rempli de possibilités infinies. Notre équipe est prête à vous aider et à vous accompagner.  Respectez les règles du serveur, faites preuve de fair-play et préparez-vous à créer des souvenirs inoubliables.</p>
                     </div>   
                 </div>
 
                 <div class="element element-slider">
                     <img src="assets/pictures/gta_decors6-mob.jpg" alt="image de fond">
-                    <div class="layout-section"></div><!-- filtre de l'image de fond -->
+                    <div class="layout-section2"></div><!-- filtre de l'image de fond -->
                     <div class="caption">
-                        <h2>Bienvenue sur Star'Island</h2>
+                        <h1>Bienvenue sur STAR'ISLAND</h1>
                     </div>  
                     <div id="slider" class="slider" >
                         <div class="cascade-slider_container" >
@@ -38,21 +38,24 @@
                                 </div>
 
                             </div>
-                            <span id="arrowPrev"  class="cascade-slider_arrow cascade-slider_arrow-left" data-action="prev">
-                                <img src="assets/pictures/icons8-chevron-left.png">
-                            </span>
-                            <span id="arrowNext" class="cascade-slider_arrow cascade-slider_arrow-right" data-action="next">
-                                <img src="assets/pictures/icons8-chevron-right.png">
-                            </span>
+                            <div class="arrow-container">
+                                <span id="arrowPrev"  class="cascade-slider_arrow cascade-slider_arrow-left" data-action="prev">
+                                    <img src="assets/pictures/icons8-chevron-left.png">
+                                </span>
+                                <span id="arrowNext" class="cascade-slider_arrow cascade-slider_arrow-right" data-action="next">
+                                    <img src="assets/pictures/icons8-chevron-right.png">
+                                </span>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
 
-                <div class="element element-serveur">
+                <div class="element element-serveur" id="serveur">
                     <img src="assets/pictures/gta_decors3-mob.jpg" alt="image de fond">
                     <div class="layout-section"></div><!-- filtre de l'image de fond -->
                     <div class="caption">
-                        <h2>Bienvenue sur Star'Island</h2>
+                        <h1>Bienvenue sur STAR'ISLAND</h1>
                     </div> 
                     <form class="home-page3-form" action="">
                         <fieldset> 

@@ -3,8 +3,10 @@
     <div class="layout-section"></div><!-- filtre de l'image de fond -->
 
     <div class="galerie-layout">
+        <h1>STAR'ISLAND</h1>
+        <h2>Galerie</h2>
 
-        <h1>Galerie</h1>
+
         <img id="main-img" src="assets/upload/gta_decors2.jpg" alt="image dynamique">
     
 

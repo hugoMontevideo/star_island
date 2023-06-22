@@ -2,7 +2,9 @@
   position: relative;
   width: 100%;
   height: 93vh;
-  background-image: url("../pictures/gta_decors10-mob.png");
+  background-image: url("../pictures/vip.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .vip .layout-section {
   background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 15%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 80%, rgb(0, 0, 0) 100%);
@@ -12,10 +14,18 @@
   left: 0;
   right: 0;
 }
+.vip .layout-section3 {
+  position: absolute;
+  background: linear-gradient(9deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.8267682073) 58%, rgba(130, 127, 127, 0) 71%, rgba(251, 247, 247, 0) 86%, rgba(0, 0, 0, 0.6278886555) 92%, rgb(0, 0, 0) 100%);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 .vip-layout {
   position: absolute;
   width: 90%;
-  top: 10vh;
+  top: 6vh;
   left: 50%;
   transform: translate(-50%);
   display: flex;
@@ -23,28 +33,52 @@
   align-items: center;
 }
 .vip-layout h1 {
+  color: rgba(255, 255, 255, 0.631372549);
   text-align: center;
-  color: white;
-  margin: 0 0 2rem;
+  font-size: 2.1rem;
+  margin: 0 0 1rem;
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+  text-transform: none;
+}
+.vip-layout h2 {
+  text-align: center;
+  color: #ab840e;
+  margin: 0 0 1rem;
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
 }
 .vip-content-1, .vip-content-2 {
   width: 80%;
   color: rgba(255, 255, 255, 0.863);
-  margin: 1.2rem 0;
+  margin: 0.6rem 0;
 }
-.vip-content-1 h2, .vip-content-2 h2 {
-  color: #ea4c6f;
+.vip-content-1 h3, .vip-content-2 h3 {
+  color: white;
   font-size: 1.5rem;
   font-weight: 700;
   text-align: center;
+  margin: 0;
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+}
+.vip-content-1 p, .vip-content-2 p {
+  font-size: 0.9rem;
 }
 .vip .perso1 {
-  border: 3px solid #ea4c6f;
-  width: 60vw;
   position: absolute;
-  top: 80vw;
+  width: 40vw;
+  height: 12em;
+  border: 2px solid #ea4c6f;
+  bottom: 25vh;
   right: 10vw;
-  height: 90vw;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+.vip .perso1 img {
+  width: 50vw;
+  height: 60vw;
+  -o-object-fit: contain;
+     object-fit: contain;
 }/*# sourceMappingURL=vip.css.map */

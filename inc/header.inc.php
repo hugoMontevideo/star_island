@@ -42,7 +42,7 @@
                         <a class="nav-link" href="?action=vip">DEVENIR VIP</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?action=serveur">SERVEUR</a>
+                        <a class="nav-link" href="?action=home#serveur">SERVEUR</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="?action=team">L'EQUIPE</a>
