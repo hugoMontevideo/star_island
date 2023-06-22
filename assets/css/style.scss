@@ -1,6 +1,8 @@
 @font-face {
     font-family: 'Iceland';
     src: url('../font/Iceland-Regular.ttf') format('truetype');
+    font-family: 'Oswald';
+    src: url('../font/Oswald-VariableFont_wght.ttf') format('truetype');
 }
 *{
     box-sizing: border-box;
@@ -17,6 +19,7 @@ body{
 
 header{
     .navbar{
+        background: linear-gradient(321deg, rgba(0,0,0,0.8211659663865546) 0%, rgba(0,0,0,0.8267682072829132) 23%, rgba(0,0,0,0.7343312324929971) 70%, rgba(0,0,0,1) 100%);
         padding: .5em 0;
         height: 5.5em;
         margin: 0;
@@ -41,6 +44,11 @@ header{
             width: 7em;
         }
     }
+    .navbar-toggler{  // surcharge css bootstrap
+        padding: 0 0.8rem;
+        margin: 0;
+    }
+    
 }
 main.container{
     padding: 0;

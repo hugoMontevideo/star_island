@@ -2,7 +2,8 @@
   position: relative;
   width: 100%;
   height: 93vh;
-  background-image: url("../pictures/gta_decors9-mob.jpg");
+  background-image: url("../pictures/gta_decors13-mob.png");
+  background-repeat: no-repeat;
 }
 .galerie .layout-section {
   position: absolute;
@@ -23,9 +24,22 @@
   align-items: center;
 }
 .galerie-layout h1 {
+  color: white;
+  text-align: center;
+  font-size: 2.1rem;
+  margin: 0 0 1.3rem;
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+  text-transform: none;
+}
+.galerie-layout h2 {
   text-align: center;
   color: white;
-  margin: 0 0 2em;
+  margin: 0 0 2rem;
+  font-family: "Oswald", Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-transform: none;
 }
 .galerie-layout img {
   width: 90%;
