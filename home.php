@@ -3,7 +3,7 @@
         <div class="diaporama">
             <div class="elements">
                 <div class="element element-home">
-                    <img src="assets/pictures/gta_decors1-mob.jpg" alt=""> 
+                    <img id="home-img" src="assets/pictures/gta_decors1-mob.jpg" alt="photo de la ville"> 
                     <div class="layout-section"></div><!-- filtre de l'image de fond -->
                     <div class="caption">
                         <h1>Bienvenue sur STAR'ISLAND</h1>
@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="element element-slider">
-                    <img src="assets/pictures/gta_decors6-mob.jpg" alt="image de fond">
+                    <img id="slider-img" src="assets/pictures/gta_decors6-mob.jpg" alt="image de fond">
                     <div class="layout-section2"></div><!-- filtre de l'image de fond -->
                     <div class="caption">
                         <h1>Bienvenue sur STAR'ISLAND</h1>
@@ -52,7 +52,7 @@
                 </div>
 
                 <div class="element element-serveur" id="serveur">
-                    <img src="assets/pictures/gta_decors3-mob.jpg" alt="image de fond">
+                    <img id="serveur-img" src="assets/pictures/gta_decors3-mob.jpg" alt="image de fond">
                     <div class="layout-section"></div><!-- filtre de l'image de fond -->
                     <div class="caption">
                         <h1>Bienvenue sur STAR'ISLAND</h1>
@@ -89,7 +89,7 @@
     <section class="home2">
         <div class="home2-container">
             <div class="element">
-                <img src="assets/pictures/gta_decors7-mob.jpg" alt="image de fond">
+                <img id="home2-img" src="assets/pictures/gta_decors7-mob.jpg" alt="image de fond">
                 <div class="layout-section2"></div>
             </div>
             <div class="home2-avis">

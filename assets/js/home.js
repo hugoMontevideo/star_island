@@ -1,5 +1,10 @@
 const diaporama = document.querySelector('.diaporama');  // slider a puces
 const elements = document.querySelector('.elements');
+const homeImg = document.querySelector('#home-img');
+const sliderImg = document.querySelector('#slider-img');
+const serveurImg = document.querySelector('#serveur-img');
+const home2Img = document.querySelector('#home2-img');
+
 const caption = document.querySelectorAll('.caption');
 const slides = Array.from(elements.children);
 let slideWidth = diaporama.getBoundingClientRect().width;
@@ -20,7 +25,9 @@ const itemsList = document.querySelectorAll(".cascade-slider_item");
 const arrowNext = document.querySelector("#arrowNext");
 const arrowPrev = document.querySelector("#arrowPrev");
 
-
+let test = screen.width;
+console.log(test)
+console.log('hello')
 
 
 // FUNCTIONS
@@ -56,7 +63,13 @@ function handleTouchStart(evt) {           // swipe
     xDown = newTouch.clientX;                                      
     // yDown = firstTouch.clientY;                                      
 };   
-
+// Charge les images de fond de home => screen > 700px
+function loadImg(){
+    homeImg.src = "assets/pictures/desktop/gta_decors1.jpg";
+    sliderImg.src = "assets/pictures/desktop/gta_decors6.jpg";
+    serveurImg.src = "assets/pictures/desktop/gta_decors3.jpg";
+    home2Img.src = "assets/pictures/desktop/gta_decors7.jpg";
+}
                                                                          
 function handleTouchMove(evt) {            // swipe  
                 console.log( evt)
@@ -157,6 +170,9 @@ function autoPlay() {             // slider 2ème homepage
  
 
 function startup(){
+    if(screen.width > 600){  // chrgt des images larges
+        loadImg() }; 
+
     document.addEventListener('touchstart', handleTouchStart, false);        
     document.addEventListener('touchmove', handleTouchMove, false);
 };
