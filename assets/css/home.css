@@ -36,17 +36,18 @@ section.home .layout-section2 {
 .diaporama .element {
   position: relative;
   flex: 1 0 100%;
-  width: 100vw;
+  max-width: 100%;
+  height: 92vh;
 }
 .diaporama .element img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .diaporama .caption {
   position: absolute;
-  top: 10%;
+  top: 7vh;
   color: white;
   display: flex;
   flex-direction: column;
@@ -72,7 +73,7 @@ section.home .layout-section2 {
   justify-content: center;
   cursor: pointer;
   position: absolute;
-  bottom: 20%;
+  bottom: 23vh;
   z-index: 10;
   transition: opacity 0.5s;
 }
@@ -95,7 +96,7 @@ section.home .layout-section2 {
   position: absolute;
   top: 40%;
   left: 50%;
-  width: 370px;
+  width: 90vw;
   transform: translate(-50%, -50%);
 }
 .diaporama .element-slider .cascade-slider_container {
@@ -113,12 +114,12 @@ section.home .layout-section2 {
   z-index: -1;
 }
 .diaporama .element-slider .cascade-slider_container .cascade-slider_item img {
-  max-width: 150px;
+  max-width: 60vw;
   border-radius: 5px;
 }
 .diaporama .element-slider .cascade-slider_container .cascade-slider_item.prev {
   left: 50%;
-  transform: translateY(-45%) translateX(6%) scale(0.8);
+  transform: translateX(6%) translateY(-50%) scale(0.8);
   opacity: 1;
   z-index: 11;
 }
@@ -135,7 +136,7 @@ section.home .layout-section2 {
 }
 .diaporama .element-slider .cascade-slider_container .cascade-slider_item.next {
   left: 50%;
-  transform: translateY(-45%) translateX(-106%) scale(0.8);
+  transform: translateX(-106%) translateY(-50%) scale(0.8);
   opacity: 1;
   z-index: 11;
 }
@@ -143,6 +144,7 @@ section.home .layout-section2 {
   filter: blur(1px);
 }
 .diaporama .element-slider .arrow-container {
+  display: flex;
   position: absolute;
   bottom: 0;
   background-color: black;
@@ -232,8 +234,12 @@ section.home2 .element img {
   opacity: 0.6;
 }
 section.home2 .layout-section2 {
-  background: rgb(0, 0, 0);
-  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 10%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0) 90%, rgb(0, 0, 0) 100%);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0) 16%, rgba(0, 0, 0, 0.4878326331) 33%, rgba(0, 0, 0, 0.5102415966) 60%, rgb(0, 0, 0) 78%);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -242,13 +248,13 @@ section.home2 .layout-section2 {
 }
 section.home2 .home2-avis {
   position: absolute;
-  top: 7%;
+  width: 90%;
+  left: 50%;
+  transform: translate(-50%);
+  top: 4%;
   color: white;
   display: flex;
   flex-direction: column;
-  bottom: 0;
-  left: 0;
-  right: 0;
   text-align: center;
 }
 section.home2 .avis:nth-child(even) {
@@ -262,7 +268,7 @@ section.home2 .avis:nth-child(odd) {
 section.home2 .avis {
   background-color: rgba(248, 246, 249, 0.41);
   color: rgb(252, 251, 251);
-  margin: 0.4em 1em;
+  margin: 0.5rem 0;
   padding: 0.8em;
   display: flex;
   justify-content: center;
@@ -330,4 +336,84 @@ section.home2 .etoiles {
 section.home2 .etoiles img {
   width: 1.5em;
   height: 1.5em;
+}
+
+@media (min-width: 706px) {
+  .diaporama .element img {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .diaporama .caption {
+    width: 70vw;
+    left: 50%;
+    transform: translate(-50%);
+    top: 5vh;
+  }
+  .diaporama .caption h1 {
+    font-size: 2.5rem;
+    margin: 0 0 2.5rem;
+  }
+  .diaporama .caption p {
+    font-size: 1.5rem;
+  }
+  .diaporama .puces {
+    bottom: 20vh;
+  }
+  .diaporama .element-slider #slider {
+    width: 70%;
+  }
+  .diaporama .element-slider .cascade-slider_container {
+    height: 60vh;
+  }
+  .diaporama .element-serveur .home-page3-form {
+    width: 60%;
+    top: 20%;
+    border-top: solid 1px rgba(255, 255, 255, 0.2);
+    border-left: solid 1px rgba(255, 255, 255, 0.4509803922);
+  }
+  .diaporama .element-serveur .home-page3-form fieldset {
+    padding: 2rem;
+  }
+  .diaporama .element-serveur .home-page3-form fieldset img#top-serveur {
+    width: 7rem;
+    height: 3.8rem;
+  }
+  .diaporama .element-serveur .home-page3-form fieldset legend {
+    margin: 1.1rem 0 0.8rem;
+    font-family: "Oswald";
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  .diaporama .element-serveur .home-page3-form fieldset .etoiles {
+    width: 70%;
+    margin: 0 auto;
+  }
+  .diaporama .element-serveur .home-page3-form fieldset textarea {
+    margin: 2rem 0 0;
+    height: 6rem;
+  }
+  section.home2 .home2-avis {
+    width: 60vw;
+  }
+  section.home2 .home2-avis .avis {
+    margin: 0;
+    width: 45%;
+  }
+  section.home2 .home2-avis .avis:nth-child(odd) {
+    align-self: flex-end;
+  }
+  section.home2 .home2-avis .avis:nth-child(even) {
+    align-self: flex-start;
+  }
+  section.home2 .home2-form fieldset {
+    width: 65%;
+    bottom: 15vh;
+  }
+  section.home2 .home2-form fieldset legend {
+    margin: 1rem 0 1.5rem;
+  }
+  section.home2 .home2-form fieldset .etoiles {
+    width: 70%;
+    margin: 0 auto;
+  }
 }/*# sourceMappingURL=home.css.map */
