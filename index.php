@@ -30,6 +30,14 @@ if ( isset($_GET['action'])){
     $action = 'home';
 }
 
-require_once $action. ".php";                
+
+if( $action == 'team' ){
+
+    require_once 'back/controllers/' .$action. ".php";                
+
+}else{
+    
+    require_once $action. ".php";                
+}
 
 require_once 'inc/footer.inc.php';         

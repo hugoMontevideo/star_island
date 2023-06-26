@@ -8,6 +8,7 @@
                     <div class="caption">
                         <h1>Bienvenue sur STAR'ISLAND</h1>
                         <p id="home-p">Relevez des défis passionnants, participez à des courses effrénées et explorez un monde rempli de possibilités infinies. Notre équipe est prête à vous aider et à vous accompagner.  Respectez les règles du serveur, faites preuve de fair-play et préparez-vous à créer des souvenirs inoubliables.</p>
+                        <i class="fa fa-star" aria-hidden="true"></i>
                     </div>   
                 </div>
 
@@ -19,8 +20,8 @@
                     </div>  
                     <div id="slider" class="slider" >
                         <div class="cascade-slider_container" >
-                            <div class="cascade-slider_slides">
 
+                            <div class="cascade-slider_slides">
                                 <div class="cascade-slider_item prev">         
                                     <img src="assets/upload/gta_decors1.jpg">               
                                 </div>
@@ -40,15 +41,17 @@
                             </div>
                             <div class="arrow-container">
                                 <span id="arrowPrev"  class="cascade-slider_arrow cascade-slider_arrow-left" data-action="prev">
-                                    <img src="assets/pictures/icons8-chevron-left.png">
+                                    <!-- <img src="assets/pictures/icons8-chevron-left.png"> -->
+                                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
                                 </span>
                                 <span id="arrowNext" class="cascade-slider_arrow cascade-slider_arrow-right" data-action="next">
-                                    <img src="assets/pictures/icons8-chevron-right.png">
+                                    <!-- <img src="assets/pictures/icons8-chevron-right.png"> -->
+                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
                                 </span>
                             </div>
                             
                         </div>
-                    </div>
+                    </div><!--end .slider -->
                 </div>
 
                 <div class="element element-serveur" id="serveur">
@@ -58,17 +61,18 @@
                         <h1>Bienvenue sur STAR'ISLAND</h1>
                     </div> 
                     <form class="home-page3-form" action="">
-                        <fieldset> 
-                             
+                        <fieldset>                             
                             <img id="top-serveur" src="assets/pictures/logo-topserveurs.svg" alt="logo top serveurs">              
                             <legend>Star'Island</legend>
                             <div class="etoiles">
-                                <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                                <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                                <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                                <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                                <img src="assets/pictures/icons8-star-nofill.png" alt="avis-star">
+                                <i class="fa fa-star home2-star" aria-hidden="true"></i>
+                                <i class="fa fa-star home2-star" aria-hidden="true"></i>
+                                <i class="fa fa-star home2-star" aria-hidden="true"></i>
+                                <i class="fa fa-star home2-star" aria-hidden="true"></i>
+                                <i class="fa fa-star home2-star" aria-hidden="true"></i>
                             </div>
+                            <input type="hidden" id="home1StarInput" value="3">
+
                             <div>
                                 <textarea name="" id="home2-textarea" rows="2">Ecris ton commentaire ici.</textarea>
                             </div>
@@ -93,15 +97,21 @@
                 <div class="layout-section2"></div>
             </div>
             <div class="home2-avis">
-                <div class="avis">
+                <div class="avis" >
                     <img class="avatar" src="assets/pictures/avatar-homme1.jpg" alt="avatar-profil">
                     <div class="avis-container">
-                        <div class="etoiles">
+                        <div class="etoiles" data-star="3">
+                            <!-- <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
                             <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
                             <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
                             <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                            <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                            <img src="assets/pictures/icons8-star-nofill.png" alt="avis-star">
+                            <img src="assets/pictures/icons8-star-nofill.png" alt="avis-star"> -->
+                            <i class="fa fa-star home2-star" aria-hidden="true"></i>
+                            <i class="fa fa-star home2-star" aria-hidden="true"></i>
+                            <i class="fa fa-star home2-star" aria-hidden="true"></i>
+                            <i class="fa fa-star home2-star" aria-hidden="true"></i>
+                            <i class="fa fa-star home2-star" aria-hidden="true"></i>
+
 
                         </div>
                         <div class="texte">
@@ -109,7 +119,62 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="avis" >
+               
+                <div class="avis" >
+                    <img class="avatar" src="assets/pictures/avatar-cochon.jpg" alt="avatar-profil">
+                    <div class="avis-container">
+                        <div class="etoiles" data-star="2">
+                            <i class="fa fa-star home2-star" aria-hidden="true"></i>
+                            <i class="fa fa-star home2-star" aria-hidden="true"></i>
+                            <i class="fa fa-star home2-star" aria-hidden="true"></i>
+                            <i class="fa fa-star home2-star" aria-hidden="true"></i>
+                            <i class="fa fa-star home2-star" aria-hidden="true"></i>
+                        </div>
+                        <div class="texte">
+                            Lorem ipsum dolor sit amet consectetur unde.
+                        </div>
+                    </div>
+                </div>
+                <div class="avis" >
+                    <img class="avatar" src="assets/pictures/avatar-femme1.jpg" alt="avatar-profil">
+                    <div class="avis-container">
+                        <div class="etoiles" data-star="4">
+                            <i class="fa fa-star home2-star" aria-hidden="true"></i>
+                            <i class="fa fa-star home2-star" aria-hidden="true"></i>
+                            <i class="fa fa-star home2-star" aria-hidden="true"></i>
+                            <i class="fa fa-star home2-star" aria-hidden="true"></i>
+                            <i class="fa fa-star home2-star" aria-hidden="true"></i>
+                        </div>
+                        <div class="texte">
+                            Lorem ipsum dolor sit amet consectetur aunde.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <form class="home2-form" action="">
+                <fieldset>                
+                    <legend>Ton avis nous intéresse</legend>
+                    <div class="etoiles">
+                        <i class="fa fa-star home2-star" aria-hidden="true"></i>
+                        <i class="fa fa-star home2-star" aria-hidden="true"></i>
+                        <i class="fa fa-star home2-star" aria-hidden="true"></i>
+                        <i class="fa fa-star home2-star" aria-hidden="true"></i>
+                        <i class="fa fa-star home2-star" aria-hidden="true"></i>
+                    </div>
+                    <input type="hidden" id="home2StarInput" value="3">
+                    <div>
+                        <textarea name="" id="home2-textarea" rows="2">Ecris ton commentaire ici.</textarea>
+                    </div>
+                    <button type="submit">Publier</button>
+                </fieldset>
+            </form>
+        </div>
+    </section>
+    <!-- <script src="assets/js/home.js"></script> -->
+
+
+     <!-- <div class="avis" >
                     <img class="avatar" src="assets/pictures/avatar-homme4.jpg"  alt="avatar-profil">
                     <div class="avis-container">
                     <div class="etoiles">
@@ -125,56 +190,3 @@
                     </div>
                     </div>
                 </div> -->
-                <div class="avis">
-                    <img class="avatar" src="assets/pictures/avatar-cochon.jpg" alt="avatar-profil">
-                    <div class="avis-container">
-                    <div class="etoiles">
-                            <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                            <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                            <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                            <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                            <img src="assets/pictures/icons8-star-nofill.png" alt="avis-star">
-                        </div>
-                        <div class="texte">
-                            Lorem ipsum dolor sit amet consectetur unde.
-                        </div>
-                    </div>
-                </div>
-                <div class="avis">
-                    <img class="avatar" src="assets/pictures/avatar-femme1.jpg" alt="avatar-profil">
-                    <div class="avis-container">
-                    <div class="etoiles">
-                            <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                            <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                            <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                            <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                            <img src="assets/pictures/icons8-star-nofill.png" alt="avis-star">
-
-                        </div>
-                        <div class="texte">
-                            Lorem ipsum dolor sit amet consectetur aunde.
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <form class="home2-form" action="">
-                <fieldset>                
-                    <legend>Ton avis nous intéresse</legend>
-                    <div class="etoiles">
-                            <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                            <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                            <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                            <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                            <img src="assets/pictures/icons8-star-nofill.png" alt="avis-star">
-
-                        </div>
-                    <div>
-                        <textarea name="" id="home2-textarea" rows="2">Ecris ton commentaire ici.</textarea>
-                    </div>
-                    <button type="submit">Publier</button>
-                </fieldset>
-            </form>
-        </div>
-    </section>
-    <!-- <script src="assets/js/home.js"></script> -->

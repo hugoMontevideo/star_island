@@ -159,13 +159,14 @@ section.home .layout-section2 {
   z-index: 20;
   opacity: 1;
   padding: 1rem;
+  transition: all ease-in-out 0.2s;
 }
-.diaporama .element-slider .arrow-container .cascade-slider_arrow img {
-  width: 20px;
-  height: 20px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  filter: grayscale(0);
+.diaporama .element-slider .arrow-container .cascade-slider_arrow i {
+  color: white;
+}
+.diaporama .element-slider .arrow-container .cascade-slider_arrow.arrow-clicked i {
+  transform: scale(1.4);
+  color: #ea4c6f;
 }
 .diaporama .element-serveur .home-page3-form {
   position: absolute;
@@ -282,11 +283,12 @@ section.home2 .avis img.avatar {
   border-radius: 50%;
   border: #e83e8c solid 3px;
 }
-section.home2 .avis .avis-container {
+section.home2 .avis-container {
   padding: 0 1em;
 }
 section.home2 .avis .texte {
   text-align: left;
+  margin: 1rem 0 0;
 }
 section.home2 .home2-form fieldset {
   position: absolute;
@@ -333,9 +335,8 @@ section.home2 .etoiles {
   display: flex;
   justify-content: space-evenly;
 }
-section.home2 .etoiles img {
-  width: 1.5em;
-  height: 1.5em;
+section.home2 .etoiles i {
+  color: #e8cbd7;
 }
 
 @media (min-width: 706px) {
