@@ -4,6 +4,13 @@ const homeImg = document.querySelector('#home-img');
 const sliderImg = document.querySelector('#slider-img');
 const serveurImg = document.querySelector('#serveur-img');
 const home2Img = document.querySelector('#home2-img');
+const starsCommentsList = document.querySelectorAll(".avis .etoiles");
+const home1FormStarsArray = document.querySelectorAll(".home-page3-form .etoiles i");
+const home2FormStarsArray = document.querySelectorAll(".home2-form .etoiles i");
+const home1FormStarInput = document.querySelector("#home1StarInput");
+const home2FormStarInput = document.querySelector("#home2StarInput");
+
+// console.log(homeFormStarsArray)
 
 const caption = document.querySelectorAll('.caption');
 const slides = Array.from(elements.children);
@@ -25,17 +32,14 @@ const itemsList = document.querySelectorAll(".cascade-slider_item");
 const arrowNext = document.querySelector("#arrowNext");
 const arrowPrev = document.querySelector("#arrowPrev");
 
-let test = screen.width;
-console.log(test)
-console.log('hello')
+// let test = screen.width;
 
-
-// FUNCTIONS
-
+// ******** FUNCTIONS  ********
+// ****************************
 /**
  * Slider de homepage
  */
-function slideNext(){                           // slider à puces
+function slideNext(){            // slider à puces
     let decal = -slideWidth * compteur;
     elements.style.transform = `translateX(${decal}px)`;
 
@@ -72,7 +76,6 @@ function loadImg(){
 }
                                                                          
 function handleTouchMove(evt) {            // swipe  
-                console.log( evt)
 
     if ( ! xDown ) {
     //     // if ( ! xDown && ! yDown ) {  
@@ -92,7 +95,6 @@ function handleTouchMove(evt) {            // swipe
     if ( xDiff > 0 ) {
         /* right swipe */ 
         if( compteur < pucesDiv.length -1 ){  
-                // console.log( compteur)
                 compteur++
                 slideNext();
                 puceActive();
@@ -116,8 +118,18 @@ function handleTouchMove(evt) {            // swipe
     // yDown = null;                                             
 };
 
+function yellowStars( arrayStars, nbYellowStars=3 ){
+    // for(let i=0; i<nbYellowStars; i++){
+    for(let i=0; i<arrayStars.length; i++){
+        if(i<nbYellowStars){
+            arrayStars[i].style.color = '#ffbe02';
+        }else{
+            arrayStars[i].style.color = '#e8cbd7d9';
+        }
+    }
+}
 
-function dataId(){                     // slider 2ème homepage
+function dataId(){                     // slider 2ème homepage touches prev next
     itemsList.forEach(item => {
         item.dataset.id = index;
         // arraySlides.push(index);
@@ -171,10 +183,51 @@ function autoPlay() {             // slider 2ème homepage
 
 function startup(){
     if(screen.width > 600){  // chrgt des images larges
-        loadImg() }; 
+        loadImg() 
+    }; 
 
-    document.addEventListener('touchstart', handleTouchStart, false);        
+    document.addEventListener('touchstart', handleTouchStart, false);  //  swipe page d'accueil  
     document.addEventListener('touchmove', handleTouchMove, false);
+
+    starsCommentsList.forEach(avis => {   // remplir les etoiles des avis
+        let starsArray = Array.from(avis.children); 
+        let nbYellowStars = avis.dataset.star
+        yellowStars( starsArray, nbYellowStars );
+    })
+    
+    yellowStars(home1FormStarsArray) // remplir les etoiles du home page3 form
+    yellowStars(home2FormStarsArray) // remplir les etoiles du home2 form
+
+    for(let i=0; i<home1FormStarsArray.length; i++){  // ecouteur click sur les etoiles du home page3 form
+        home1FormStarsArray[i].addEventListener('click', function(){
+            // console.log(i);
+            yellowStars(home1FormStarsArray, i+1);         
+        });
+    };
+    for(let i=0; i<home2FormStarsArray.length; i++){  // ecouteur click sur les etoiles du home2 form
+        home2FormStarsArray[i].addEventListener('click', function(){
+            // console.log(i);
+            yellowStars(home2FormStarsArray, i+1);         
+        });
+    };
+
+
+    for(let i=0; i<home1FormStarsArray.length; i++){  // ecouteur mouseenter sur les etoiles du home page3 form
+        home1FormStarsArray[i].addEventListener('mouseenter', (event) => {
+            yellowStars(home1FormStarsArray, i+1);  
+            home1FormStarInput.value = i+1;        
+        });
+    };
+    for(let i=0; i<home2FormStarsArray.length; i++){  // ecouteur mouseenter sur les etoiles du home form
+        home2FormStarsArray[i].addEventListener('mouseenter', (event) => {
+            yellowStars(home2FormStarsArray, i+1);
+            home2FormStarInput.value = i+1;        
+        });
+    };
+
+    
+
+
 };
 
 /**        CODE
@@ -210,6 +263,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
     arrowNext.addEventListener('click', () => {
         varNow = parseInt(document.querySelector('.now').dataset.id) + 1;
+
+        arrowNext.classList.add('arrow-clicked');
+        setTimeout(() => {
+            arrowNext.classList.remove('arrow-clicked');
+          }, 200);
         clearInterval(nIntervId);
         
         varNow = display(varNow);
@@ -220,6 +278,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
     arrowPrev.addEventListener('click', () => {                           // slider 2ème homepage
         varNow = parseInt(document.querySelector('.now').dataset.id) - 1;
+
+        arrowPrev.classList.add('arrow-clicked');
+        setTimeout(() => {
+            arrowPrev.classList.remove('arrow-clicked');
+          }, 200);
         clearInterval(nIntervId);
         
         varNow = display(varNow);

@@ -1,4 +1,5 @@
-<section class="team">
+
+<section id="team" class="team">
     <div class="layout-section"></div><!-- filtre de l'image de fond -->
 
 
@@ -14,20 +15,31 @@
             <a href="">Helpers</a>
         </nav>
         <div class="profil_pict">
+          <?php $i = 1; foreach( $aDevs as $name => $urlImg): ?>
+                <?php //var_dump( count($aDevs) ) ?>
+                <?php $i++; ?>
+                <!--<div class="raw odd" data-indexraw="1">  .odd even ajoutée en js  -->
+            <div class="cell " data-indexProfil="2">  <!-- .cell ajoutée en js -->
+                <img class="profil_img" src="<?= $urlImg ?>" alt="">
+            
+              <?php if(!empty($aSocial[$name])): ?>
+                <div class="userSocials">
+                <?php foreach( $aSocial[$name] as $reseau => $newurl): ?>
+                    <a href="<?= $newurl ?>"class="<?= "social ". $reseau ?>" >
+                        <img src="<?= $newurl ?>" alt="<?= "logo ". $reseau  ?>">
+                    </a>
 
-            <div class="raw odd" data-indexraw="1"> <!-- .odd even ajoutée en js  -->
-
-                <div class="" data-indexProfil="1"></div>
-                <div class="cell " data-indexProfil="2">  <!-- .cell ajoutée en js -->
-                    <img class="profil_img" src="assets/upload/profil_femme1.jpg" alt="">
-                    <div class="description">
-                        <p>Mia</p>
-                        <a href="">
-                            <img id="flip-discord" src="assets/pictures/icons8-discorde.png" alt="">
-                        </a>
-                    </div>
+                <?php endforeach ?>
                 </div>
-                <div class="" data-indexProfil="3"></div>
+              <?php endif; ?>
+                
+                
+            </div>
+            <div class="empty" data-indexProfil="1"></div>
+             
+          <?php endforeach; ?>
+
+                <!-- <div class="" data-indexProfil="3"></div>
                 <div class="" data-indexProfil="4">
                     <img class="profil_img" src="assets/upload/profil_homme1.jpg" alt="">
                     <div class="description">
@@ -37,10 +49,10 @@
                         </a>
                     </div>
                 </div>
-                <div class="" data-indexProfil="5"></div>
+                <div class="" data-indexProfil="5"></div> -->
 
-            </div>
-            <div class="raw " data-indexraw="2">
+            <!-- </div> -->
+            <!-- <div class="raw " data-indexraw="2">
                 <div>
                     <img class="profil_img" src="assets/upload/profil_femme2.jpg" alt="">
                     <div class="description">
@@ -75,12 +87,12 @@
                     </div>
 
                 </div>
-            </div>
-            <div class="raw odd" data-indexraw="1"> <!-- .odd even ajoutée en js  -->
+            </div>-->
+            <!-- <div class="raw odd" data-indexraw="1">  
 
                 <div class="" data-indexProfil="1"></div>
 
-                <div class="cell " data-indexProfil="2">  <!-- .cell ajoutée en js -->
+                <div class="cell " data-indexProfil="2">  
                     <img class="profil_img" src="assets/upload/profil_femme3.jpg" alt="">
                     <div  class="description">
                         <p>Mia</p>
@@ -133,8 +145,9 @@
                         </a>
                     </div>
                 </div>
-            </div>
-        </div> 
+            </div> -->
+            <div class="layout_team_selected"></div>
+        </div> <!-- end  .profil_pict -->
     </div>
    
 </section>

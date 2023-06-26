@@ -1,9 +1,11 @@
 <section class="vip">
-    <div class="layout-section3"></div><!-- filtre de l'image de fond -->
-    <div class="perso1">
+    <div class="perso2 none">
         <img src="assets/pictures/perso2.png" alt="">
     </div>
-
+    <div class="layout-section3"></div><!-- filtre de l'image de fond -->
+    <div class="perso1">
+        <img src="assets/pictures/perso1.png" alt="">
+    </div>
 
     <div class="vip-layout">
         <h1>STAR'ISLAND</h1>

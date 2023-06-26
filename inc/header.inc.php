@@ -7,13 +7,14 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Star Island</title>
+    <link rel="shortcut icon" href="<?= BASE_PATH.'assets/pictures/favicon.ico' ?>" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.2.3/lux/bootstrap.min.css" integrity="sha512-+TCHrZDlJaieLxYGAxpR5QgMae/jFXNkrc6sxxYsIVuo/28nknKtf9Qv+J2PqqPXj0vtZo9AKW/SMWXe8i/o6w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="<?= BASE_PATH.'assets/css/style.css' ?>">
     <link rel="stylesheet" href="<?= BASE_PATH.'assets/css/home.css' ?>">
     <link rel="stylesheet" href="<?= BASE_PATH.'assets/css/galerie.css' ?>">
     <link rel="stylesheet" href="<?= BASE_PATH.'assets/css/vip.css' ?>">
     <link rel="stylesheet" href="<?= BASE_PATH.'assets/css/team.css' ?>">
-    <link rel="shortcut icon" href="<?= BASE_PATH.'assets/pictures/favicon.ico' ?>" type="image/x-icon">
+    <link rel="stylesheet" href="<?= BASE_PATH.'assets/fontawesome-free/css/all.css' ?>">
     <script src="<?= BASE_PATH . 'assets/js/links.js' ?>" defer></script>
 </head>
 <body>

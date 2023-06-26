@@ -43,11 +43,12 @@
 }
 .vip-layout h2 {
   text-align: center;
-  color: #ab840e;
+  color: #c5a80f;
   margin: 0 0 1rem;
   font-family: "Oswald", Arial, Helvetica, sans-serif;
   font-size: 1.6rem;
   font-weight: 700;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4117647059);
 }
 .vip-content-1, .vip-content-2 {
   width: 80%;
@@ -61,6 +62,7 @@
   text-align: center;
   margin: 0;
   font-family: "Oswald", Arial, Helvetica, sans-serif;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4117647059);
 }
 .vip-content-1 p, .vip-content-2 p {
   font-size: 0.9rem;
@@ -81,4 +83,106 @@
   height: 60vw;
   -o-object-fit: contain;
      object-fit: contain;
+}
+.vip .perso2 {
+  display: none;
+  position: absolute;
+  width: 40vw;
+  bottom: 80vw;
+  left: 3vw;
+}
+.vip .perso2 img {
+  width: 50vw;
+  height: 60vw;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+@media (min-width: 706px) {
+  .vip {
+    background-position: center;
+  }
+  .vip h1 {
+    font-size: 2.5rem;
+  }
+  .vip h2 {
+    font-size: 2.1rem;
+  }
+  .vip-layout {
+    top: 3vh;
+  }
+  .vip-layout .vip-content-1, .vip-layout .vip-content-2 {
+    width: 50%;
+    padding: 0 2rem 0;
+    margin: 0;
+  }
+  .vip-layout .vip-content-1 h3, .vip-layout .vip-content-2 h3 {
+    font-size: 2.1rem;
+    padding: 0 0 1rem;
+  }
+  .vip-layout .vip-content-1 p, .vip-layout .vip-content-2 p {
+    font-size: 1.1rem;
+    padding: 0;
+    margin: 0;
+  }
+  .vip-layout .vip-content-1 {
+    align-self: start;
+  }
+  .vip-layout .vip-content-2 {
+    align-self: end;
+  }
+  .vip-layout .vip-content-2 p {
+    text-align: end;
+  }
+  .vip .perso1 {
+    width: 25vw;
+    height: 30vw;
+    border: 3px solid #ea4c6f;
+    bottom: 15vh;
+    right: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .vip .perso1 img {
+    width: 30vw;
+    height: 60vw;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .vip .perso2 {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    bottom: 15vw;
+    left: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .vip .perso2 img {
+    width: 30vw;
+    height: 40vw;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+}
+@media (min-width: 1250px) {
+  .vip {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .vip .perso2 {
+    width: 20vw;
+    bottom: 5vw;
+    left: 3vw;
+  }
+  .vip .perso2 img {
+    width: 30vw;
+    height: 40vw;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
 }/*# sourceMappingURL=vip.css.map */
