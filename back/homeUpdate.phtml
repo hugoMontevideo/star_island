@@ -1,0 +1,30 @@
+<div class="container-sm">
+
+    <h2>hello world</h2>
+    
+    <form class="bg-light">
+        <legend>Modification du contenu de la page d'accueil</legend>
+        <div class="form-group">
+            <label for="title-page">Titre de la page</label>
+            <input 
+            type="text" 
+            class="form-control" 
+            id="title-page" 
+            value="<?= $title_page ?>" 
+            aria-describedby="inputHelp">
+            <small id="inputHelp" class="form-text text-muted">Titre</small>
+        </div>
+        <div class="form-group">
+            <label for="uri-page">Contenu de la page</label>
+            <input 
+            type="text" 
+            class="form-control" 
+            id="uri-page" 
+            value="<?= $text_page ?>" 
+            aria-describedby="inputHelp">
+            <small id="inputHelp" class="form-text text-muted">Contenu</small>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+</div>

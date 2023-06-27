@@ -70,6 +70,16 @@ function password_strength_check($password, $min_len = 6, $max_len = 15, $req_di
     }
 }
 
+/*
+ * valider mot de passe
+ * @param string $mdp
+ */
+function isValidMDP($mdp)
+{
+  return preg_match('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,20}$/', $mdp)  ;
+}
+
+
 function connect()
 {
     if (isset($_SESSION['user'])){

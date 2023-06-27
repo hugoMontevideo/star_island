@@ -11,8 +11,11 @@ require_once 'config/function.php';
 //     exit();
 // }
 // ***************** end teaser ******************
-
-require_once 'inc/header.inc.php';
+if(isset ($_GET['action']) && $_GET['action'] == 'indexBack'){
+    require_once 'inc/backheader.inc.phtml';  
+}else{
+    require_once 'inc/header.inc.php';
+}
 
 if (isset($_GET['a']) && $_GET['a']=='dis'){
 
@@ -29,15 +32,27 @@ if ( isset($_GET['action'])){
 }else{
     $action = 'home';
 }
+// var_dump($_GET['action']); die();
 
+if( $action == 'team' 
+    || $action == 'register'
+    || $action == 'login'
+    || $action == 'userList'
+    || $action == 'home'
+    || $action == 'indexBack'
+    || $action == 'homeUpdate'
+){
 
-if( $action == 'team' ){
-
-    require_once 'back/controllers/' .$action. ".php";                
+    require_once 'back/controllers/' .$action. ".php";  
 
 }else{
     
     require_once $action. ".php";                
 }
 
-require_once 'inc/footer.inc.php';         
+
+if(isset ($_GET['action']) && $_GET['action'] == 'indexBack'){
+    require_once 'inc/backheader.inc.phtml';  
+}else{
+    require_once 'inc/footer.inc.php';         
+}

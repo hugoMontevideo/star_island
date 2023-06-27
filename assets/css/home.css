@@ -417,4 +417,21 @@ section.home2 .etoiles i {
     width: 70%;
     margin: 0 auto;
   }
+}
+@media (min-width: 1100px) {
+  .diaporama .caption {
+    top: 10vh;
+    max-width: 50vw;
+  }
+  .diaporama .caption h1 {
+    font-size: 4rem;
+    width: 30rem;
+    margin: 0 auto 7rem;
+  }
+  .diaporama .caption p {
+    font-size: 2rem;
+  }
+  .diaporama .puces {
+    bottom: 15rem;
+  }
 }/*# sourceMappingURL=home.css.map */
