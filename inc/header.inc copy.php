@@ -1,4 +1,4 @@
-
+<!-- Copie pour laisser une trace -->
 <!doctype html>
 <html lang="fr">
 <head>
@@ -48,7 +48,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="?action=team">L'EQUIPE</a>
                     </li>
-<?php //if (admin()): ?>
+                    <?php     //if (admin()):           ?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">ADMIN</a>
                         <div class="dropdown-menu">
@@ -59,9 +59,15 @@
                             <a class="dropdown-item" href="<?=  BASE_PATH.'back/'; ?>">Accès Back-office</a>
                         </div>
                     </li>
-<?php //endif; ?>
+                    <?php //endif; ?>
 
                 </ul>
+                <?php //if (connect()): ?>
+                <a href="<?=  BASE_PATH.'?a=dis'; ?>" class="btn btn-primary">Déconnexion</a>
+                <?php    // else:           ?>
+                <a href="<?=  BASE_PATH.'security/login.php'; ?>" class="btn btn-primary">Connexion</a>
+                <a href="<?=  BASE_PATH.'security/register.php'; ?>" class="btn btn-success">Inscription</a>
+                <?php  //endif; ?>
             </div>
         </div>
     </nav>
