@@ -25,10 +25,13 @@ if (!connect()){
                             header('location:userList.php');
                             exit;
             }else{
-                execute("UPDATE user SET role=:role WHERE id=:id",array(
-                    ':role'=>'ROLE_USER',
-                    ':id'=>$_GET['i']
-                ));
+                execute("UPDATE user 
+                        SET role=:role 
+                        WHERE id=:id",
+                        array(
+                            ':role'=>'ROLE_USER',
+                            ':id'=>$_GET['i']
+                    ));
             header('location:userList.php');
             exit;
             }
@@ -65,7 +68,6 @@ if (!connect()){
             <td><?=  $user['email_user']; ?></td>
             <td>
                 <a href="<?=  BASE_PATH.'back/editProfil.php?a=edit&i='.$user['id_user']; ?>" class="btn btn-success">Modifier</a>
-
                 <a href="?a=del&i=<?=  $user['id_user']; ?>" class="btn btn-danger">Supprimer</a>
             </td>
         </tr>

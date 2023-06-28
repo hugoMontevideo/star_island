@@ -23,7 +23,7 @@ if (!empty($_POST)){
                 
                 $_SESSION['user'] = $user; // array = array
                 // $_SESSION['messages']['success'][]="Bienvenue $user[nickname]!!!!";
-                header("Location:index.php?action=indexBack");
+                header("Location:index.php?action=media_type&back=true");
                 exit();
 
             }else{
