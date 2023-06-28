@@ -11,7 +11,7 @@ require_once 'config/function.php';
 //     exit();
 // }
 // ***************** end teaser ******************
-if(isset ($_GET['action']) && $_GET['action'] == 'indexBack'){
+if(isset ($_GET['back']) && $_GET['back'] == 'true'){
     require_once 'inc/backheader.inc.phtml';  
 }else{
     require_once 'inc/header.inc.php';
@@ -34,24 +34,25 @@ if ( isset($_GET['action'])){
 }
 // var_dump($_GET['action']); die();
 
-if( $action == 'team' 
-    || $action == 'register'
-    || $action == 'login'
-    || $action == 'userList'
-    || $action == 'home'
-    || $action == 'indexBack'
-    || $action == 'homeUpdate'
-){
+// if( $action == 'team' 
+//     || $action == 'register'
+//     || $action == 'login'
+//     || $action == 'userList'
+//     || $action == 'home'
+//     || $action == 'indexBack'
+//     || $action == 'homeUpdate'
+// ){
 
     require_once 'back/controllers/' .$action. ".php";  
 
-}else{
+// }else{
     
-    require_once $action. ".php";                
-}
+//     require_once $action. ".php";                
+// }
 
 
-if(isset ($_GET['action']) && $_GET['action'] == 'indexBack'){
+if(isset ($_GET['back']) && $_GET['back'] == 'true'){
+// if(isset ($_GET['action']) && $_GET['action'] == 'indexBack'){
     require_once 'inc/backheader.inc.phtml';  
 }else{
     require_once 'inc/footer.inc.php';         
