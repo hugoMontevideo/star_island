@@ -3,8 +3,7 @@ $requete = execute("
     SELECT *
     FROM media_type",
     array(':id_media'=>'1')
-);
-// $data = [];
+    );
 $data = $requete->fetchAll(PDO::FETCH_ASSOC);
 
 if(isset($_GET) && isset($_GET['id'])){
@@ -18,19 +17,24 @@ if(isset($_GET) && isset($_GET['id'])){
 }
 
 if( !empty($_POST) ){
-    // debug($_POST);die();
-    execute("UPDATE media_type
-            SET title_media_type=:title 
-            WHERE id_media_type=:id",
-            array(':id'=>$_POST['id_media_type'],
-                    ':title'=>$_POST['title_media_type']
-
-            )
-        );
-
-    $_SESSION['message']['success']='Média type modifié';
-    header('location:index.php?action=media_type');
-    exit();
+    if(!empty($_POST['title_media_type'])){
+        // debug($_POST);die();
+        execute("UPDATE media_type
+                SET title_media_type=:title 
+                WHERE id_media_type=:id",
+                array(':id'=>$_POST['id_media_type'],
+                        ':title'=>$_POST['title_media_type']
+    
+                )
+            );
+    
+        $_SESSION['message']['success']='Média type modifié';
+        header('location:index.php?action=media_type&back=true');
+        exit();
+    }else{
+        $_SESSION['message']['danger']='Veuillez remplir le type de média';
+        header('location:index.php?action=media_type&back=true');
+    }
 
 }
 
