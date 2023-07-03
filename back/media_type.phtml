@@ -21,8 +21,8 @@
     <table class="table table-dark table-striped w-75 mx-auto">
         <thead>
             <tr>
-                <th>Titre</th>
-                <th>Actions</th>
+                <th class="text-center">Titre</th>
+                <th class="text-center">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -30,7 +30,7 @@
             <tr>
                 <td class="text-center"><?= $array['title_media_type'] ?></td>
                 <td class="text-center">
-                    <a href="<?= '?action=editMediaType&id='. $array['id_media_type'] ?>" 
+                    <a href="<?= '?action=editMediaType&id='. $array['id_media_type'].'&back=true' ?>" 
                         class="btn btn-outline-info">
                         Modifier
                     </a>
