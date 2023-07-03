@@ -15,9 +15,9 @@ function execute(string $requete, array $data=[],$lastId=null)
         // ici on réaffecte à notre tableau $data
         // les nouvelles valeurs échappées et sans espaces pour chaque tour de boucle
         $data[$marqueur]=trim(htmlspecialchars($valeur));
-
     }
     $pdo=Db::getDB(); // connexion à la BDD provenant de Db.php
+    // var_dump($pdo); die();
     $resultat= $pdo->prepare($requete);// on prépare la requête envoyée avec marqueur (:marqueur)
 
     $success=$resultat->execute($data);// on execute en passant notre tableau associatif de nos marqueurs avec leur valeurs

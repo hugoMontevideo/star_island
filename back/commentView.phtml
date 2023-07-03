@@ -1,0 +1,65 @@
+<div class="container-sm">   
+    <h2 for="media_type">Gestion des commentaires</h2>
+    <h4>Commentaires à valider</h4>
+    <table class="table table-dark table-striped w-90 mx-auto">
+        <thead>
+            <tr>
+                <th class="text-center">Pseudo</th>
+                <th class="text-center">Message</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+          <?php foreach($data as $key => $array): ?>   
+            <?php if( $array['is_valid'] == 0): ?>     
+            <tr>
+                <td class="text-center"><?= $array['nickname_comment'] ?></td>
+                <td class="text-center"><?= $array['text_comment'] ?></td>
+                <td class="text-center">
+                    <a href="<?= '?action=editComment&id='. $array['id_comment'].'&back=true&v=1' ?>" 
+                        class="btn btn-outline-info">
+                        Valider
+                    </a>
+                    <a href="<?= '?action=deleteComment&id='. $array['id_comment'].'&back=true&' ?>" 
+                        onclick="return confirm('Etes-vous sûr')" class="btn btn-outline-danger">
+                        Supprimer
+                    </a>
+                </td>
+            </tr>
+            <?php endif; ?>
+          <?php endforeach; ?>
+        </tbody>
+    </table>
+
+    <h4>Commentaires validés</h4>
+    <table class="table table-dark table-striped w-90 mx-auto">
+        <thead>
+            <tr>
+                <th class="text-center">Pseudo</th>
+                <th class="text-center">Message</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+          <?php foreach($data as $key => $array): ?>   
+            <?php if( $array['is_valid'] == 1): ?>     
+            <tr>
+                <td class="text-center"><?= $array['nickname_comment'] ?></td>
+                <td class="text-center"><?= $array['text_comment'] ?></td>
+                <td class="text-center">
+                    <a href="<?= '?action=editComment&id='. $array['id_comment'].'&back=true&v=0' ?>" 
+                        class="btn btn-outline-info">
+                        Invalider
+                    </a>
+                    <a href="<?= '?action=deleteComment&id='. $array['id_comment'].'&back=true' ?>" 
+                        onclick="return confirm('Etes-vous sûr')" class="btn btn-outline-danger">
+                        Supprimer
+                    </a>
+                </td>
+            </tr>
+            <?php endif; ?>
+          <?php endforeach; ?>
+        </tbody>
+    </table>
+
+</div>

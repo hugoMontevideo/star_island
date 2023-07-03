@@ -6,9 +6,9 @@
                     <img id="home-img" src="assets/pictures/gta_decors1-mob.jpg" alt="photo de la ville"> 
                     <div class="layout-section"></div><!-- filtre de l'image de fond -->
                     <div class="caption">
-                        <h1><?= $title_page ?></h1>
+                        <h1>Bienvenue sur STAR'ISLAND</h1>
                         <!-- <p id="home-p">Relevez des défis passionnants, participez à des courses effrénées et explorez un monde rempli de possibilités infinies. Notre équipe est prête à vous aider et à vous accompagner.  Respectez les règles du serveur, faites preuve de fair-play et préparez-vous à créer des souvenirs inoubliables.</p> -->
-                        <p><?= $text_page ?></p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum at, ipsum accusantium doloremque id neque veritatis sint voluptate aliquam? Animi quia eius numquam odit nam. Reprehenderit eligendi vitae ratione error.</p>
                         <i class="fa fa-star" aria-hidden="true"></i>
                     </div>   
                 </div>
@@ -91,22 +91,18 @@
 
         <!-- <div class="layout-section"></div> -->
     </section>
-    <section class="home2">
+    <section id="home2" class="home2">
         <div class="home2-container">
             <div class="element">
                 <img id="home2-img" src="assets/pictures/gta_decors7-mob.jpg" alt="image de fond">
                 <div class="layout-section2"></div>
             </div>
             <div class="home2-avis">
+              <?php foreach($data as $key => $array): ?>
                 <div class="avis" >
                     <img class="avatar" src="assets/pictures/avatar-homme1.jpg" alt="avatar-profil">
                     <div class="avis-container">
-                        <div class="etoiles" data-star="3">
-                            <!-- <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                            <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                            <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                            <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                            <img src="assets/pictures/icons8-star-nofill.png" alt="avis-star"> -->
+                        <div class="etoiles" data-star="<?= $array['rating_comment'] ?>">
                             <i class="fa fa-star home2-star" aria-hidden="true"></i>
                             <i class="fa fa-star home2-star" aria-hidden="true"></i>
                             <i class="fa fa-star home2-star" aria-hidden="true"></i>
@@ -116,12 +112,15 @@
 
                         </div>
                         <div class="texte">
-                            Lorem ipsum dolor sit amet consectetur unde.
+                            <?= substr($array['text_comment'], 0, 30 ) ?>
                         </div>
+                        <?php $date = new DateTime($array['publish_date_comment']); ?>
+                        <small>Publié le <?= $date->format('d-m-Y à H:i:s') ?></small>
                     </div>
                 </div>
+              <?php endforeach ; ?>
                
-                <div class="avis" >
+                <!-- <div class="avis" >
                     <img class="avatar" src="assets/pictures/avatar-cochon.jpg" alt="avatar-profil">
                     <div class="avis-container">
                         <div class="etoiles" data-star="2">
@@ -150,10 +149,10 @@
                             Lorem ipsum dolor sit amet consectetur aunde.
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             
-            <form class="home2-form" action="">
+            <form class="home2-form" action="" method="post">
                 <fieldset>                
                     <legend>Ton avis nous intéresse</legend>
                     <div class="etoiles">
@@ -163,9 +162,18 @@
                         <i class="fa fa-star home2-star" aria-hidden="true"></i>
                         <i class="fa fa-star home2-star" aria-hidden="true"></i>
                     </div>
-                    <input type="hidden" id="home2StarInput" value="3">
+                    <input type="hidden" id="home2StarInput" name="rating_comment" value="3">
                     <div>
-                        <textarea name="" id="home2-textarea" rows="2">Ecris ton commentaire ici.</textarea>
+                        <label for="nickname_comment">Pseudo</label>
+                        <input type="text" name="nickname_comment" id="nickname_comment" value="">
+                    </div>
+                    <div>
+                        <textarea 
+                            name="text_comment" 
+                            id="home2-textarea" 
+                            rows="2"
+                            minlength="2"
+                            maxlength="127" required>Ecris ton commentaire ici</textarea>
                     </div>
                     <button type="submit">Publier</button>
                 </fieldset>

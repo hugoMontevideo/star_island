@@ -1,0 +1,113 @@
+<div class="container-sm">   
+    <form class="w-75 mx-auto mt-5 mb-5" action="" method="post" enctype="multipart/form-data" >
+        <legend><?= $motif ?>
+        <?php 
+    var_dump($picture_bdd)
+         ?>
+    </legend>
+
+        <div class="form-group">
+            <small class="text-danger">*</small>
+            <label for="title_media">Titre du média ou alt du fichier</label>
+            <input 
+                id="title_media" 
+                type="text" 
+                name="title_media"
+                class="form-control" 
+                    <?php foreach ($data as $key => $array4) : ?>
+                        <?php if (isset($_GET['id']) && $array4['id_media'] == $_GET['id']): ?>
+                            value="<?= $array4['title_media'] ?>"           
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                placeholder="Titre ou 'alt' du fichier"
+                aria-describedby="inputHelp">
+            <small class="text-danger"><?php $error ?? ''; ?></small>
+        </div> 
+
+        <div class="form-group">
+            <!-- <small class="text-danger">*</small> -->
+            <label for="name_media">Url (à remplir seulement si c'est un link vers Discord, Tweeter ou autre)</label>
+            <input 
+                id="name_media" 
+                type="text" 
+                name="name_media"
+                class="form-control" 
+                <?php foreach ($data as $key => $array4) : ?>
+                    <?php if (isset($_GET['id']) && $array4['id_media'] == $_GET['id']): ?>
+                        value="<?= $array4['name_media'] ?>"           
+                    <?php endif; ?>
+                <?php endforeach; ?>
+                placeholder="Url du média"
+                aria-describedby="inputHelp">
+            <small class="text-danger"><?php $error1 ?? ''; ?></small>
+        </div> 
+
+        <div class="form-group">
+        <?php // var_dump($data); die(); ?>     
+            <label for="id_media_type">Selectionnez le type de média</label>
+            <select class="form-control" id="id_media_type" name="id_media_type">
+              <?php foreach($dataSelect as $key1 => $array1): ?>   
+                <option value="<?= $array1['id_media_type'] ?>"
+                <?php if(isset( $data1 )): ?>
+                    <?php // var_dump($array1); die(); ?>     
+                    <?= ( $array1['id_media_type'] == $data1['id_media_type'] ) ?'selected' :''; ?>
+                  <?php endif; ?>
+                >
+                    <?= $array1['title_media_type'] ?>
+                </option>
+              <?php endforeach ; ?>  
+                <!-- <option value="">Autre</option>   -->
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <label for="media_file">Choisir un fichier</label>
+            <input type="file"
+                id="media_file" name="media_file"
+                accept="image/png, image/jpeg">
+        </div>
+
+        
+        <input type="hidden" name="id_media" value="<?= $_GET['id'] ?? '' ?>">       
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+
+    <table class="table table-dark table-striped w-75 mx-auto">
+        <thead>
+            <tr>
+                <th class="text-center">Titre</th>
+                <th class="text-center">Url</th>
+                <th class="text-center">Type</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+          <?php foreach($data as $key => $array): ?>        
+            <tr>
+                <td class="text-center"><?= $array['title_media'] ?></td>
+                <td class="text-center"><?= $array['name_media'] ?></td>
+
+              <?php foreach($dataSelect as $key1 => $array1): ?>  
+
+                <?php if( $array['id_media_type']  == $array1['id_media_type'] ): ?>
+                    <td class="text-center"><?= $array1['title_media_type'] ?></td>
+                <?php endif; ?>
+
+              <?php endforeach ; ?>  
+
+                <td class="text-center">
+                    <a href="<?= '?action=editMedia&id='. $array['id_media'] .'&back=true' ?>" 
+                        class="btn btn-outline-info">
+                        Modifier
+                    </a>
+                    <a href="<?= '?action=deleteMedia&id='. $array['id_media'].'&back=true' ?>" 
+                        onclick="return confirm('Etes-vous sûr')" 
+                        class="btn btn-outline-danger">
+                        Supprimer
+                    </a>
+                </td>
+            </tr>
+          <?php endforeach ?>
+        </tbody>
+    </table>
+
+</div>
