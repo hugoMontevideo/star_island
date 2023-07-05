@@ -33,7 +33,7 @@ $dataSelect = $requete->fetchAll(PDO::FETCH_ASSOC);
         $url_media = '';
         if(!empty($_FILES['media_file']['name'])){
             $url_media='upload/'.uniqid().date_format(new DateTime(),'d_m_Y_H_i_s'). '_' . $_FILES['media_file']['name'];
-
+            // chargement du fiehier dans le serveur
             move_uploaded_file($_FILES['media_file']['tmp_name'], 'assets/'. $url_media);       
             // var_dump($picture_bdd); die();
     }
@@ -66,7 +66,8 @@ $dataSelect = $requete->fetchAll(PDO::FETCH_ASSOC);
 
 }
 
-
+// $js = $action . '.js';
+$js = 'assets/js/controllers_js/listMedia.js';
 $motif = 'Ajouter un média';
 $content = "mediaView";
 include_once 'back/indexBack.phtml';

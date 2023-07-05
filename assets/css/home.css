@@ -47,7 +47,7 @@ section.home .layout-section2 {
 }
 .diaporama .caption {
   position: absolute;
-  top: 7vh;
+  top: 10vh;
   color: white;
   display: flex;
   flex-direction: column;
@@ -55,7 +55,7 @@ section.home .layout-section2 {
 }
 .diaporama .caption h1 {
   color: white;
-  font-size: 2.1rem;
+  font-size: 2.3rem;
   margin: 0 0 1em;
   font-family: "Oswald", Arial, Helvetica, sans-serif;
   text-transform: none;
@@ -116,6 +116,10 @@ section.home .layout-section2 {
 .diaporama .element-slider .cascade-slider_container .cascade-slider_item img {
   max-width: 60vw;
   border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .diaporama .element-slider .cascade-slider_container .cascade-slider_item.prev {
   left: 50%;
@@ -147,7 +151,6 @@ section.home .layout-section2 {
   display: flex;
   position: absolute;
   bottom: 0;
-  background-color: black;
   left: 50%;
   transform: translate(-50%);
   border-radius: 3px;
@@ -156,6 +159,7 @@ section.home .layout-section2 {
 .diaporama .element-slider .arrow-container .cascade-slider_arrow {
   display: inline-block;
   cursor: pointer;
+  background-color: rgb(28, 25, 25);
   z-index: 20;
   opacity: 1;
   padding: 1rem;
@@ -252,7 +256,7 @@ section.home2 .home2-avis {
   width: 90%;
   left: 50%;
   transform: translate(-50%);
-  top: 4%;
+  top: 1%;
   color: white;
   display: flex;
   flex-direction: column;
@@ -290,10 +294,13 @@ section.home2 .avis .texte {
   text-align: left;
   margin: 1rem 0 0;
 }
+section.home2 .avis small {
+  font-size: 0.6rem;
+}
 section.home2 .home2-form fieldset {
   position: absolute;
   width: 90%;
-  bottom: 7em;
+  bottom: 6rem;
   left: 50%;
   display: flex;
   flex-direction: column;
@@ -308,7 +315,13 @@ section.home2 .home2-form fieldset legend {
   text-align: center;
   font-size: 1.5em;
 }
-section.home2 .home2-form fieldset textarea {
+section.home2 .home2-form fieldset input#nickname_comment::-moz-placeholder {
+  color: white;
+}
+section.home2 .home2-form fieldset input#nickname_comment::placeholder {
+  color: white;
+}
+section.home2 .home2-form fieldset textarea, section.home2 .home2-form fieldset input {
   border: none;
   border-radius: 6px;
   margin: 1em 0 0;
@@ -356,9 +369,6 @@ section.home2 .etoiles i {
   }
   .diaporama .caption p {
     font-size: 1.5rem;
-  }
-  .diaporama .puces {
-    bottom: 20vh;
   }
   .diaporama .element-slider #slider {
     width: 70%;
@@ -419,19 +429,128 @@ section.home2 .etoiles i {
   }
 }
 @media (min-width: 1100px) {
-  .diaporama .caption {
-    top: 10vh;
+  .diaporama .element-home .caption {
+    top: 5vh;
     max-width: 50vw;
   }
-  .diaporama .caption h1 {
-    font-size: 4rem;
+  .diaporama .element-home .caption h1 {
+    font-size: 3rem;
+    margin: 0 3rem 2rem;
     width: 30rem;
-    margin: 0 auto 7rem;
   }
-  .diaporama .caption p {
-    font-size: 2rem;
+  .diaporama .element-home .caption p {
+    font-size: 1.2rem;
+  }
+  .diaporama .element-slider .caption {
+    top: 2.5rem;
+  }
+  .diaporama .element-slider .caption h1 {
+    width: 100%;
+  }
+  .diaporama .element-slider #slider {
+    top: 40%;
+    left: 50%;
+    width: 50vw;
+  }
+  .diaporama .element-slider .cascade-slider_container {
+    height: 60vh;
+  }
+  .diaporama .element-slider .cascade-slider_container .cascade-slider_item img {
+    max-width: 60vw;
+  }
+  .diaporama .element-slider .arrow-container {
+    left: 90%;
+  }
+  .diaporama .element-slider .arrow-container .cascade-slider_arrow {
+    padding: 0.8rem;
+  }
+  .diaporama .element-slider .arrow-container .cascade-slider_arrow:hover {
+    background-color: black;
+  }
+  .diaporama .element-serveur .caption {
+    top: 2rem;
+  }
+  .diaporama .element-serveur .home-page3-form {
+    top: 7rem;
+  }
+  .diaporama .element-serveur .home-page3-form fieldset {
+    padding: 1rem 3rem;
+  }
+  .diaporama .element-serveur .home-page3-form fieldset img#top-serveur {
+    width: 5rem;
+    height: 2.8rem;
+  }
+  .diaporama .element-serveur .home-page3-form fieldset legend {
+    font-size: 2.1rem;
+    margin: 0 0 1rem;
+  }
+  .diaporama .element-serveur .home-page3-form fieldset .etoiles i {
+    font-size: 1rem;
+  }
+  .diaporama .element-serveur .home-page3-form fieldset textarea {
+    font-size: 1rem;
+    margin: 1rem 0;
+    height: 4rem;
+  }
+  .diaporama .element-serveur .home-page3-form fieldset button {
+    font-size: 1.2rem;
+    width: 10rem;
   }
   .diaporama .puces {
-    bottom: 15rem;
+    bottom: 10rem;
+  }
+  .diaporama .puces div {
+    width: 15px;
+    height: 15px;
+    border: solid 2px white;
+  }
+  .diaporama .puces div.active {
+    border: solid 3px #e83e8c;
+  }
+  #home2 .home2-container .home2-avis {
+    top: 1rem;
+  }
+  #home2 .home2-container .home2-avis .avis {
+    padding: 0.5rem;
+  }
+  #home2 .home2-container .home2-avis .avis .avis-container {
+    width: 80%;
+  }
+  #home2 .home2-container .home2-avis .avis .avis-container .etoiles i {
+    font-size: 0.5rem;
+  }
+  #home2 .home2-container .home2-avis .avis .texte {
+    font-size: 0.7rem;
+    margin: 0.4rem 0 0;
+  }
+  #home2 .home2-container .home2-avis .avis small {
+    font-size: 0.5rem;
+  }
+  #home2 .home2-container .home2-avis .avis img {
+    width: 4rem;
+    height: 4rem;
+  }
+  #home2 .home2-form fieldset {
+    bottom: 5.5rem;
+    padding: 0 3rem 1rem;
+    width: 60%;
+  }
+  #home2 .home2-form fieldset legend {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+  }
+  #home2 .home2-form fieldset .etoiles i {
+    font-size: 0.7rem;
+  }
+  #home2 .home2-form fieldset textarea, #home2 .home2-form fieldset input {
+    font-size: 0.8rem;
+    margin: 0.5rem 0 0;
+  }
+  #home2 .home2-form fieldset textarea {
+    height: 2.5rem;
+  }
+  #home2 .home2-form fieldset button {
+    font-size: 0.9rem;
+    margin: 0.4rem auto 0;
   }
 }/*# sourceMappingURL=home.css.map */

@@ -4,7 +4,26 @@
 // $title_page = 'home serveur';
 // $title_page = 'home comment';
 
+//page avis
+// header('location:http://localhost/PHP/star_island');
+debug($_SERVER); die();
+// exit();
 
+$requete = execute("SELECT * FROM page
+                    INNER JOIN content
+                    ON page.id_page = content.id_page WHERE page.title_page='home accueil'" ,
+                    array(':id_comment'=>'1')
+            );
+$data = $requete->fetchAll(PDO::FETCH_ASSOC);
+// debug($data); die;
+foreach($data as $key => $array){
+    if($array['title_content'] == 'titre'){
+        $titrePage =$array['description_content'] ;
+    }
+    if($array['title_content'] == 'texte'){
+        $textePage =$array['description_content'] ;
+    }
+}
 
 
 //page avis
@@ -47,11 +66,6 @@ if( !empty($_POST) ){
         exit();
     }
 }
-
-
-
-
-
 
 
 

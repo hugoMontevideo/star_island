@@ -1,5 +1,11 @@
 <?php  
-require_once 'config/function.php';           
+require_once 'config/function.php';  
+
+// le chemin absolu de l'application
+const BASE_PATH_DIR = __DIR__ ;
+// $bool = unlink(BASE_PATH_DIR . '/assets/upload/avatar/team/64a42939a23c404_07_2023_14_14_17_avatar-cochon.jpg');
+// header('location:http://localhost/PHP/star_island');
+// var_dump($bool); die;
 
 // ***************** teaser ******************
 // $current_date = new \DateTime();
@@ -43,7 +49,7 @@ if ( isset($_GET['action'])){
 //     || $action == 'homeUpdate'
 // ){
 
-    require_once 'back/controllers/' .$action. ".php";  
+    require_once 'back/controllers/' .$action. '.php';  
 
 // }else{
     
