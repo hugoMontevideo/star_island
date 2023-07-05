@@ -176,7 +176,6 @@
                         <?php unset($_SESSION['message']); ?>
                     <?php endif; ?>
                     <!-- Page Heading -->
-                    <h1>PLAGE </h1>
 
                     <?php include "back/".$content.".phtml" ?>
 
@@ -198,6 +197,9 @@
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/jquery-easing/jquery.easing.min.js"></script>
     <script src="assets/js/sb-admin-2.min.js"></script>
+    <?php if (isset( $js)) : ?>
+        <script src="<?= $js ?>"></script>
+    <?php endif; ?> 
 
 </body>
 

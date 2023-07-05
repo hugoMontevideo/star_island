@@ -8,6 +8,19 @@ function debug($data)
     echo '</pre>';
 }
 
+
+
+function insertIntoTeamMedia( $lastIdMedia, $lastIdTeam ){
+    $pdo=Db::getDB();
+    $resultat = $pdo->prepare("INSERT INTO team_media (id_media, id_team)
+                                VALUES (:id_media, :id_team)");
+    $lastId = $resultat->execute(array( ':id_media' =>trim(htmlspecialchars($lastIdMedia)) , 
+                                        ':id_team' => trim(htmlspecialchars($lastIdTeam )) 
+                                        )
+                                    );
+    return $lastId;
+}
+
 function execute(string $requete, array $data=[],$lastId=null)
 {
     // boucle pour echapper les caractères speciaux (pour neutraliser les balise <style> ou <script>) en entité html et de même supprimer les espaces éventuels en début de fin de chaine de caractère

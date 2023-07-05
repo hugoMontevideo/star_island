@@ -23,3 +23,5 @@ const CONFIG=[
 
 const BASE_PATH='/PHP/star_island/';
 
+// const BASE_PATH_DIR = __DIR__ . '/../' ;
+

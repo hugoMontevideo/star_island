@@ -1,74 +1,207 @@
 <div class="container-sm">   
-    <form class="w-75 mx-auto mt-5 mb-5" action="" method="post" >
-        <legend><?= $motif ?></legend>
+    <div class="row">
+        <div class="col-12 col-lg-6 ">
 
-        <div class="form-group">
-            <small class="text-danger">*</small>
-            <label for="nickname_team">Pseudo</label>
-            <input 
-                id="nickname_team" 
-                type="text" 
-                name="nickname_team"
-                class="form-control" 
-                    <?php foreach ($data as $key => $array4) : ?>
-                        <?php if (isset($_GET['id']) && $array4['id_team'] == $_GET['id']): ?>
-                            value="<?= $array4['nickname_team'] ?>"           
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                placeholder="Pseudo du collègue"
-                aria-describedby="inputHelp">
-            <small class="text-danger"><?php $error ?? ''; ?></small>
-        </div> 
+            <form class="mx-auto mt-5 mb-5" 
+                action="" 
+                method="post" 
+                enctype="multipart/form-data" >
+                <legend><?= $motif ?></legend>
 
-        <div class="form-group">
-            <small class="text-danger">*</small>
-            <label for="role_team">Rôle</label>
-            <input 
-                id="role_team" 
-                type="text" 
-                name="role_team"
-                class="form-control" 
-                <?php foreach ($data as $key => $array4) : ?>
-                    <?php if (isset($_GET['id']) && $array4['id_team'] == $_GET['id']): ?>
-                        value="<?= $array4['role_team'] ?>"           
-                    <?php endif; ?>
-                <?php endforeach; ?>
-                placeholder="Rôle"
-                aria-describedby="inputHelp">
-            <small class="text-danger"><?php $error1 ?? ''; ?></small>
-        </div> 
-        
-        <input type="hidden" name="id_team" value="<?= $_GET['id'] ?? '' ?>">       
-        <button type="submit" class="btn btn-primary">Envoyer</button>
-    </form>
+                <div class="form-group">
+                    <small class="text-danger">*</small>
+                    <label for="nickname_team">Pseudo</label>
+                    <input 
+                        id="nickname_team" 
+                        type="text" 
+                        name="nickname_team"
+                        class="form-control" 
+                            <?php foreach ($data as $key => $array4) : ?>
+                                <?php if (isset($_GET['id']) && $array4['id_team'] == $_GET['id']): ?>
+                                    value="<?= $array4['nickname_team'] ?>"           
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        placeholder="Pseudo du collègue"
+                        aria-describedby="inputHelp">
+                    <small class="text-danger"><?php $error ?? ''; ?></small>
+                </div> 
 
-    <table class="table table-dark table-striped w-75 mx-auto">
-        <thead>
-            <tr>
-                <th class="text-center">Pseudo</th>
-                <th class="text-center">Role</th>
-                <th class="text-center">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-          <?php foreach($data as $key => $array): ?>        
-            <tr>
-                <td class="text-center"><?= $array['nickname_team'] ?></td>
-                <td class="text-center"><?= $array['role_team'] ?></td>
-                <td class="text-center">
-                    <a href="<?= '?action=editTeam&id='. $array['id_team'] .'&back=true' ?>" 
-                        class="btn btn-outline-info">
-                        Modifier
-                    </a>
-                    <a href="<?= '?action=deleteTeam&id='. $array['id_team'].'&back=true' ?>" 
-                        onclick="return confirm('Etes-vous sûr')" 
-                        class="btn btn-outline-danger">
-                        Supprimer
-                    </a>
-                </td>
-            </tr>
-          <?php endforeach ?>
-        </tbody>
-    </table>
+                <div class="form-group">
+                    <small class="text-danger">*</small>
+                    <label for="role_team">Rôle</label>
+                    <input 
+                        id="role_team" 
+                        type="text" 
+                        name="role_team"
+                        class="form-control" 
+                        <?php foreach ($data as $key => $array4) : ?>
+                            <?php if (isset($_GET['id']) && $array4['id_team'] == $_GET['id']): ?>
+                                value="<?= $array4['role_team'] ?>"           
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                        placeholder="Rôle"
+                        aria-describedby="inputHelp">
+                    <small class="text-danger"><?php $error1 ?? ''; ?></small>
+                </div> 
+                
+                <div class="input-group mb-3">
+                    <small class="text-danger">*</small>
+                    <label for="media_file">Choisir un avatar<br></label>
+                    <input type="file"
+                        id="media_file" name="media_file"
+                        accept="image/png, image/jpeg, image/jpg, image/webp">
+                </div>
+                <!-- <div class="form-group">
+                    <small class="text-danger">*</small>
+                    <label for="title_media">Titre de l'image</label>
+                    <input 
+                        id="title_media" 
+                        type="text" 
+                        name="title_media"
+                        class="form-control" 
+                           
+                        value=""      
+                        placeholder="Titre de l'image"
+                        aria-describedby="inputHelp">
+                    <small class="text-danger"><?php // $error ?? ''; ?></small>
+                </div>  -->
 
+                <div class="form-group">
+                    <!-- <label for="github_team_media">Github</label> -->
+                    <input 
+                        id="github_team_media" 
+                        type="text" 
+                        name="github_team_media"
+                        class="form-control"                    
+                        value=""           
+                        placeholder="lien github"
+                        aria-describedby="inputHelp">
+                </div>
+                <div class="form-group">
+                    <!-- <label for="discord_team_media">Rôle</label> -->
+                    <input 
+                        id="discord_team_media" 
+                        type="text" 
+                        name="discord_team_media"
+                        class="form-control" 
+                        <?php foreach ($data as $key => $array4) : ?>
+                            <?php if (isset($_GET['id']) && $array4['id_team'] == $_GET['id']): ?>
+                                value="<?= $array4['discord_team_media'] ?>"           
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                        placeholder="lien discord"
+                        aria-describedby="inputHelp">
+                    <small class="text-danger"><?php $error1 ?? ''; ?></small>
+                </div> 
+                <div class="form-group">
+                    <!-- <label for="role_team">Rôle</label> -->
+                    <input 
+                        id="tiktok_team_media" 
+                        type="text" 
+                        name="tiktok_team_media"
+                        class="form-control" 
+                        <?php foreach ($data as $key => $array4) : ?>
+                            <?php if (isset($_GET['id']) && $array4['id_team'] == $_GET['id']): ?>
+                                value="<?= $array4['role_team'] ?>"           
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                        placeholder="lien tiktok"
+                        aria-describedby="inputHelp">
+                    <small class="text-danger"><?php $error1 ?? ''; ?></small>
+                </div> 
+                <div class="form-group">
+                    <!-- <small class="text-danger">*</small> -->
+                    <!-- <label for="tiktok_team_media">Rôle</label> -->
+                    <input 
+                        id="instagram_team_media" 
+                        type="text" 
+                        name="instagram_team_media"
+                        class="form-control" 
+                        <?php foreach ($data as $key => $array4) : ?>
+                            <?php if (isset($_GET['id']) && $array4['id_team'] == $_GET['id']): ?>
+                                value="<?= $array4['role_team'] ?>"           
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                        placeholder="lien instagram"
+                        aria-describedby="inputHelp">
+                    <small class="text-danger"><?php $error1 ?? ''; ?></small>
+                </div> 
+                <div class="form-group">
+                    <!-- <label for="role_team">Rôle</label> -->
+                    <input 
+                        id="facebook_team_media" 
+                        type="text" 
+                        name="facebook_team_media"
+                        class="form-control" 
+                        <?php foreach ($data as $key => $array4) : ?>
+                            <?php if (isset($_GET['id']) && $array4['id_team'] == $_GET['id']): ?>
+                                value="<?= $array4['role_team'] ?>"           
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                        placeholder="lien facebook"
+                        aria-describedby="inputHelp">
+                    <small class="text-danger"><?php $error1 ?? ''; ?></small>
+                </div> 
+                <div class="form-group">
+                    <!-- <label for="role_team">Rôle</label> -->
+                    <input 
+                        id="twitter_team_media" 
+                        type="text" 
+                        name="twitter_team_media"
+                        class="form-control" 
+                        <?php foreach ($data as $key => $array4) : ?>
+                            <?php if (isset($_GET['id']) && $array4['id_team'] == $_GET['id']): ?>
+                                value="<?= $array4['role_team'] ?>"           
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                        placeholder="lien twitter"
+                        aria-describedby="inputHelp">
+                    <small class="text-danger"><?php $error1 ?? ''; ?></small>
+                </div> 
+                
+                <input type="hidden" name="id_team" value="<?= $_GET['id'] ?? '' ?>">       
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            </form>
+        </div>
+        <div class="col-12 col-lg-6 ">
+
+            <table class="table table-dark table-striped mx-auto">
+                <thead>
+                    <tr>
+                        <th class="text-center">Pseudo</th>
+                        <th class="text-center">Role</th>
+                        <th class="text-center" >titre media</th>
+                        <th class="text-center" >Url media</th>
+
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+              <?php if(!empty($data1)) : ?>
+                <?php foreach($data1 as $key => $array): ?> 
+                    <?php // debug($array); die; ?>       
+                    <tr>
+                        <td class="text-center"><?= substr($array['nickname_team'],0,30) ?></td>
+                        <td class="text-center"><?= substr($array['role_team'],0,30) ?></td>
+                        <td class="text-cente "><?= substr($array['title_media'],0,30) ?></i></td>
+                        <td class="text-center "><?= substr($array['name_media'],0,30) ?></i></td>
+                        <td class="text-center">
+                            <a href="<?= '?action=editTeam&id='. $array['id_team'] .'&back=true' ?>" 
+                                class="btn btn-outline-info">
+                                <i class="far fa-edit"></i>
+                            </a>
+                            <a href="<?= '?action=deleteTeam&id='. $array['id_team'].'&back=true' ?>" 
+                                onclick="return confirm('Etes-vous sûr')" 
+                                class="btn btn-outline-danger">
+                                <i class="far fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+              <?php endif ; ?>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
 </div>
