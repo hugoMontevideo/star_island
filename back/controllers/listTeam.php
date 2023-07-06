@@ -36,8 +36,8 @@ if( isset($_FILES['media_file']) && $_FILES['media_file']['error'] == 0 ){
         if(!empty($_FILES['media_file']['name'])){
             $url_media='assets/upload/avatar/team/'.uniqid().date_format(new DateTime(),'d_m_Y_H_i_s'). '_' . $_FILES['media_file']['name'];
             // chargement du fiehier dans le serveur
-            move_uploaded_file($_FILES['media_file']['tmp_name'], 'assets/'. $url_media);       
-            // var_dump($picture_bdd); die();
+            // var_dump($url_media); die();
+            move_uploaded_file($_FILES['media_file']['tmp_name'], $url_media);       
 
         }
     }
@@ -64,12 +64,14 @@ if(!empty($_POST)){
             );
 
         // insertion de l'avatar dans medias
-        $lastIdMedia = execute("INSERT INTO media (title_media, name_media, id_media_type )
-                        VALUES (:title_media, :name_media, :id_media_type)",
-                        array( ':title_media'=> 'avatar de '.$_POST['nickname_team'],
-                                ':name_media'=> $url_media,
-                                // id media type image = 16  
-                                ':id_media_type'=> 16
+        $lastIdMedia = execute("INSERT INTO media (title_media, name_media, id_media_type, id_page )
+                                VALUES (:title_media, :name_media, :id_media_type, :id_page)",
+                            array( ':title_media'=> 'avatar de '.$_POST['nickname_team'],
+                                    ':name_media'=> $url_media,
+                                    // id media type image = 16  
+                                    ':id_media_type'=> 16,
+                                    // ** il faudrait faire une requete pour recup cet id **
+                                    'id_page' => 10  
                             ), true
                     );   
         // insertion d'une ligne dans team_media
@@ -81,76 +83,88 @@ if(!empty($_POST)){
                 );
 
         if(!empty($_POST['github_team_media'])){
-            $lastIdMedia = execute("INSERT INTO media (title_media, name_media, id_media_type )
-                    VALUES (:title_media, :name_media, :id_media_type)",
+            $lastIdMedia = execute("INSERT INTO media (title_media, name_media, id_media_type, id_page )
+                    VALUES (:title_media, :name_media, :id_media_type, :id_page)",
                 array( ':title_media'=> 'github' ,
                     ':name_media'=> $_POST['github_team_media'],
                     // id media_type lien = 18
                     // on pourrait faire une requete pour recuperer cet id 
-                    ':id_media_type'=> 18
+                    ':id_media_type'=> 18,
+                    'id_page' => 10  
+
                 ), true
             );
             insertIntoTeamMedia($lastIdMedia, $lastIdTeam);
         }
 
         if(!empty($_POST['discord_team_media'])){
-            $lastIdMedia = execute("INSERT INTO media (title_media, name_media, id_media_type )
-                    VALUES (:title_media, :name_media, :id_media_type)",
+            $lastIdMedia = execute("INSERT INTO media (title_media, name_media, id_media_type, id_page )
+                    VALUES (:title_media, :name_media, :id_media_type, :id_page )",
                 array( ':title_media'=> 'discord',
                     ':name_media'=> $_POST['discord_team_media'],
                     // id media_type lien = 16  
                     // on pourrait faire une requete pour recuperer cet id 
-                    ':id_media_type'=> 18
+                    ':id_media_type'=> 18,
+                    'id_page' => 10  
+
                 ), true
             );
             insertIntoTeamMedia($lastIdMedia, $lastIdTeam);
         }
 
         if(!empty($_POST['tiktok_team_media'])){
-            $lastIdMedia = execute("INSERT INTO media (title_media, name_media, id_media_type )
-                    VALUES (:title_media, :name_media, :id_media_type)",
-                array( ':title_media'=> 'tiktok '. $_POST['nickname_team'] ,
+            $lastIdMedia = execute("INSERT INTO media (title_media, name_media, id_media_type, id_page )
+                    VALUES (:title_media, :name_media, :id_media_type, :id_page )",
+                array( ':title_media'=> 'tiktok',
                     ':name_media'=> $_POST['tiktok_team_media'],
                     // id media_type lien = 16  
-                    ':id_media_type'=> 18
+                    ':id_media_type'=> 18,
+                    'id_page' => 10  
+
                 ), true
             );
             insertIntoTeamMedia($lastIdMedia, $lastIdTeam);
         }
 
         if(!empty($_POST['instagram_team_media'])){
-            $lastIdMedia = execute("INSERT INTO media (title_media, name_media, id_media_type )
-                    VALUES (:title_media, :name_media, :id_media_type)",
-                array( ':title_media'=> 'instagram '. $_POST['nickname_team'] ,
+            $lastIdMedia = execute("INSERT INTO media (title_media, name_media, id_media_type, id_page  )
+                    VALUES (:title_media, :name_media, :id_media_type, :id_page )",
+                array( ':title_media'=> 'instagram',
                     ':name_media'=> $_POST['instagram_team_media'],
                     // id media_type lien = 16  
-                    ':id_media_type'=> 18
+                    ':id_media_type'=> 18,
+                    'id_page' => 10  
+
                 ), true
             );
             insertIntoTeamMedia($lastIdMedia, $lastIdTeam);
         }
 
         if(!empty($_POST['facebook_team_media'])){
-            $lastIdMedia = execute("INSERT INTO media (title_media, name_media, id_media_type )
-                    VALUES (:title_media, :name_media, :id_media_type)",
-                array( ':title_media'=> 'facebook '. $_POST['nickname_team'] ,
+            $lastIdMedia = execute("INSERT INTO media (title_media, name_media, id_media_type, id_page )
+                    VALUES (:title_media, :name_media, :id_media_type, :id_page )",
+                array( ':title_media'=> 'facebook',
                     ':name_media'=> $_POST['facebook_team_media'],
                     // id media_type lien = 16 
                     // on pourrait faire une requete pour recuperer cet id 
-                    ':id_media_type'=> 18
+                    ':id_media_type'=> 18,
+                    'id_page' => 10  
+
                 ), true
             );
             insertIntoTeamMedia($lastIdMedia, $lastIdTeam);
         }
 
         if(!empty($_POST['twitter_team_media'])){
-            $lastIdMedia = execute("INSERT INTO media (title_media, name_media, id_media_type )
-                    VALUES (:title_media, :name_media, :id_media_type)",
-                array( ':title_media'=> 'twitter '. $_POST['nickname_team'] ,
+            $lastIdMedia = execute("INSERT INTO media (title_media, name_media, id_media_type, id_page  )
+                    VALUES (:title_media, :name_media, :id_media_type, :id_page )",
+                array( ':title_media'=> 'twitter',
                     ':name_media'=> $_POST['twitter_team_media'],
                     // id media_type lien = 16 
                     // on pourrait faire une requete pour recuperer cet id 
-                    ':id_media_type'=> 18
+                    ':id_media_type'=> 18,
+                    'id_page' => 10  
+
                 ), true
             );
             insertIntoTeamMedia($lastIdMedia, $lastIdTeam);

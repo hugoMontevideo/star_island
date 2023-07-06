@@ -6,7 +6,7 @@
 
 //page avis
 // header('location:http://localhost/PHP/star_island');
-debug($_SERVER); die();
+// debug($_SERVER); die();
 // exit();
 
 $requete = execute("SELECT * FROM page

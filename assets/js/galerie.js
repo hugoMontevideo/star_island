@@ -1,5 +1,6 @@
 const home2Section = document.querySelector('#galerie');
 const mainImg = document.querySelector('#main-img');
+const caption = document.querySelector('#caption');
 
 let nIntervId = null;  // slider page galerie
 let varPrev = 0;
@@ -27,7 +28,7 @@ function display( varNow ) {            // slider 2ème page
     varPrev = varNow - 1;
     varNext = varNow + 1;
     
-    console.log( varPrev )
+    // console.log( varPrev )
     if( varNow < 0 ){
         varPrev = itemsList.length - 2;
         varNow = itemsList.length - 1;
@@ -57,6 +58,9 @@ function display( varNow ) {            // slider 2ème page
     itemsList[varNext].classList.add('next');
 
     mainImg.src = document.querySelector(".now img").src
+    // console.log(document.querySelector(".now img"))
+    caption.innerHTML = document.querySelector(".now img").alt
+
 
     return varNow;
 };

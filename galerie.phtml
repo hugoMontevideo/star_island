@@ -3,18 +3,19 @@
     <div class="layout-section"></div><!-- filtre de l'image de fond -->
 
     <div class="galerie-layout">
-        <h1>STAR'ISLAND</h1>
-        <h2>Galerie</h2>
+        <h1><?= $mainTitle ?? "STAR'ISLAND**" ?></h1>
+        <h2><?= $h2Title ?? 'Galerie**' ?></h2>
 
 
         <img id="main-img" src="./assets/upload/gta_decors2.jpg" alt="image dynamique">
+        <small id="caption"></small>
     
 
         <div id="slider" class="slider" >
             <div class="cascade-slider_container" >
                 
                 <div class="cascade-slider_slides">
-                    <div class="cascade-slider_item prev">         
+                    <!-- <div class="cascade-slider_item prev">         
                         <img src="assets/upload/gta_decors1.jpg">               
                     </div>
                     <div class="cascade-slider_item now">
@@ -28,10 +29,24 @@
                     </div>
                     <div class="cascade-slider_item ">   
                         <img src="assets/upload/gta_decors4.jpg">      
-                    </div>
+                    </div> -->
 
+                  <?php foreach($data as $key1 => $array1): ?>
+                    <div class="cascade-slider_item "> 
+                      <?php // if($array1['title_content'] == 'main title') : ?>  
+                            <img src="<?= $array1['name_media']?>"
+                                alt="<?= $array1['title_media'] ?>"
+                            >  
+                      <?php //endif; ?>
+                        <!-- <img src="assets/upload/gta_decors4.jpg">       -->
+
+                    </div>
+                  <?php endforeach; ?>
                 </div>
+
+               
                 <div class="arrow-container">
+
                     <span id="arrowPrev"  class="cascade-slider_arrow cascade-slider_arrow-left" data-action="prev">
                         <!-- <img src="assets/pictures/icons8-chevron-left.png"> -->
                         <i class="fa fa-chevron-left" aria-hidden="true"></i>
