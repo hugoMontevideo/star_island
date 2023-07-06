@@ -112,7 +112,7 @@
     top: 3vh;
   }
   .vip-layout .vip-content-1, .vip-layout .vip-content-2 {
-    width: 50%;
+    width: 45%;
     padding: 0 2rem 0;
     margin: 0;
   }
@@ -121,7 +121,7 @@
     padding: 0 0 1rem;
   }
   .vip-layout .vip-content-1 p, .vip-layout .vip-content-2 p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     padding: 0;
     margin: 0;
   }
@@ -135,9 +135,9 @@
     text-align: end;
   }
   .vip .perso1 {
-    width: 25vw;
-    height: 30vw;
-    border: 3px solid #ea4c6f;
+    width: 17rem;
+    height: 21rem;
+    border: 2px solid #ea4c6f;
     bottom: 15vh;
     right: 10vw;
     display: flex;
@@ -145,8 +145,8 @@
     align-items: center;
   }
   .vip .perso1 img {
-    width: 30vw;
-    height: 60vw;
+    width: 20rem;
+    height: 40rem;
     -o-object-fit: contain;
        object-fit: contain;
   }
@@ -155,16 +155,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40vw;
-    bottom: 15vw;
-    left: 3vw;
+    width: 15rem;
+    bottom: 9rem;
+    left: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   .vip .perso2 img {
-    width: 30vw;
-    height: 40vw;
+    width: 16rem;
+    height: 28rem;
     -o-object-fit: contain;
        object-fit: contain;
   }

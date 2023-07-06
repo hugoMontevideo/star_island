@@ -19,7 +19,7 @@ if(!empty($_POST)){
         $error = 'Ce champ est obligatoire';
     }
     
-    // debug($_POST); die();
+    // debug($_POST['id_page']); die();
     if(!isset($error)){
         execute("INSERT INTO content (title_content, description_content, id_page)
                 VALUES (:title_content, :description_content, :id_page)",

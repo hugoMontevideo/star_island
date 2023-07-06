@@ -1,11 +1,10 @@
-
 <section id="team" class="team">
     <div class="layout-section"></div><!-- filtre de l'image de fond -->
 
 
     <div class="team-layout">
-        <h1>STAR'ISLAND</h1>
-        <h2>L'Equipe</h2>
+        <h1><?= $mainTitle ?? "STAR'ISLAND**" ?></h1>
+        <h2><?= $h2Title ?? 'La Team' ?></h2>
 
         <nav class="selection">
             <a href="">Tous</a>
@@ -15,33 +14,100 @@
             <a href="">Helpers</a>
         </nav>
         <div class="profil_pict">
-          <?php $i = 1; foreach( $aDevs as $name => $urlImg): ?>
-                <?php //var_dump( count($aDevs) ) ?>
-                <?php $i++; ?>
-                <!--<div class="raw odd" data-indexraw="1">  .odd even ajoutée en js  -->
+          <?php // $i = 1; foreach( $aDevs as $name => $urlImg): ?>
+          <?php foreach( $data as $key1 => $array1): ?>
+           <?php if( $array1['id_media_type'] == 16): ?>
             <div class="cell " data-indexProfil="2">  <!-- .cell ajoutée en js -->
-                <img class="profil_img" src="<?= $urlImg ?>" alt="">
-            
-              <?php if(!empty($aSocial[$name])): ?>
-                <div class="userSocials">
-                <?php foreach( $aSocial[$name] as $reseau => $newurl): ?>
-                    <a href="<?= $newurl ?>"class="<?= "social ". $reseau ?>" >
-                        <img src="<?= $newurl ?>" alt="<?= "logo ". $reseau  ?>">
-                    </a>
+                <img class="profil_img" src="<?= $array1['name_media'] ?>" alt="<?= $array1['title_media'] ?>">
 
-                <?php endforeach ?>
-                </div>
-              <?php endif; ?>
+                <!-- je trouve l id_team -->
+              <?php foreach($data3 as $key3 => $array3): ?>
+                <?php if($array1['id_media'] == $array3['id_media']): $id_team = ($array3['id_team']); endif; ?>
+              <?php endforeach; ?>   
+
+                <?php foreach( $data3 as $key33 => $array33): ?>
+                    <?php if(isset($id_team) && $id_team == $array33['id_team']): ?>
+
+                            <?php if( $array33['title_media'] == 'github' ): ?>
+                                <div class="userSocials">
+                                    <a href="<?= $array33['name_media'] ?>" class="<?= $array33['title_media']  ?>" >
+                                        <img src="<?= 'assets/pictures/logo/logo_twitch.png' ?>" alt="<?php // "logo ". $reseau  ?>"> 
+                                        <!-- <i class="fab fa-github"></i> -->
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if( $array33['title_media'] == 'discord' ): ?>
+                                <div class="userSocials">
+                                    <a href="<?php // $newurl ?>" class="<?= $array33['title_media'] ?>" >
+                                        <img src="<?= 'assets/pictures/logo/icons8-discorde.png' ?>" alt="<?php // "logo ". $reseau  ?>"> 
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if( $array33['title_media'] == 'tiktok' ): ?>
+                                <div class="userSocials">
+                                    <a href="<?php // $newurl ?>" class="<?= $array33['title_media'] ?>" >
+                                        <img src="<?= 'assets/pictures/logo/icons8-tiktok.png' ?>" alt="<?php // "logo ". $reseau  ?>"> 
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if( $array33['title_media'] == 'instagram' ): ?>
+                                <div class="userSocials">
+                                    <a href="<?php // $newurl ?>" class="<?= $array33['title_media'] ?>" >
+                                        <img src="<?= 'assets/pictures/logo/icons8-instagram.png' ?>" alt="<?php // "logo ". $reseau  ?>"> 
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if( $array33['title_media'] == 'facebook' ): ?>
+                                <div class="userSocials">
+                                    <a href="<?php // $newurl ?>" class="<?= $array33['title_media'] ?>" >
+                                        <img src="<?= 'assets/pictures/logo/icons8-facebook.png' ?>" alt="<?php // "logo ". $reseau  ?>"> 
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if( $array33['title_media'] == 'instagram' ): ?>
+                                <div class="userSocials">
+                                    <a href="<?php // $newurl ?>" class="<?= $array33['title_media'] ?>" >
+                                        <img src="<?= 'assets/pictures/logo/icons8-twitter.png' ?>" alt="<?php // "logo ". $reseau  ?>"> 
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+
+
+                            
+                            
+                    <?php endif; ?>
+
+              <?php endforeach; ?>   
                 
-                
-            </div>
+            </div> <!-- .end cell -->
+
             <div class="empty" data-indexProfil="1"></div>
-             
+           <?php endif ; ?>   
           <?php endforeach; ?>
+            <!--       ***        -->
+             
+            <div class="layout_team_selected"></div>
+        </div> <!-- end  .profil_pict -->
+    </div>
+   
+</section>
 
-                <!-- <div class="" data-indexProfil="3"></div>
+
+                <!--<div class="raw odd" data-indexraw="1">  .odd even ajoutée en js  -->
+
+            <!--       ***        -->
+
+
+   <!--     <div class="" data-indexProfil="3"></div>
+
                 <div class="" data-indexProfil="4">
                     <img class="profil_img" src="assets/upload/profil_homme1.jpg" alt="">
+
                     <div class="description">
                         <p>Giusseppe</p>
                         <a href="">
@@ -49,10 +115,13 @@
                         </a>
                     </div>
                 </div>
+
                 <div class="" data-indexProfil="5"></div> -->
 
             <!-- </div> -->
-            <!-- <div class="raw " data-indexraw="2">
+
+
+        <!--<div class="raw " data-indexraw="2">
                 <div>
                     <img class="profil_img" src="assets/upload/profil_femme2.jpg" alt="">
                     <div class="description">
@@ -65,7 +134,7 @@
                     </div>
                 </div>
                 <div></div>
-                <div>
+            <div>
                     <img class="profil_img" src="assets/upload/profil_femme2.jpg" alt="">
                     <div class="description">
                         <p>Mia</p>
@@ -146,11 +215,8 @@
                     </div>
                 </div>
             </div> -->
-            <div class="layout_team_selected"></div>
-        </div> <!-- end  .profil_pict -->
-    </div>
-   
-</section>
+
+            <!--       ***        -->
 
 
             <!-- <div class="flip-card">

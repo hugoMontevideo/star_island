@@ -8,7 +8,13 @@ function debug($data)
     echo '</pre>';
 }
 
+/**
+ * Récuperer les données texte de la BDD
+ * et créer des var pour les afficher
+ */
+function displayText($data){
 
+}
 
 function insertIntoTeamMedia( $lastIdMedia, $lastIdTeam ){
     $pdo=Db::getDB();

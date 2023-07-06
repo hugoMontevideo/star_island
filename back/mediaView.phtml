@@ -7,7 +7,6 @@
                 enctype="multipart/form-data" >
                 <legend><?= $motif ?></legend>
                 <div class="form-group">
-                <?php // var_dump($data); die(); ?>     
                     <label for="id_media_type">Selectionnez le type de média</label>
                     <select class="form-control" id="id_media_type" name="id_media_type">
                     <?php foreach($dataSelect as $key1 => $array1): ?>   
@@ -60,14 +59,30 @@
                     <small class="text-danger"><?php $error1 ?? ''; ?></small>
                 </div> 
 
-            
-                <div class="input-group mb-3">
+                <div class="form-group input-group mb-3">
                     <label for="media_file">Choisir un fichier</label>
                     <input type="file"
                         id="media_file" name="media_file"
                         accept="image/png, image/jpeg">
                 </div>
 
+                <div class="form-group">
+                <?php // var_dump($data); die(); ?>     
+                    <label for="id_page">Selectionnez une page si nécessaire</label>
+                    <select class="form-control" id="id_page" name="id_page">
+                    <?php foreach($dataSelect1 as $key1 => $array2): ?>   
+                        <option value="<?= $array2['id_page'] ?>"
+                        <?php if(isset( $data1 )): ?>
+                            <?php // var_dump($array1); die(); ?>     
+                            <?= ( $array2['id_page'] == $data1['id_page'] ) ?'selected' :''; ?>
+                        <?php endif; ?>
+                        >
+                            <?= $array2['title_page'] ?>
+                        </option>
+                    <?php endforeach ; ?>  
+                        <!-- <option value="">Autre</option>   -->
+                    </select>
+                </div>
                 
                 <input type="hidden" name="id_media" value="<?= $_GET['id'] ?? '' ?>">       
                 <button type="submit" class="btn btn-primary">Envoyer</button>
@@ -80,6 +95,7 @@
                         <th class="text-center">Titre</th>
                         <th class="text-center">Url</th>
                         <th class="text-center">Type</th>
+                        <th class="text-center">Page</th>
                         <th class="text-center">Actions</th>
                     </tr>
                 </thead>
@@ -87,15 +103,23 @@
                 <?php foreach($data as $key => $array): ?>        
                     <tr>
                         <td class="text-center"><?= $array['title_media'] ?></td>
-                        <td class="text-center"><?= $array['name_media'] ?></td>
+                        <td class="text-center"><?= substr($array['name_media'],0,25).'...' ?></td>
 
-                    <?php foreach($dataSelect as $key1 => $array1): ?>  
+                      <?php foreach($dataSelect as $key1 => $array1): ?>  
 
                         <?php if( $array['id_media_type']  == $array1['id_media_type'] ): ?>
                             <td class="text-center"><?= $array1['title_media_type'] ?></td>
                         <?php endif; ?>
 
-                    <?php endforeach ; ?>  
+                      <?php endforeach ; ?>  
+                      <?php $display = '-' ?>
+                      <?php foreach($dataSelect1 as $key2 => $array2): ?>  
+                        <?php if( $array['id_page']  == $array2['id_page'] ): ?>    
+                            <?php $display = $array2['title_page'] ; ?>
+                        <?php endif; ?>
+                        
+                      <?php endforeach ; ?> 
+                        <td class="text-center"> <?= $display ?></td>
 
                         <td class="text-center">
                             <a href="<?= '?action=editMedia&id='. $array['id_media'] .'&back=true' ?>" 

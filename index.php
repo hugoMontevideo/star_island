@@ -3,9 +3,6 @@ require_once 'config/function.php';
 
 // le chemin absolu de l'application
 const BASE_PATH_DIR = __DIR__ ;
-// $bool = unlink(BASE_PATH_DIR . '/assets/upload/avatar/team/64a42939a23c404_07_2023_14_14_17_avatar-cochon.jpg');
-// header('location:http://localhost/PHP/star_island');
-// var_dump($bool); die;
 
 // ***************** teaser ******************
 // $current_date = new \DateTime();
@@ -17,11 +14,7 @@ const BASE_PATH_DIR = __DIR__ ;
 //     exit();
 // }
 // ***************** end teaser ******************
-if(isset ($_GET['back']) && $_GET['back'] == 'true'){
-    require_once 'inc/backheader.inc.phtml';  
-}else{
-    require_once 'inc/header.inc.php';
-}
+
 
 if (isset($_GET['a']) && $_GET['a']=='dis'){
 
@@ -38,28 +31,108 @@ if ( isset($_GET['action'])){
 }else{
     $action = 'home';
 }
-// var_dump($_GET['action']); die();
-
-// if( $action == 'team' 
-//     || $action == 'register'
-//     || $action == 'login'
-//     || $action == 'userList'
-//     || $action == 'home'
-//     || $action == 'indexBack'
-//     || $action == 'homeUpdate'
-// ){
-
-    require_once 'back/controllers/' .$action. '.php';  
-
-// }else{
-    
-//     require_once $action. ".php";                
-// }
-
 
 if(isset ($_GET['back']) && $_GET['back'] == 'true'){
-// if(isset ($_GET['action']) && $_GET['action'] == 'indexBack'){
     require_once 'inc/backheader.inc.phtml';  
 }else{
-    require_once 'inc/footer.inc.php';         
+    require_once 'inc/header.inc.php';
+
+    $requete = execute("SELECT * FROM page
+                INNER JOIN content ON page.id_page = content.id_page 
+                INNER JOIN media ON page.id_page = media.id_page 
+                WHERE page.title_page=:title_page" ,
+                array( ':title_page' => $action )
+            );
+    $data = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+    // debug($data); die;
+    foreach ($data as $key=>$array){
+        if(isset($array['title_content'])){
+            if($array['title_content'] == 'main title'){
+                $mainTitle = $array['description_content'];
+            }
+            if($array['title_content'] == 'h2'){
+                $h2Title = $array['description_content'];
+            }
+            if($array['title_content'] == 'h3 - 1'){
+                $h3Title1 = $array['description_content'];
+            }
+            if($array['title_content'] == 'h3 - 2'){
+                $h3Title2 = $array['description_content'];
+            }
+            if($array['title_content'] == 'texte 1'){
+                $texte1 = $array['description_content'];
+            }
+            if($array['title_content'] == 'texte 2'){
+                $texte2 = $array['description_content'];
+            }
+            if($array['title_media'] == 'personnage1'){
+                $personnage1 = $array['name_media'];
+                $altPerso1 = $array['title_media'];
+            }
+            if($array['title_media'] == 'personnage2'){
+                $personnage2 = $array['name_media'];
+                $altPerso2 = $array['title_media'];
+            }
+        }
+    }
 }
+
+
+
+require_once 'back/controllers/' .$action. '.php';  
+
+if(isset ($_GET['back']) && $_GET['back'] == 'true'){
+    // if(isset ($_GET['action']) && $_GET['action'] == 'indexBack'){
+        require_once 'inc/backheader.inc.phtml';  
+    }else{
+        require_once 'inc/footer.inc.php';         
+}
+    
+
+
+
+
+
+
+// ce bloc était avant require controlleur $action
+
+// $requete = execute("SELECT * FROM page
+//                 INNER JOIN content ON page.id_page = content.id_page 
+//                 INNER JOIN media ON page.id_page = media.id_page 
+//                 WHERE page.title_page=:title_page"  ,
+//                 array( ':title_page' => $action )
+//             );
+// $data = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+// // debug($data); die;
+// foreach ($data as $key=>$array){
+//     if(isset($array['title_content'])){
+//         if($array['title_content'] == 'main title'){
+//             $mainTitle = $array['description_content'];
+//         }
+//         if($array['title_content'] == 'h2'){
+//             $h2Title = $array['description_content'];
+//         }
+//         if($array['title_content'] == 'h3 - 1'){
+//             $h3Title1 = $array['description_content'];
+//         }
+//         if($array['title_content'] == 'h3 - 2'){
+//             $h3Title2 = $array['description_content'];
+//         }
+//         if($array['title_content'] == 'texte 1'){
+//             $texte1 = $array['description_content'];
+//         }
+//         if($array['title_content'] == 'texte 2'){
+//             $texte2 = $array['description_content'];
+//         }
+//         if($array['title_media'] == 'personnage1'){
+//             $personnage1 = $array['name_media'];
+//             $altPerso1 = $array['title_media'];
+//         }
+//         if($array['title_media'] == 'personnage2'){
+//             $personnage2 = $array['name_media'];
+//             $altPerso2 = $array['title_media'];
+//         }
+//     }
+// }

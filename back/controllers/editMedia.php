@@ -16,7 +16,6 @@ if(isset($_GET) && isset($_GET['id'])){
                         // $data=$media_type->fetch()
     $data1 =$requete->fetch(PDO::FETCH_ASSOC);
 }
-
 // requete pour le select - mediatype
 $requete = execute("
     SELECT *
@@ -24,6 +23,14 @@ $requete = execute("
     array(':id_media_type'=>'1')
     );
 $dataSelect = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+// requete pour le select - page
+$requete = execute("
+        SELECT *
+        FROM page",
+        array(':id_media_type'=>'1')
+    );
+$dataSelect1 = $requete->fetchAll(PDO::FETCH_ASSOC);
 
 if( !empty($_POST) ){
     
