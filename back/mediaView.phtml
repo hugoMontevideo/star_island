@@ -1,6 +1,14 @@
-<div class="container-sm">   
+<div class="container-sm">  
     <div class="row">
-        <div class="col-12 col-lg-6 ">
+        <div class="col-12 col-lg-4 ">
+            <!-- <div class="img_profil">
+                <img 
+                    src="<?php // $urlImg ?? '' ?>" 
+                    alt="<?php // $titleMedia ?? 'avatar' ?>"
+                    width="70" height="70"
+                    style="object-fit: cover; border-radius: 50%;">
+            </div>  -->
+
             <form class="mx-auto mt-5 mb-5" 
                 action="" 
                 method="post" 
@@ -63,7 +71,7 @@
                     <label for="media_file">Choisir un fichier</label>
                     <input type="file"
                         id="media_file" name="media_file"
-                        accept="image/png, image/jpeg">
+                        accept="image/png, image/jpeg, image/jpg, image/svg">
                 </div>
 
                 <div class="form-group">
@@ -124,12 +132,13 @@
                         <td class="text-center">
                             <a href="<?= '?action=editMedia&id='. $array['id_media'] .'&back=true' ?>" 
                                 class="btn btn-outline-info">
-                                Modifier
+                                <i class="fas fa-pen"></i>
                             </a>
                             <a href="<?= '?action=deleteMedia&id='. $array['id_media'].'&back=true' ?>" 
                                 onclick="return confirm('Etes-vous sûr')" 
                                 class="btn btn-outline-danger">
-                                Supprimer
+                                <i class="fas fa-trash-alt"></i>
+
                             </a>
                         </td>
                     </tr>

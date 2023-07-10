@@ -13,7 +13,7 @@ if ( !empty($_GET) && isset($_GET['id']) ) {
     $data = $requete->fetchAll(PDO::FETCH_ASSOC);   
 
 
-    //  ** la suppression vire en cascade les entres de la table team media
+    //  ** la suppression vire en cascade les entrees de la table team media
 
     $success = execute("DELETE FROM team 
                         WHERE id_team=:id", 

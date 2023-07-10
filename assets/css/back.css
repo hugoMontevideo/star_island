@@ -1,1 +1,9 @@
-/*# sourceMappingURL=back.css.map */
+.container-sm .row form .div_input_file {
+  display: flex;
+  flex-direction: column;
+}
+.container-sm .row form .div_input_file input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}/*# sourceMappingURL=back.css.map */

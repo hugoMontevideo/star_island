@@ -123,14 +123,20 @@
     background-size: cover;
   }
   .galerie-layout {
-    top: 3vh;
+    top: 2rem;
     width: 100%;
   }
   .galerie-layout img#main-img {
-    width: 40rem;
-    height: 20rem;
+    width: 20rem;
+    height: 12rem;
     -o-object-fit: cover;
        object-fit: cover;
+  }
+  .galerie-layout h1 {
+    margin: 0 0 2.5rem;
+  }
+  .galerie-layout h2 {
+    display: none;
   }
   .galerie #slider {
     width: 40vw;

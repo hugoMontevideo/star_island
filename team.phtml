@@ -1,7 +1,6 @@
 <section id="team" class="team">
     <div class="layout-section"></div><!-- filtre de l'image de fond -->
 
-
     <div class="team-layout">
         <h1><?= $mainTitle ?? "STAR'ISLAND**" ?></h1>
         <h2><?= $h2Title ?? 'La Team' ?></h2>
@@ -25,56 +24,59 @@
                 <?php if($array1['id_media'] == $array3['id_media']): $id_team = ($array3['id_team']); endif; ?>
               <?php endforeach; ?>   
 
-                <?php foreach( $data3 as $key33 => $array33): ?>
+
+              <div class="userSocials">
+
+              <?php foreach( $data3 as $key33 => $array33): ?>
                     <?php if(isset($id_team) && $id_team == $array33['id_team']): ?>
 
                             <?php if( $array33['title_media'] == 'github' ): ?>
-                                <div class="userSocials">
-                                    <a href="<?= $array33['name_media'] ?>" class="<?= $array33['title_media']  ?>" >
+                                <!-- <div class="userSocials"> -->
+                                    <a href="<?= $array33['name_media'] ?>" class="<?= $array33['title_media'] ?> social" >
                                         <img src="<?= 'assets/pictures/logo/logo_twitch.png' ?>" alt="<?php // "logo ". $reseau  ?>"> 
                                         <!-- <i class="fab fa-github"></i> -->
                                     </a>
-                                </div>
+                                <!-- </div> -->
                             <?php endif; ?>
 
                             <?php if( $array33['title_media'] == 'discord' ): ?>
-                                <div class="userSocials">
-                                    <a href="<?php // $newurl ?>" class="<?= $array33['title_media'] ?>" >
+                                <!-- <div class="userSocials"> -->
+                                    <a href="<?php // $newurl ?>" class="<?= $array33['title_media'] ?> social" >
                                         <img src="<?= 'assets/pictures/logo/icons8-discorde.png' ?>" alt="<?php // "logo ". $reseau  ?>"> 
                                     </a>
-                                </div>
+                                <!-- </div> -->
                             <?php endif; ?>
 
                             <?php if( $array33['title_media'] == 'tiktok' ): ?>
-                                <div class="userSocials">
-                                    <a href="<?php // $newurl ?>" class="<?= $array33['title_media'] ?>" >
+                                <!-- <div class="userSocials"> -->
+                                    <a href="<?php // $newurl ?>" class="<?= $array33['title_media'] ?> social" >
                                         <img src="<?= 'assets/pictures/logo/icons8-tiktok.png' ?>" alt="<?php // "logo ". $reseau  ?>"> 
                                     </a>
-                                </div>
+                                <!-- </div> -->
                             <?php endif; ?>
 
                             <?php if( $array33['title_media'] == 'instagram' ): ?>
-                                <div class="userSocials">
-                                    <a href="<?php // $newurl ?>" class="<?= $array33['title_media'] ?>" >
+                                <!-- <div class="userSocials"> -->
+                                    <a href="<?php // $newurl ?>" class="<?= $array33['title_media'] ?> social" >
                                         <img src="<?= 'assets/pictures/logo/icons8-instagram.png' ?>" alt="<?php // "logo ". $reseau  ?>"> 
                                     </a>
-                                </div>
+                                <!-- </div> -->
                             <?php endif; ?>
 
                             <?php if( $array33['title_media'] == 'facebook' ): ?>
-                                <div class="userSocials">
-                                    <a href="<?php // $newurl ?>" class="<?= $array33['title_media'] ?>" >
+                                <!-- <div class="userSocials"> -->
+                                    <a href="<?php // $newurl ?>" class="<?= $array33['title_media'] ?> social" >
                                         <img src="<?= 'assets/pictures/logo/icons8-facebook.png' ?>" alt="<?php // "logo ". $reseau  ?>"> 
                                     </a>
-                                </div>
+                                <!-- </div> -->
                             <?php endif; ?>
 
                             <?php if( $array33['title_media'] == 'instagram' ): ?>
-                                <div class="userSocials">
-                                    <a href="<?php // $newurl ?>" class="<?= $array33['title_media'] ?>" >
+                                <!-- <div class="userSocials"> -->
+                                    <a href="<?php // $newurl ?>" class="<?= $array33['title_media'] ?> social" >
                                         <img src="<?= 'assets/pictures/logo/icons8-twitter.png' ?>" alt="<?php // "logo ". $reseau  ?>"> 
                                     </a>
-                                </div>
+                                <!-- </div> -->
                             <?php endif; ?>
 
 
@@ -83,6 +85,7 @@
                     <?php endif; ?>
 
               <?php endforeach; ?>   
+              </div>
                 
             </div> <!-- .end cell -->
 
@@ -93,7 +96,7 @@
              
             <div class="layout_team_selected"></div>
         </div> <!-- end  .profil_pict -->
-    </div>
+    </div> <!-- .team-layout -->
    
 </section>
 

@@ -129,6 +129,9 @@
   opacity: 1;
   z-index: 11;
 }
+.team .profil_pict .cell.selected.one a:first-child {
+  transform: translate(0, -6rem);
+}
 .team .profil_pict .cell.selected.two a:first-child {
   transform: translate(2rem, -5rem);
 }
