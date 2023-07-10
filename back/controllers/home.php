@@ -1,41 +1,72 @@
 <?php
-// $title_page = 'home accueil'; // valeur de la colonne qu'on recherche
-// $text_page1 = 'home galerie';  // table ``content`` colonne ``title_content``
-// $title_page = 'home serveur';
-// $title_page = 'home comment';
+// titres aléatoires
+$arr_titres = [ $mainTitle, $mainTitle1 ,$mainTitle2 ];
+// $titres_ready = randElmtfromArray(3, $arr_titres);
+shuffle($arr_titres);
+$mainTitle = $arr_titres[0];
+$mainTitle1 = $arr_titres[1];
+$mainTitle2 = $arr_titres[2];
 
-//page avis
-// header('location:http://localhost/PHP/star_island');
-// debug($_SERVER); die();
-// exit();
 
+
+
+// images de la page 2eme page  'slider'
 $requete = execute("SELECT * FROM page
-                    INNER JOIN content
-                    ON page.id_page = content.id_page WHERE page.title_page='home accueil'" ,
-                    array(':id_comment'=>'1')
-            );
-$data = $requete->fetchAll(PDO::FETCH_ASSOC);
-// debug($data); die;
-foreach($data as $key => $array){
-    if($array['title_content'] == 'titre'){
-        $titrePage =$array['description_content'] ;
-    }
-    if($array['title_content'] == 'texte'){
-        $textePage =$array['description_content'] ;
-    }
+                    INNER JOIN content ON page.id_page = content.id_page 
+                    INNER JOIN media ON page.id_page = media.id_page 
+                    WHERE page.title_page=:title_page" ,
+                    array( ':title_page' => 'galerie' )
+             );
+$data1 = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+// images aléatoires pour slider
+$slider = [];
+foreach($data1 as $key => $array){
+    $slider[] = $array['name_media'];
 }
 
+$slider_unique = array_unique($slider);
+$slider_ready = randElmtfromArray(6, $slider_unique);
+
+
+
 
 //page avis
-$requete = execute("
-        SELECT *
-        FROM comment
-        ORDER BY publish_date_comment 
-        DESC LIMIT 4" ,
-        array(':id_comment'=>'1')
-    );
-$data = $requete->fetchAll(PDO::FETCH_ASSOC);
-// debug($data); die();
+// récuperer toutes les images de la page comment
+
+$avatar_avis = [];
+CONST AVATAR = './assets/pictures/avatar/';
+// si le dossier est accessible.
+if(is_readable(AVATAR && is_dir(AVATAR))){
+    // placer le pointer au début du dossier
+    $dir_open = opendir(AVATAR);
+
+}
+
+$requete = execute("SELECT *
+                    FROM comment
+                    ORDER BY publish_date_comment 
+                    DESC LIMIT 4" ,
+                    array(':id_comment'=>'1')
+                );
+$data3 = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+$requete = execute("SELECT * FROM `media` 
+                INNER JOIN page on media.id_page=page.id_page
+                WHERE page.title_page=:title_page",
+                array(':title_page'=>'comments')
+                );
+$data4 = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+// avatars aléatoires pour les comms
+$avatars = [];
+foreach($data4 as $key => $array){
+    $avatars[] = $array['name_media'];
+}
+
+$avatars_ready = randElmtfromArray(4, $avatars);
+// debug($avatars_ready);die;
+
 if( !empty($_POST) ){
     if(!empty($_POST['text_comment'])){
         $date = new DateTime();
@@ -62,14 +93,12 @@ if( !empty($_POST) ){
                         ':is_valid' => 0,
                         ':id_media'=>1                       
                     ) );
+
         header('Location:index.php?action=home');
         exit();
     }
 }
-
-
-
-
+$i_avatar = 0;
 require_once 'home.phtml' ;
 
 // $requete = execute("
@@ -104,7 +133,16 @@ require_once 'home.phtml' ;
 
 
 
-// debug("......................." .$title_page); die();
+//$data = $requete->fetchAll(PDO::FETCH_ASSOC);
+// // debug($data); die;
+// foreach($data as $key => $array){
+//     if($array['title_content'] == 'titre'){
+//         $titrePage =$array['description_content'] ;
+//     }
+//     if($array['title_content'] == 'texte'){
+//         $textePage =$array['description_content'] ;
+//     }
+// }
 
 
 

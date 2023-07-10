@@ -1,4 +1,6 @@
 <?php
+$error = '';
+$error1 = '';
 $requete = execute("
     SELECT *
     FROM content",
@@ -18,9 +20,12 @@ if(!empty($_POST)){
     if(empty($_POST['title_content'])){
         $error = 'Ce champ est obligatoire';
     }
+    if(empty($_POST['description_content'])){
+        $error1 = 'Ce champ est obligatoire';
+    }
     
-    // debug($_POST['id_page']); die();
-    if(!isset($error)){
+    // debug($_POST['description_content']); die();
+    if(empty($error) && empty($error1) ) {
         execute("INSERT INTO content (title_content, description_content, id_page)
                 VALUES (:title_content, :description_content, :id_page)",
                 array(

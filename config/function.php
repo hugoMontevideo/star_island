@@ -8,6 +8,28 @@ function debug($data)
     echo '</pre>';
 }
 
+// prendre quelques elements random depuis un tableau
+// @param nbr d' elements qu'on desire obtenir
+// @param array en parametre
+// @return array 
+function randElmtfromArray( int $nbr, array $monArray): array
+{
+    $randomArray = [];
+    for( $i=0; $i<$nbr; $i++ ){
+        $tempNbr=rand()&count($monArray)-1 ;
+        $temp=$monArray[$tempNbr];
+
+        unset($monArray[$tempNbr]);
+        $monArray = array_values($monArray); // 'reindex' $monArray
+
+        $randomArray[] = $temp;
+        // debug($randomArray); 
+
+    }
+    // die;
+    return $randomArray;
+}
+
 /**
  * Récuperer les données texte de la BDD
  * et créer des var pour les afficher

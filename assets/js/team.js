@@ -16,7 +16,7 @@ function loadImg(){
    
 }
 
-
+// fonction innécessaire
 function rawOddEven(){
     rawList.forEach ((raw) => {
 
@@ -50,7 +50,6 @@ function rawOddEven(){
 
 function cellActive(){
     cellList.forEach ((cell) => {
-
         cell.addEventListener('click', function(){
             // cellList.forEach((cell1) => { // baisser les zindex des users
             //     cell1.classList.remove('selected');
@@ -60,8 +59,12 @@ function cellActive(){
         })
     });
 }
+
+// compte le nombre de reseaux
 function nbSocialOnCell(){
     cellList.forEach ((cell) => {
+        console.log(cell);
+
         if(cell.querySelectorAll('.social').length == 0){
             cell.classList.add('zero');
         }else if(cell.querySelectorAll('.social').length == 1){

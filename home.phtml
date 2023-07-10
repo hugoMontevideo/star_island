@@ -3,42 +3,33 @@
         <div class="diaporama">
             <div class="elements">
                 <div class="element element-home">
-                    <img id="home-img" src="assets/pictures/gta_decors1-mob.jpg" alt="photo de la ville"> 
+                    <img id="home-img" src="<?= $personnage1 ?>" alt="<?= $altPerso1 ?>"> 
                     <div class="layout-section"></div><!-- filtre de l'image de fond -->
                     <div class="caption">
-                        <h1><?= $titrePage ?></h1>
-                        <!-- <p id="home-p">Relevez des défis passionnants, participez à des courses effrénées et explorez un monde rempli de possibilités infinies. Notre équipe est prête à vous aider et à vous accompagner.  Respectez les règles du serveur, faites preuve de fair-play et préparez-vous à créer des souvenirs inoubliables.</p> -->
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum at, ipsum accusantium doloremque id neque veritatis sint voluptate aliquam? Animi quia eius numquam odit nam. Reprehenderit eligendi vitae ratione error.</p>
+                        <h1><?= $mainTitle ?></h1>
+                        <!-- <p id="home-p"></p> -->
+                       <p><?= $texte1 ?></p>
                         <i class="fa fa-star" aria-hidden="true"></i>
                     </div>   
                 </div>
 
                 <div class="element element-slider">
-                    <img id="slider-img" src="assets/pictures/gta_decors6-mob.jpg" alt="image de fond">
+                    <img id="slider-img" src="<?= $personnage2 ?>" alt="image de fond">
+                    <!-- <img id="slider-img" src="assets/pictures/gta_decors6-mob.jpg" alt="image de fond"> -->
                     <div class="layout-section2"></div><!-- filtre de l'image de fond -->
                     <div class="caption">
-                        <h1>Bienvenue sur STAR'ISLAND</h1>
+                        <h1><?= $mainTitle1 ?></h1>
                     </div>  
                     <div id="slider" class="slider" >
                         <div class="cascade-slider_container" >
-
                             <div class="cascade-slider_slides">
-                                <div class="cascade-slider_item prev">         
-                                    <img src="assets/upload/gta_decors1.jpg">               
-                                </div>
-                                <div class="cascade-slider_item now">
-                                    <img src="assets/upload/gta_decors2.jpg">
-                                </div>
-                                <div class="cascade-slider_item next">  
-                                    <img src="assets/upload/gta_decors3.jpg">  
-                                </div>
-                                <div class="cascade-slider_item">   
-                                    <img src="assets/upload/wallp4.png">
-                                </div>
-                                <div class="cascade-slider_item ">   
-                                    <img src="assets/upload/gta_decors4.jpg">      
-                                </div>
+                              <?php foreach($slider_ready as $imgSlider): ?>
 
+                                <div class="cascade-slider_item prev">         
+                                    <img src="<?= $imgSlider ?>" alt="image du slider">               
+                                </div>
+                                
+                              <?php endforeach; ?>
                             </div>
                             <div class="arrow-container">
                                 <span id="arrowPrev"  class="cascade-slider_arrow cascade-slider_arrow-left" data-action="prev">
@@ -59,7 +50,7 @@
                     <img id="serveur-img" src="assets/pictures/gta_decors3-mob.jpg" alt="image de fond">
                     <div class="layout-section"></div><!-- filtre de l'image de fond -->
                     <div class="caption">
-                        <h1>Bienvenue sur STAR'ISLAND</h1>
+                        <h1><?= $mainTitle2 ?></h1>
                     </div> 
                     <form class="home-page3-form" action="">
                         <fieldset>                             
@@ -98,9 +89,10 @@
                 <div class="layout-section2"></div>
             </div>
             <div class="home2-avis">
-              <?php foreach($data as $key => $array): ?>
+              <?php foreach($data3 as $key => $array): ?>
                 <div class="avis" >
-                    <img class="avatar" src="assets/pictures/avatar-homme1.jpg" alt="avatar-profil">
+                    <!-- <img class="avatar" src="assets/pictures/avatar-homme1.jpg" alt="avatar-profil"> -->
+                    <img class="avatar" src="<?= $avatars_ready[$i_avatar] ?>" alt="avatar-profil">
                     <div class="avis-container">
                         <div class="etoiles" data-star="<?= $array['rating_comment'] ?>">
                             <i class="fa fa-star home2-star" aria-hidden="true"></i>
@@ -116,6 +108,7 @@
                         <small>Publié le <?= $date->format('d-m-Y à H:i:s') ?></small>
                     </div>
                 </div>
+                <?php $i_avatar++ ?>
               <?php endforeach ; ?>
 
             </div>
@@ -148,22 +141,3 @@
             </form>
         </div>
     </section>
-    <!-- <script src="assets/js/home.js"></script> -->
-
-
-     <!-- <div class="avis" >
-                    <img class="avatar" src="assets/pictures/avatar-homme4.jpg"  alt="avatar-profil">
-                    <div class="avis-container">
-                    <div class="etoiles">
-                        <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                        <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                        <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                        <img src="assets/pictures/icons8-star-fill.png" alt="avis-star">
-                        <img src="assets/pictures/icons8-star-nofill.png" alt="avis-star">
-
-                    </div>
-                    <div class="texte">
-                        Lorem ipsum dolor sit amet consectetur unde.
-                    </div>
-                    </div>
-                </div> -->

@@ -52,11 +52,12 @@ section.home .layout-section2 {
   display: flex;
   flex-direction: column;
   text-align: center;
+  width: 100%;
 }
 .diaporama .caption h1 {
   color: white;
-  font-size: 2.3rem;
-  margin: 0 0 1em;
+  font-size: 2.2rem;
+  margin: 0 1rem 1.5rem;
   font-family: "Oswald", Arial, Helvetica, sans-serif;
   text-transform: none;
   letter-spacing: 1px;
@@ -435,7 +436,7 @@ section.home2 .etoiles i {
   }
   .diaporama .element-home .caption h1 {
     font-size: 3rem;
-    margin: 0 3rem 2rem;
+    margin: 0 auto 2rem;
     width: 30rem;
   }
   .diaporama .element-home .caption p {
@@ -450,7 +451,7 @@ section.home2 .etoiles i {
   .diaporama .element-slider #slider {
     top: 40%;
     left: 50%;
-    width: 50vw;
+    width: 40vw;
   }
   .diaporama .element-slider .cascade-slider_container {
     height: 60vh;

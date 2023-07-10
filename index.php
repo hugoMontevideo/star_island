@@ -44,12 +44,19 @@ if(isset ($_GET['back']) && $_GET['back'] == 'true'){
                 array( ':title_page' => $action )
             );
     $data = $requete->fetchAll(PDO::FETCH_ASSOC);
-
     // debug($data); die;
+
+
     foreach ($data as $key=>$array){
         if(isset($array['title_content'])){
             if($array['title_content'] == 'main title'){
                 $mainTitle = $array['description_content'];
+            }
+            if($array['title_content'] == 'main title1'){
+                $mainTitle1 = $array['description_content'];
+            }
+            if($array['title_content'] == 'main title2'){
+                $mainTitle2 = $array['description_content'];
             }
             if($array['title_content'] == 'h2'){
                 $h2Title = $array['description_content'];
@@ -66,13 +73,21 @@ if(isset ($_GET['back']) && $_GET['back'] == 'true'){
             if($array['title_content'] == 'texte 2'){
                 $texte2 = $array['description_content'];
             }
-            if($array['title_media'] == 'personnage1'){
+            if($array['title_media'] == 'image1'){
                 $personnage1 = $array['name_media'];
                 $altPerso1 = $array['title_media'];
             }
-            if($array['title_media'] == 'personnage2'){
+            if($array['title_media'] == 'image2'){
                 $personnage2 = $array['name_media'];
                 $altPerso2 = $array['title_media'];
+            }
+            if($array['title_media'] == 'image3'){
+                $personnage3 = $array['name_media'];
+                $altPerso3 = $array['title_media'];
+            }
+            if($array['title_media'] == 'image4'){
+                $personnage4 = $array['name_media'];
+                $altPerso4 = $array['title_media'];
             }
         }
     }

@@ -23,5 +23,7 @@ const CONFIG=[
 
 const BASE_PATH='/PHP/star_island/';
 
-// const BASE_PATH_DIR = __DIR__ . '/../' ;
+const SELECT_CONTENT_ARRAY = [ 'main title','main title1', 'main title2', 'h2', 'h3 - 1', 'h3 - 2', 'texte 1', 'texte 2', 'image1', 'image2', 'image3', 'image4' ];
+
+const AUTH_EXTENSION = [ 'jpg', 'jpeg', 'png', 'gif', 'webm', 'webp', 'svg'];
 
