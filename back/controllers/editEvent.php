@@ -1,46 +1,82 @@
 <?php
-$requete = execute("
-    SELECT *
-    FROM event",
-    array(':id_page'=>'1')
+$error = '';
+$error1 = '';
+$error2 = '';
+$error3 = '';
+$error4 = '';
+$requete = execute("SELECT * FROM event e
+                   INNER JOIN event_content ec ON e.id_event = ec.id_event 
+                   INNER JOIN content c ON c.id_content = ec.id_content 
+                   INNER JOIN event_media em ON ec.id_event = em.id_event
+                   INNER JOIN media m ON m.id_media = em.id_media 
+                   ",
+        array(':id_content'=>'1')
     );
 $data = $requete->fetchAll(PDO::FETCH_ASSOC);
 
-// if(isset($_GET) && isset($_GET['id'])){
-//     $requete=execute("SELECT * 
-//                         FROM team 
-//                         WHERE id_page=:id",
-//                         array(':id'=>$_GET['id']));
-                        
-//                         // $data=$media_type->fetch()
-//     $data1 =$requete->fetch(PDO::FETCH_ASSOC);
+// requete pour le select - mediatype
+$requete = execute("SELECT *
+                     FROM media_type",
+        array(':id_media_type'=>'1')
+    );
+$dataSelect = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+// affichage sur le formulaire
+foreach($data as $key => $array){
+    if( $_GET['id'] == $array['id_event']){
+        if( $array['title_content'] == 'main title'){
+            $title_content = $array['description_content'] ;
+        }
+        if( $array['title_content'] == 'texte 1'){
+            $description_content = $array['description_content'] ;
+        }
+
+        $validateEvent = $array['validate_event'];
+    }
+}
 
 if( !empty($_POST) ){
-    if(!empty($_POST['start_date_event']) && !empty($_POST['end_date_event'])){
-        $date = new DateTime($_POST['start_date_event']);
-        $startDate = $date->format('Y-m-d H:i:s'); 
 
-        $date = new DateTime($_POST['end_date_event']);
-        $endDate = $date->format('Y-m-d H:i:s'); 
+    if(empty($_POST['title_content'])){
+        $error1 = 'Ce champ est obligatoire';
+    }
+    if(empty($_POST['description_content'])){
+        $error2 = 'Ce champ est obligatoire';
+    }
 
-        execute("UPDATE event
-                SET start_date_event=:start_date_event,
-                    end_date_event=:end_date_event 
-                WHERE id_event=:id",
-                array(':id'=>$_POST['id_event'],
-                        ':start_date_event'=>$startDate,
-                        ':end_date_event'=>$endDate
+    if(empty($_POST['start_date_event'])){
+        $error3 = 'Ce champ est obligatoire';
+    }
+    if(empty($_POST['end_date_event'])){
+        $error4 = 'Ce champ est obligatoire';
+    }
 
-            )
-        );
+
+    $date = new DateTime($_POST['start_date_event']);
+    $startDate = $date->format('Y-m-d H:i:s'); 
+
+    $date = new DateTime($_POST['end_date_event']);
+    $endDate = $date->format('Y-m-d H:i:s'); 
+
+    //traitement du changement d'image
+    execute("UPDATE event
+            SET start_date_event=:start_date_event,
+                end_date_event=:end_date_event 
+            WHERE id_event=:id",
+            array(':id'=>$_POST['id_event'],
+                    ':start_date_event'=>$startDate,
+                    ':end_date_event'=>$endDate
+
+        )
+    );
 
         $_SESSION['message']['success']='Event modifié';
         header('location:index.php?action=listEvent&back=true');
         exit();
-    }else{
+ 
         $_SESSION['message']['danger']='Veuillez remplir les dates';
         header('location:index.php?action=listEvent&back=true');
-    }
+    
 }
 
 $motif = 'Modifier un événement';

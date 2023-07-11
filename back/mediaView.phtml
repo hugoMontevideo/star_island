@@ -16,17 +16,17 @@
                 <legend><?= $motif ?></legend>
                 <div class="form-group">
                     <label for="id_media_type">Selectionnez le type de média</label>
-                    <select class="form-control" id="id_media_type" name="id_media_type">
-                    <?php foreach($dataSelect as $key1 => $array1): ?>   
+                    <select class="form-control select" id="id_media_type" name="id_media_type">
+                     <?php foreach($dataSelect as $key1 => $array1): ?>   
                         <option value="<?= $array1['id_media_type'] ?>"
-                        <?php if(isset( $data1 )): ?>
+                         <?php if(isset( $data1 )): ?>
                             <?php // var_dump($array1); die(); ?>     
                             <?= ( $array1['id_media_type'] == $data1['id_media_type'] ) ?'selected' :''; ?>
-                        <?php endif; ?>
+                         <?php endif; ?>
                         >
                             <?= $array1['title_media_type'] ?>
                         </option>
-                    <?php endforeach ; ?>  
+                     <?php endforeach ; ?>  
                         <!-- <option value="">Autre</option>   -->
                     </select>
                 </div>
@@ -49,9 +49,14 @@
                     <small class="text-danger"><?php $error ?? ''; ?></small>
                 </div> 
 
-                <div class="form-group">
-                    <!-- <small class="text-danger">*</small> -->
-                    <label for="name_media">Url (à remplir seulement si c'est un link vers Discord, Tweeter ou autre)</label>
+                <div class="<?php if( isset($_GET['id']) ): ?>
+                              <?php if( $data1['title_media_type'] != 'lien'): ?>
+                                <?= 'none'; ?>
+                              <?php endif; ?> 
+                            <?php else : ?> 
+                                <?= 'none' ?>
+                            <?php endif; ?> form-group name_media">
+                    <label for="name_media">Url du lien</label>
                     <input 
                         id="name_media" 
                         type="text" 
@@ -62,15 +67,17 @@
                                 value="<?= $array4['name_media'] ?>"           
                             <?php endif; ?>
                         <?php endforeach; ?>
-                        placeholder="Url du média"
+                        placeholder="Url du lien"
                         aria-describedby="inputHelp">
                     <small class="text-danger"><?php $error1 ?? ''; ?></small>
                 </div> 
 
-                <div class="form-group input-group mb-3">
+                <div class="<?php if( isset($_GET['id']) && $data1['title_media_type'] == 'lien'): ?>
+                                <?= 'none'; ?>
+                            <?php endif; ?> form-group input-group mb-3 div_input_file">
                     <label for="media_file">Choisir un fichier</label>
                     <input type="file"
-                        id="media_file" name="media_file"
+                        id="media_file" name="media_file" class="form-control"
                         accept="image/png, image/jpeg, image/jpg, image/svg">
                 </div>
 

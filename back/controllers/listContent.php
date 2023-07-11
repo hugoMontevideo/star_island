@@ -1,9 +1,8 @@
 <?php
 $error = '';
 $error1 = '';
-$requete = execute("
-    SELECT *
-    FROM content",
+$requete = execute("SELECT * FROM content
+                    ",
     array(':id_content'=>'1')
     );
 $data = $requete->fetchAll(PDO::FETCH_ASSOC);

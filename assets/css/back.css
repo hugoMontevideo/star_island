@@ -6,4 +6,10 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+.container-sm .row form .div_input_file.none {
+  display: none;
+}
+.container-sm .row form .name_media.none {
+  display: none;
 }/*# sourceMappingURL=back.css.map */
