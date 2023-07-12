@@ -1,6 +1,4 @@
 /.idea/*
+/.vscode/
+/config/*
 
-assets/bootstrap/*
-assets/pictures/*
-assets/css/*.scss
-assets/css/*.map

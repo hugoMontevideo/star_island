@@ -1,7 +1,7 @@
 <div class="container-sm">   
     <div class="row">
         <div class="col-12 col-lg-4 ">
-            <form class="w-75 mx-auto mt-5 mb-5" action="" method="post" >
+            <form class="w-75 mx-auto mt-5 mb-5" action="" method="post" enctype="multipart/form-data">
                 <legend><?= $motif ?></legend>
 
                 <div class="form-group">
@@ -30,7 +30,7 @@
 
                         placeholder="Description"
                         aria-describedby="inputHelp">
-                    <small class="text-danger"><?= $error1 ?? ''; ?></small>
+                    <small class="text-danger"><?= $error2 ?? ''; ?></small>
                 </div> 
 
 
@@ -42,17 +42,10 @@
                         type="date" 
                         name="start_date_event"
                         class="form-control" 
-                            <?php foreach ($data as $key => $array4) : ?>
-                                <?php if (isset($_GET['id']) && $array4['id_event'] == $_GET['id']): ?>
-
-                                <?php $date = new DateTime( $array4['start_date_event'] );
-                                        $displayStartD = $date->format('Y-m-d'); ?>
-                                value="<?= $displayStartD ?>"           
-                            <?php endif; ?>
-                            <?php endforeach; ?>
+                        value="<?= $displayStartD ?? '' ?>"           
                         placeholder="Date de début"
                         aria-describedby="inputHelp">
-                    <small class="text-danger"><?php $error ?? ''; ?></small>
+                    <small class="text-danger"><?php $error3 ?? ''; ?></small>
                 </div> 
 
                 <div class="form-group">
@@ -63,48 +56,38 @@
                         type="date" 
                         name="end_date_event"
                         class="form-control" 
-                        <?php foreach ($data as $key => $array4) : ?>
-                            <?php if (isset($_GET['id']) && $array4['id_event'] == $_GET['id']): ?>
-                                <?php $date = new DateTime( $array4['end_date_event'] );
-                                        $displayEndD = $date->format('Y-m-d'); ?>
-                                value="<?= $displayEndD ?>"           
-                            <?php endif; ?>
-                        <?php endforeach; ?>
+                        value="<?= $displayEndD ?>"           
                         placeholder="Date de fin"
                         aria-describedby="inputHelp">
-                    <small class="text-danger"><?php $error1 ?? ''; ?></small>
-                </div> 
-
-                <div class="form-group">
-                    <label for="id_media_type">Selectionnez le type de média</label>
-                    <select class="form-control select" id="id_media_type" name="id_media_type">
-                        <?php foreach($dataSelect as $key1 => $array1): ?>   
-                        <option value="<?= $array1['id_media_type'] ?>"
-                            <?php if(isset( $data1 )): ?>
-                            <?php // var_dump($array1); die(); ?>     
-                            <?= ( $array1['id_media_type'] == $data1['id_media_type'] ) ?'selected' :''; ?>
-                            <?php endif; ?>
-                        >
-                            <?= $array1['title_media_type'] ?>
-                        </option>
-                        <?php endforeach ; ?>  
-                        <!-- <option value="">Autre</option>   -->
-                    </select>
+                    <small class="text-danger"><?php $error4 ?? ''; ?></small>
                 </div>
 
                 <div class="form-group input-group mb-3 div_input_file">
-                    <label for="media_file">Choisir un fichier</label>
+                    <label for="media_file">Choisir une image ( optionnel )</label>
                     <input type="file"
                         id="media_file" name="media_file" class="form-control"
                         accept="image/png, image/jpeg, image/jpg, image/svg">
+                    <small class="text-danger"><?php $error ?? ''; ?></small>
+                    <img src="<?= $urlImage ?>" 
+                        alt="Image choisie" 
+                        width="70" height="50" 
+                        style="object-fit: cover;border: #7d7070 2px solid;border-radius: 5px; ">
                 </div>
+                <div class="form-group input-group mb-3 div_input_file">
+                    <label for="media_file">Choisir un audio ( optionnel )</label>
+                    <input type="file"
+                        id="media_file" name="media_file" class="form-control"
+                        accept="image/png, image/jpeg, image/jpg, image/svg">
+                    <small class="text-danger"><?php $error ?? ''; ?></small>
+                </div>
+
                 <div class="form-group">
+                    <label for="validate_event">Souhaitez-vous valider cet événement ?</label>
                     <input type="checkbox" 
                         id="validate_event" 
                         name="validate_event" 
                         value="<?= $validateEvent ?? '' ?>" 
                         class="form-control select" <?= (isset($validateEvent) && $validateEvent == '1')? 'checked': '' ?>>
-                    <label for="validate_event">Souhaitez-vous valider cet événement ?</label>
                 </div>
 
                 <input type="hidden" name="id_event" value="<?= $_GET['id'] ?? '' ?>">       
@@ -114,7 +97,6 @@
         </div>
 
         <div class="col-12 col-lg-6 ">
-
             <table class="table table-dark table-striped w-75 mx-auto">
                 <thead>
                     <tr>
@@ -136,7 +118,7 @@
                                 alt="Image de l'event"
                                 width="45"
                                 height="30"
-                                style="object-fit: contain;"                                
+                                style="object-fit: cover;border: black 2px solid;border-radius: 5px;"                                
                                 >
                         </td>
                         <td class="text-center"><?= $array['title_content'] ?></td>
@@ -148,7 +130,7 @@
                         <?php $date = new DateTime( $array['end_date_event'] );
                                         $displayEndD = $date->format('d/m/Y'); ?> 
                         <td class="text-center"><?= $displayEndD ?></td>
-                        <td class="text-center"><?= $array['validate_event'] ?></td>
+                        <td class="text-center"><?= ($array['validate_event']==0)? '<i class="fas fa-times"></i>' : '<i class="fas fa-check"></i>' ?></td>
                         <td class="text-center">
                             <a href="<?= '?action=editEvent&id='. $array['id_event'] .'&back=true' ?>" 
                                 class="btn btn-outline-info">
@@ -168,6 +150,22 @@
 
         </div>
     </div>
-
-
 </div>
+
+
+  <!-- <div class="form-group">
+                    <label for="id_media_type">Selectionnez le type de média</label>
+                    <select class="form-control select" id="id_media_type" name="id_media_type">
+                    <?php //foreach($dataSelect as $key1 => $array1): ?>
+                      <?php // if( $array1['title_media_type']=='image' || $array1['title_media_type']=='audio') : ?>   
+                        <option value="<?php //$array1['id_media_type'] ?>"
+                            <?php //if(isset( $idMediaType )): ?>   
+                            <?php // ( $array1['id_media_type'] == $idMediaType ) ?'selected' :''; ?>
+                            <?php // endif; ?>
+                        >
+                            <?php // $array1['title_media_type'] ?>
+                        </option>
+                      <?php // endif; ?>
+                     <?php // endforeach ; ?>  
+                    </select>
+                </div> -->

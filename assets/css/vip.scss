@@ -1,0 +1,202 @@
+
+$star_island_pink : #ea4c6f;
+
+.vip{
+    position:relative;
+    width: 100%;
+    height: 93vh;
+    background-image: url("../pictures/vip.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    .layout-section{
+        // background: rgb(0,0,0);
+        background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 15%, rgba(0,0,0,0) 40%, rgba(0,0,0,0) 60%, rgba(0,0,0,0) 80%, rgba(0,0,0,1) 100%);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    .layout-section3{
+        position: absolute;
+        background: linear-gradient(9deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8267682072829132) 58%, rgba(130,127,127,0) 71%, rgba(251,247,247,0) 86%, rgba(0,0,0,0.6278886554621849) 92%, rgba(0,0,0,1) 100%);
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    &-layout{ 
+        position: absolute;
+        width: 90%;
+        top: 6vh;
+        left: 50%;
+        transform: translate(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h1{
+            color: #ffffffa1;
+            text-align: center;
+            font-size: 2.1rem;
+            margin: 0 0 1rem;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            letter-spacing: 1px;
+            text-transform: none;
+        }
+        h2{
+            text-align: center;
+            color: #c5a80f;
+            margin: 0 0 1rem;
+            font-family: 'Oswald', Arial, Helvetica, sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 5px #00000069;
+        }
+          
+    }
+    &-content-1, &-content-2{
+        width: 80%;
+        color: rgba(255, 255, 255, 0.863);
+        margin: .6rem 0;
+        // align-self: flex-start;
+        h3{
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin: 0;
+            font-family: 'Oswald',Arial, Helvetica, sans-serif;
+            text-shadow: 2px 2px 5px #00000069;
+
+        }
+        p{
+            font-size: .9rem;
+        }
+    }
+    .perso1{
+        position: absolute;
+        width: 40vw;
+        height: 12em;
+        border: 2px solid $star_island_pink;
+        bottom: 25vh;
+        right: 10vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 50vw;
+            height: 60vw;
+            object-fit: contain;
+        }
+
+    }
+    .perso2{
+        display: none; //********
+        position: absolute;
+        width: 40vw;
+        // height: 12em;
+        // border: 2px solid $star_island_pink;
+        bottom: 80vw;
+        left: 3vw;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        img{
+            width: 50vw;
+            height: 60vw;
+            object-fit: contain;
+        }
+
+    }
+    
+} // end .vip
+
+@media (min-width: 706px) {  
+    .vip{
+        background-position: center;
+        h1{font-size: 2.5rem;}
+        h2{font-size: 2.1rem;}
+        &-layout{
+            top: 3vh;
+            .vip-content-1, .vip-content-2{
+                width: 45%;
+                padding: 0 2rem 0;
+                margin: 0;
+                h3{
+                    font-size: 2.1rem;
+                    padding: 0 0 1rem;
+                }
+                p{
+                    font-size: 1rem;
+                    padding: 0;
+                    margin: 0;
+                }
+
+            }
+            .vip-content-1{align-self: start;}
+            .vip-content-2{
+                align-self: end;
+                p{
+                    text-align: end;
+                }
+            }
+        }
+        .perso1{
+            width: 17rem;
+            height: 21rem;
+            border: 2px solid $star_island_pink;
+            bottom: 15vh;
+            right: 10vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 20rem;
+                height: 40rem;
+                object-fit: contain;
+            }
+    
+        }
+        .perso2{
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 15rem;
+            // height: 12em;
+            // border: 2px solid $star_island_pink;
+            bottom: 9rem;
+            left: 4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 16rem;
+                height: 28rem;
+                object-fit: contain;
+            }
+    
+        }
+    }
+
+}// end @media 706
+
+@media (min-width: 1250px) {  
+    .vip{
+        width: 90%;
+        margin: 0 auto;
+        .perso2{
+            width: 20vw;
+            // height: 12em;
+            // border: 2px solid $star_island_pink;
+            bottom: 5vw;
+            left: 3vw;
+            img{
+                width: 30vw;
+                height: 40vw;
+                object-fit: contain;
+            }
+    
+        }
+    }
+}
