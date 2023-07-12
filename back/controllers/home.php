@@ -46,12 +46,11 @@ if(is_readable(AVATAR && is_dir(AVATAR))){
 $requete = execute("SELECT *
                     FROM comment
                     ORDER BY publish_date_comment 
-                    DESC LIMIT 4" ,
-                    array(':id_comment'=>'1')
+                    DESC LIMIT 4"
                 );
 $data3 = $requete->fetchAll(PDO::FETCH_ASSOC);
 
-$requete = execute("SELECT * FROM `media` 
+$requete = execute("SELECT * FROM media
                 INNER JOIN page on media.id_page=page.id_page
                 WHERE page.title_page=:title_page",
                 array(':title_page'=>'comments')
