@@ -2,11 +2,7 @@
 //$media_type = 'titre home'; // valeur de la colonne qu'on recherche
 //$text_page = 'texte home';  // table ``content`` colonne ``title_content``
 
-$requete = execute("
-    SELECT *
-    FROM media_type",
-    array(':id_media'=>'1')
-    );
+$requete = execute("SELECT * FROM media_type" );
 
 $data = $requete->fetchAll(PDO::FETCH_ASSOC);
 

@@ -1,9 +1,7 @@
 <?php
-$requete = execute("
-    SELECT *
-    FROM page",
-    array(':id_page'=>'1')
-    );
+$error = "";
+$error1 = "";
+$requete = execute("SELECT * FROM page" );
 
 $data = $requete->fetchAll(PDO::FETCH_ASSOC);
 
@@ -11,8 +9,11 @@ if(!empty($_POST)){
     if(empty($_POST['title_page'])){
         $error = 'Ce champ est obligatoire';
     }
+    if(empty($_POST['uri_page'])){
+        $error1 = 'Ce champ est obligatoire';
+    }
 
-    if(!isset($error)){
+    if(empty($error) && empty($error1)){
         execute("INSERT INTO page (title_page, uri_page)
                 VALUES (:title_page, :uri_page)",
                 array(
@@ -28,6 +29,9 @@ if(!empty($_POST)){
     }
 }
 
-$motif = 'Ajouter une page';
-$content = "pageView";
-include_once 'back/indexBack.phtml';
+$motif = 'Ajouter une page' ;
+$content = "pageView" ;
+include_once $header ;
+include_once 'back/indexBack.phtml' ;
+include_once $footer ;
+

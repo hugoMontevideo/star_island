@@ -98,7 +98,10 @@ if( !empty($_POST) ){
     }
 }
 $i_avatar = 0;
+include_once $header ;
 require_once 'home.phtml' ;
+include_once $footer ;
+
 
 // $requete = execute("
 //     SELECT id_page

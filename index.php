@@ -33,9 +33,13 @@ if ( isset($_GET['action'])){
 }
 
 if(isset ($_GET['back']) && $_GET['back'] == 'true'){
-    require_once 'inc/backheader.inc.phtml';  
+    $header = 'inc/backheader.inc.phtml';
+    $footer = 'inc/backfooter.inc.phtml';  
+    // require_once 'inc/backheader.inc.phtml';  
 }else{
-    require_once 'inc/header.inc.php';
+    $header = 'inc/header.inc.phtml';
+    $footer = 'inc/footer.inc.phtml'; 
+    // require_once 'inc/header.inc.php';
 
     $requete = execute("SELECT * FROM page
                 INNER JOIN content ON page.id_page = content.id_page 
@@ -45,7 +49,6 @@ if(isset ($_GET['back']) && $_GET['back'] == 'true'){
             );
     $data = $requete->fetchAll(PDO::FETCH_ASSOC);
     // debug($data); die;
-
 
     foreach ($data as $key=>$array){
         if(isset($array['title_content'])){
@@ -93,21 +96,14 @@ if(isset ($_GET['back']) && $_GET['back'] == 'true'){
     }
 }
 
-
-
 require_once 'back/controllers/' .$action. '.php';  
 
-if(isset ($_GET['back']) && $_GET['back'] == 'true'){
-    // if(isset ($_GET['action']) && $_GET['action'] == 'indexBack'){
-        require_once 'inc/backheader.inc.phtml';  
-    }else{
-        require_once 'inc/footer.inc.php';         
-}
-    
-
-
-
-
+// if(isset ($_GET['back']) && $_GET['back'] == 'true'){
+//     // if(isset ($_GET['action']) && $_GET['action'] == 'indexBack'){
+//         require_once 'inc/footer.inc.phtml';  
+//     }else{
+//         require_once 'inc/footer.inc.php';         
+// }
 
 
 // ce bloc était avant require controlleur $action

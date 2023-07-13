@@ -13,7 +13,7 @@
                 value="<?= $data1['title_page'] ?? '' ?>" 
                 placeholder="Nom de la page"
                 aria-describedby="inputHelp">
-            <small class="text-danger"><?php $error ?? ''; ?></small>
+            <small class="text-danger"><?= $error ?? ''; ?></small>
         </div> 
         <div class="form-group">
             <small class="text-danger">*</small>
@@ -26,7 +26,7 @@
                 value="<?= $data1['uri_page'] ?? '' ?>" 
                 placeholder="Uri de la page"
                 aria-describedby="inputHelp">
-            <small class="text-danger"><?php $error ?? ''; ?></small>
+            <small class="text-danger"><?= $error1 ?? ''; ?></small>
         </div> 
 
         <input type="hidden" name="id_page" value="<?= $data1['id_page'] ?? '' ?>">       
@@ -49,12 +49,12 @@
                 <td class="text-center">
                     <a href="<?= '?action=editPage&id='. $array['id_page'] .'&back=true' ?>" 
                         class="btn btn-outline-info">
-                        Modifier
+                        <i class="fas fa-pen"></i>
                     </a>
                     <a href="<?= '?action=deletePage&id='. $array['id_page'].'&back=true' ?>" 
                         onclick="return confirm('Etes-vous sûr')" 
                         class="btn btn-outline-danger">
-                        Supprimer
+                        <i class="fas fa-trash-alt"></i>
                     </a>
                 </td>
             </tr>
