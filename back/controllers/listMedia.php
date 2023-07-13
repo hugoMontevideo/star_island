@@ -3,26 +3,15 @@ $error = '';
 $error1 = '';
 $error2 = '';
 $error3 = '';
-$requete = execute("SELECT *
-            FROM media",
-            array(':id_media'=>'1')
-        );
+$requete = execute("SELECT * FROM media" );
 $data = $requete->fetchAll(PDO::FETCH_ASSOC);
 
 // requete pour le select - mediatype
-$requete = execute("
-        SELECT *
-        FROM media_type",
-        array(':id_media_type'=>'1')
-    );
+$requete = execute("SELECT * FROM media_type" );
 $dataSelect = $requete->fetchAll(PDO::FETCH_ASSOC);
 
 // requete pour le select - page
-$requete = execute("
-        SELECT *
-        FROM page",
-        array(':id_media_type'=>'1')
-    );
+$requete = execute("SELECT * FROM page" );
 $dataSelect1 = $requete->fetchAll(PDO::FETCH_ASSOC);
 
 if( isset($_FILES['media_file']) && $_FILES['media_file']['error'] == 0 ){
@@ -95,8 +84,6 @@ if(!empty($_POST) && $ok ){
         }
     }
 }
-
-
 
 // $js = $action . '.js';
 $js = 'assets/js/controllers_js/'. $action . '.js';
