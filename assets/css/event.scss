@@ -1,21 +1,18 @@
+@font-face {
+    font-family: 'Iceland';
+    src: url('../font/Iceland-Regular.ttf') format('truetype');
+}
 
 $star_island_pink : #ea4c6f;
 
-.vip{
+.event{
     position:relative;
     width: 100%;
     height: 93vh;
-    background-image: url("../pictures/vip.jpg");
-    background-size: contain;
+    background-image: url("../upload/event/defaultBg.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
-    // .layout-section{
-    //     background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 15%, rgba(0,0,0,0) 40%, rgba(0,0,0,0) 60%, rgba(0,0,0,0) 80%, rgba(0,0,0,1) 100%);
-    //     position: absolute;
-    //     top: 0;
-    //     bottom: 0;
-    //     left: 0;
-    //     right: 0;
-    // }
+    overflow: hidden;
     .layout-section3{
         position: absolute;
         background: linear-gradient(9deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8267682072829132) 58%, rgba(130,127,127,0) 71%, rgba(251,247,247,0) 86%, rgba(0,0,0,0.6278886554621849) 92%, rgba(0,0,0,1) 100%);
@@ -24,17 +21,19 @@ $star_island_pink : #ea4c6f;
         left: 0;
         right: 0;
     }
+    
+
     &-layout{ 
         position: absolute;
         width: 90%;
         top: 6vh;
         left: 50%;
         transform: translate(-50%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
         h1{
-            color: #ffffffa1;
+            color: #fffffff9;
             text-align: center;
             font-size: 2.1rem;
             margin: 0 0 1rem;
@@ -50,10 +49,31 @@ $star_island_pink : #ea4c6f;
             font-size: 1.6rem;
             font-weight: 700;
             text-shadow: 2px 2px 5px #00000069;
+
+        }
+        .event_content{
+            background-color: transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .perso1{
+            // position: absolute;
+            // border: none;
+            // width: 80vw;
+            // transform: translate(-50%);
+            // bottom: 10rem;
+            // left: 50%;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+    
         }
           
     }
-    &-content-1, &-content-2{
+    &-content-1{
         width: 80%;
         color: rgba(255, 255, 255, 0.863);
         margin: .6rem 0;
@@ -72,52 +92,17 @@ $star_island_pink : #ea4c6f;
             font-size: .9rem;
         }
     }
-    .perso1{
-        position: absolute;
-        width: 40vw;
-        height: 12em;
-        border: 2px solid $star_island_pink;
-        bottom: 25vh;
-        right: 10vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        img{
-            width: 50vw;
-            height: 60vw;
-            object-fit: contain;
-        }
+  
 
-    }
-    .perso2{
-        display: none; //********
-        position: absolute;
-        width: 40vw;
-        // height: 12em;
-        // border: 2px solid $star_island_pink;
-        bottom: 80vw;
-        left: 3vw;
-        // display: flex;
-        // justify-content: center;
-        // align-items: center;
-        img{
-            width: 50vw;
-            height: 60vw;
-            object-fit: contain;
-        }
-
-    }
-    
-} // end .vip
-
+}
 @media (min-width: 706px) {  
-    .vip{
+    .event{
         background-position: center;
         h1{font-size: 2.5rem;}
         h2{font-size: 2.1rem;}
         &-layout{
             top: 3vh;
-            .vip-content-1, .vip-content-2{
+            .vip-content-1{
                 width: 45%;
                 padding: 0 2rem 0;
                 margin: 0;
@@ -178,10 +163,9 @@ $star_island_pink : #ea4c6f;
         }
     }
 
-}// end @media 706
-
+}
 @media (min-width: 1250px) {  
-    .vip{
+    .event{
         width: 90%;
         margin: 0 auto;
         .perso2{
@@ -198,4 +182,74 @@ $star_island_pink : #ea4c6f;
     
         }
     }
+
+
+}
+
+
+@font-face {
+    font-family: 'Iceland';
+    src: url('../font/Iceland-Regular.ttf') format('truetype');
+}
+.countdownHolder{
+    position: fixed;
+    font-family:'Iceland','Open Sans Condensed',sans-serif ;
+    font-size: 3.5em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    top: 20%;
+    right: .2em;
+}
+
+.position{
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    width: 1em;
+    height: 1.2em;
+}
+
+.countText{
+    font-size: .3em;
+    margin: 0;
+    color: #f4c907e5;
+}
+
+.countDiv{
+    display: none;
+}
+
+
+.digit.static {
+    /*// Permet d’ajouter une ombre portée sur n’importe quel élément HTML*/
+    box-shadow:1px 1px 1px rgba(4, 4, 4, 0.35);
+    /*// La valeur linear-gradient de la propriété background-image permet de générer*/
+    /*// des arrière-plans de couleur dégradée, d’une couleur à l’autre ou via plusieurs*/
+    /*// couleurs intermédiaires*/
+    /*// La notation est la suivante : (orientation du dégradé (top/right/bottom/left),*/
+    /*// couleurs (position en %))*/
+    background-color: rgba(255, 255, 255, 0.082);
+    
+
+    // background-image: -webkit-gradient(
+    //         linear,
+    //         left bottom,
+    //         left top,
+    //         color-stop(0.5, #d1d0d0),
+    //         color-stop(0.5, #d2d2d2)
+    // );
+}
+
+.digit{
+    position:absolute;
+    display:block;
+    width:1em;
+    background-color: rgba(255, 255, 255, 0.246);
+    border-radius:0.2em;
+    text-align:center;
+    /*//couleur des chiffres*/
+    color: #dfb80d;
+    letter-spacing:-1px;
 }

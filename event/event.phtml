@@ -1,0 +1,76 @@
+<section class="event">
+    <?php if(isset($personnage2)) : ?>
+        <div class="perso2 none"><!-- image optionnelle d'un personnage de l'event -->
+            <img src="<?= $personnage2 ?>" alt="<?= $altPerso2 ?? 'image de l\'event'?>">
+        </div>
+    <?php endif ; ?>
+    <div class="layout-section3"></div><!-- filtre de l'image de fond -->
+    
+
+    <div class="event-layout">
+
+        <h1><?= $mainTitle ?? "STAR'ISLAND**" ?> </h1>
+        <h2><?= $h2Title ?? 'Event**' ?></h2>
+        <div id="countdown" class="countdownHolder">
+        <span class="countText">Days</span>
+        <span class="countDays">      
+            <span class="position">
+                <span class="digit static"></span>
+            </span>
+            <span class="position">
+                <span class="digit static"></span>
+            </span>
+        </span>
+
+        <span class="countDiv countDiv0"></span>
+
+        <span class="countText">Hours</span>
+        <span class="countHours">
+            <span class="position">
+                <span class="digit static"></span>
+            </span>
+            <span class="position">
+                <span class="digit static"></span>
+            </span>
+        </span>
+        <span class="countDiv countDiv1"></span>
+
+        <span class="countText">Minutes</span>
+        <span class="countMinutes">
+            <span class="position">
+                <span class="digit static"></span>
+            </span>
+            <span class="position">
+                <span class="digit static"></span>
+            </span>
+        </span>
+
+        <span class="countDiv countDiv2"></span>
+
+        <span class="countText">Seconds</span>
+        <span class="countSeconds">
+            <span class="position">
+                <span class="digit static"></span>
+            </span>
+            <span class="position">
+                <span class="digit static"></span>
+            </span>
+        </span>
+    </div>
+    
+        <div class="event_content">
+            <div class="perso1"><!-- image chargée de l'event -->
+                <img 
+                    src="<?= $personnage1 ?>" 
+                    alt="<?= $altPerso1 ?? 'image de l\'event' ?>">
+            </div>
+            <div class="event-content-1" >
+                <h3><?= $h3Title1 ?? 'VIP**' ?></h3>
+                <p><?= $texte1 ?? 'VIP**' ?></p>
+            
+            </div> <!--end .content1 -->
+        </div>
+
+    </div>
+   
+</section>

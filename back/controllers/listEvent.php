@@ -9,19 +9,13 @@ $requete = execute("SELECT * FROM event e
                    INNER JOIN content c ON c.id_content = ec.id_content 
                    INNER JOIN event_media em ON ec.id_event = em.id_event
                    INNER JOIN media m ON m.id_media = em.id_media 
-                   ",
-        array(':id_content'=>'1')
-    );
+                   ");
 $data = $requete->fetchAll(PDO::FETCH_ASSOC);
 // debug($data);die;
 
 // requete pour le select - mediatype
-$requete = execute("
-        SELECT *
-        FROM media_type",
-        array(':id_media_type'=>'1')
-    );
-$dataSelect = $requete->fetchAll(PDO::FETCH_ASSOC);
+// $requete = execute("SELECT * FROM media_type");
+// $dataSelect = $requete->fetchAll(PDO::FETCH_ASSOC);
 
 if(!empty($_POST)){
 
@@ -39,12 +33,9 @@ if(!empty($_POST)){
         $error4 = 'Ce champ est obligatoire';
     }
     
-
-    
     $date = new DateTime($_POST['start_date_event']);
     $startDate = $date->format('Y-m-d H:i:s'); 
     // var_dump($startDate); die();
-
     $date = new DateTime($_POST['end_date_event']);
     $endDate = $date->format('Y-m-d H:i:s'); 
 
@@ -55,8 +46,7 @@ if(!empty($_POST)){
             $picture = '';
             if($_FILES['media_file']['size'] > 5000000 ){
                 $picture = 'Fichier trop important. Le fichier doit faire moins de 4Mo.<br>';
-            }
-    
+            } 
             $fileInfo = pathinfo($_FILES['media_file']['name']);
             // *** traiter les extensions
             $extension = $fileInfo['extension'];
@@ -68,8 +58,8 @@ if(!empty($_POST)){
             }
             
             if(empty($error)){
-    
-                $intMediaType = intval($_POST['id_media_type']);
+                $intMediaType = intval($_POST['id_media_type']); // image
+                $intMediaType1 = intval($_POST['id_media_type']); // audio
                 $url_media = '';
                 if(!empty($_FILES['media_file']['name'])){
                     $url_media='assets/upload/event/'.uniqid().date_format(new DateTime(),'d_m_Y_H_i_s'). '_' . $_FILES['media_file']['name'];
@@ -83,15 +73,17 @@ if(!empty($_POST)){
             $ok = true;
             $intMediaType = 16; // id_media_type = 16 pour les images
             // Il faut charger une image par défaut (random)
+            if(!empty($_FILES['media_file']['name'])){
+                $ok = move_uploaded_file($_FILES['media_file']['tmp_name'], $url_media);  
+            }
         }
         if($ok){
-            $intMediaType = intval($_POST['id_media_type']);
-
+            // $intMediaType = intval($_POST['id_media_type']);
             // insertion dans media
             $lastIdMedia = execute("INSERT INTO media (title_media,name_media,id_media_type,id_page) 
                                 VALUES (:title_media,:name_media,:id_media_type,:id_page)", 
                                 array(':title_media'=> $_POST['title_content'].'-img',
-                                    ':name_media'=> $url_media,
+                                    ':name_media'=> 'image1',
                                     ':id_media_type'=>$intMediaType,
                                     ':id_page'=>13
                                 ),true
@@ -101,6 +93,10 @@ if(!empty($_POST)){
 
             $validateEvent = (isset($_POST['validate_event']))? 1 : 0 ;
             // debug($validateEvent); die();
+
+            if($validateEvent == 1){  // invalider tous les events
+                execute("UPDATE event SET validate_event = 0 ");
+            }
             $lastIdEvent = execute("INSERT INTO event (start_date_event, end_date_event, validate_event)
                     VALUES (:start_date_event, :end_date_event, :validate_event )",
                     array(
@@ -117,7 +113,7 @@ if(!empty($_POST)){
                                 array(
                                     ':title_content'=> 'main title',
                                     ':description_content'=> $_POST['title_content'],
-                                    ':id_page'=> 13
+                                    ':id_page'=> 13  // page event
                                 ), true
                             );
 
@@ -127,7 +123,7 @@ if(!empty($_POST)){
                     array(
                         ':id_event' => $lastIdEvent,
                         ':id_content' => $lastIdContent
-                    )
+                        )
                     );
 
                 //titre de l'événément title_content = 'texte 1'

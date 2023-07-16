@@ -72,13 +72,16 @@
                         alt="Image choisie" 
                         width="70" height="50" 
                         style="object-fit: cover;border: #7d7070 2px solid;border-radius: 5px; ">
+
+                    <input type="hidden" name="id_media_type" value="16">
                 </div>
                 <div class="form-group input-group mb-3 div_input_file">
-                    <label for="media_file">Choisir un audio ( optionnel )</label>
+                    <label for="media_file1">Choisir un audio ( optionnel )</label>
                     <input type="file"
-                        id="media_file" name="media_file" class="form-control"
-                        accept="image/png, image/jpeg, image/jpg, image/svg">
+                        id="media_file1" name="media_file1" class="form-control"
+                        >
                     <small class="text-danger"><?php $error ?? ''; ?></small>
+                    <input type="hidden" name="id_media_type1" value="15">
                 </div>
 
                 <div class="form-group">

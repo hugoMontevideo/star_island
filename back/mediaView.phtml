@@ -14,13 +14,24 @@
                 method="post" 
                 enctype="multipart/form-data" >
                 <legend><?= $motif ?></legend>
+                <?php if(isset($data1) && $data1['title_media_type'] == 'image') : ?>
+                    <div class="img-edit">
+                        <img src="<?= $data1['name_media'] ?>" 
+                            alt=""
+                            height="60"
+                            width="60"    
+                            style="object-fit: cover;border: #00000042 1px solid;border-radius: 5px;margin: 0 0 10px;" 
+                            >
+                    </div>
+                <?php endif; ?>
                 <div class="form-group">
                     <label for="id_media_type">Selectionnez le type de média</label>
-                    <select class="form-control select" id="id_media_type" name="id_media_type">
+                    <select class="form-control select" 
+                        id="id_media_type" 
+                        name="id_media_type">
                      <?php foreach($dataSelect as $key1 => $array1): ?>   
                         <option value="<?= $array1['id_media_type'] ?>"
-                         <?php if(isset( $data1 )): ?>
-                            <?php // var_dump($array1); die(); ?>     
+                         <?php if(isset( $data1 )): ?>    
                             <?= ( $array1['id_media_type'] == $data1['id_media_type'] ) ?'selected' :''; ?>
                          <?php endif; ?>
                         >
@@ -39,11 +50,11 @@
                         type="text" 
                         name="title_media"
                         class="form-control" 
-                            <?php foreach ($data as $key => $array4) : ?>
-                                <?php if (isset($_GET['id']) && $array4['id_media'] == $_GET['id']): ?>
-                                    value="<?= $array4['title_media'] ?>"           
-                                <?php endif; ?>
-                            <?php endforeach; ?>
+                            <?php // foreach ($data as $key => $array4) : ?>
+                                <?php  //if (isset($_GET['id']) && $array4['id_media'] == $_GET['id']): ?>
+                            value="<?= $data1['title_media'] ?? '' ?>"           
+                                <?php // endif; ?>
+                            <?php //endforeach; ?>
                         placeholder="Titre ou 'alt' du fichier"
                         aria-describedby="inputHelp">
                     <small class="text-danger"><?php $error ?? ''; ?></small>
@@ -62,11 +73,11 @@
                         type="text" 
                         name="name_media"
                         class="form-control" 
-                        <?php foreach ($data as $key => $array4) : ?>
-                            <?php if (isset($_GET['id']) && $array4['id_media'] == $_GET['id']): ?>
-                                value="<?= $array4['name_media'] ?>"           
-                            <?php endif; ?>
-                        <?php endforeach; ?>
+                        <?php //foreach ($data as $key => $array4) : ?>
+                            <?php //if (isset($_GET['id']) && $array4['id_media'] == $_GET['id']): ?>
+                                value="<?= $data1['name_media'] ?? '' ?>"           
+                            <?php // endif; ?>
+                        <?php //endforeach; ?>
                         placeholder="Url du lien"
                         aria-describedby="inputHelp">
                     <small class="text-danger"><?php $error1 ?? ''; ?></small>
@@ -81,8 +92,7 @@
                         accept="image/png, image/jpeg, image/jpg, image/svg">
                 </div>
 
-                <div class="form-group">
-                <?php // var_dump($data); die(); ?>     
+                <div class="form-group"> 
                     <label for="id_page">Selectionnez une page si nécessaire</label>
                     <select class="form-control" id="id_page" name="id_page">
                     <?php foreach($dataSelect1 as $key1 => $array2): ?>   
@@ -107,7 +117,7 @@
             <table class="table table-dark table-striped mx-auto ">
                 <thead>
                     <tr>
-                        <th class="text-center">Titre</th>
+                        <th class="text-center media-title">Titre</th>
                         <th class="text-center">Url</th>
                         <th class="text-center">Type</th>
                         <th class="text-center">Page</th>
@@ -117,7 +127,17 @@
                 <tbody>
                 <?php foreach($data as $key => $array): ?>        
                     <tr>
-                        <td class="text-center"><?= $array['title_media'] ?></td>
+                        <td class="text-center">
+                            <?php if($array['id_media_type'] == 16):  ?>
+                                <img src="<?= $array['name_media'] ?>" 
+                                    alt="image" 
+                                    height="30"
+                                    width="30"    
+                                    style="object-fit: cover;border: black 1px solid;border-radius: 5px;" >
+                            <?php else :  ?>
+                            <?= $array['title_media'] ?>
+                            <?php endif  ?>
+                        </td>
                         <td class="text-center"><?= substr($array['name_media'],0,25).'...' ?></td>
 
                       <?php foreach($dataSelect as $key1 => $array1): ?>  
@@ -137,16 +157,31 @@
                         <td class="text-center"> <?= $display ?></td>
 
                         <td class="text-center">
-                            <a href="<?= '?action=editMedia&id='. $array['id_media'] .'&back=true' ?>" 
-                                class="btn btn-outline-info">
-                                <i class="fas fa-pen"></i>
-                            </a>
-                            <a href="<?= '?action=deleteMedia&id='. $array['id_media'].'&back=true' ?>" 
-                                onclick="return confirm('Etes-vous sûr')" 
-                                class="btn btn-outline-danger">
-                                <i class="fas fa-trash-alt"></i>
-
-                            </a>
+                            <?php if($array['id_media_type'] != 16) : // si c'est pas une image ?>
+                                <a href="<?= '?action=editMedia&id='. $array['id_media'] .'&back=true' ?>" 
+                                    class="btn btn-outline-info">
+                                    <i class="fas fa-pen"></i>
+                                </a>
+                            <?php endif ?>
+                            <?php if($array['id_media_type'] == 16 ) : // si c'est une image && page == team ?>
+                                <?php if($array['id_page'] == 10 ) : // && page == team ?>
+                                    <small>gestion team</small>
+                                <?php elseif($array['id_page'] == 13 ) : // && page == event  ?>
+                                    <small>gestion événement</small>
+                                <?php else : ?>
+                                    <a href="<?= '?action=deleteMedia&id='. $array['id_media'].'&back=true' ?>" 
+                                        onclick="return confirm('Etes-vous sûr')" 
+                                        class="btn btn-outline-danger">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                <?php endif; ?>
+                            <?php else : ?>
+                                <a href="<?= '?action=deleteMedia&id='. $array['id_media'].'&back=true' ?>" 
+                                    onclick="return confirm('Etes-vous sûr')" 
+                                    class="btn btn-outline-danger">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            <?php endif ?>
                         </td>
                     </tr>
                 <?php endforeach ?>

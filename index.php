@@ -41,12 +41,25 @@ if(isset ($_GET['back']) && $_GET['back'] == 'true'){
     $footer = 'inc/footer.inc.phtml'; 
     // require_once 'inc/header.inc.php';
 
-    $requete = execute("SELECT * FROM page
-                INNER JOIN content ON page.id_page = content.id_page 
-                INNER JOIN media ON page.id_page = media.id_page 
-                WHERE page.title_page=:title_page" ,
-                array( ':title_page' => $action )
-            );
+    if($action != 'event'){
+        $requete = execute("SELECT * FROM page
+                    INNER JOIN content ON page.id_page = content.id_page 
+                    INNER JOIN media ON page.id_page = media.id_page 
+                    WHERE page.title_page=:title_page" ,
+                    array( ':title_page' => $action )
+                );
+    }else{
+        $requete = execute("SELECT * FROM page p
+                     INNER JOIN media m ON p.id_page = m.id_page 
+                     INNER JOIN content c ON p.id_page = c.id_page 
+                     INNER JOIN event_content ct on ct.id_content=c.id_content
+                     INNER JOIN event e on ct.id_event=e.id_event
+                     WHERE p.title_page=:title_page AND e.validate_event=:validate_event" ,
+                    array( ':title_page' => $action,
+                        ':validate_event' => 1 )
+                );
+    }
+
     $data = $requete->fetchAll(PDO::FETCH_ASSOC);
     // debug($data); die;
 

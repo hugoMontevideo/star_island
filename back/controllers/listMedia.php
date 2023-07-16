@@ -26,11 +26,9 @@ if( isset($_FILES['media_file']) && $_FILES['media_file']['error'] == 0 ){
     $extension = strtolower($fileInfo['extension']);
 
     // $formats=['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/webp','image/svg'];
-
     // if (!in_array($_FILES['media_file']['type'],$formats )){
     if(!in_array($extension, AUTH_EXTENSION)){
-        $picture.="Les formats autorisés sont: 'png', 'jpg', 'jpeg', 'gif', 'webp'<br>";
-        
+        $picture.="Les formats autorisés sont: 'png', 'jpg', 'jpeg', 'gif', 'webp'<br>";     
         $error3=$picture;
     }
 
@@ -38,7 +36,7 @@ if( isset($_FILES['media_file']) && $_FILES['media_file']['error'] == 0 ){
         $url_media = '';
         // debug($_POST); die();
 
-        if(!empty($_FILES['media_file']['name']) && $_POST['id_page'] == '12' ){
+        if(!empty($_FILES['media_file']['name']) && $_POST['id_page'] == '12' ){ // si c'est pour page comments
             $url_media='assets/pictures/avatar/'.uniqid().date_format(new DateTime(),'d_m_Y_H_i_s'). '_' . $_FILES['media_file']['name'];
             
             // chargement du fiehier dans le serveur
@@ -53,14 +51,13 @@ if( isset($_FILES['media_file']) && $_FILES['media_file']['error'] == 0 ){
     }
 }
 
-if(!empty($_POST) && $ok ){
+if(!empty($_POST) ){
     if(empty($_POST['title_media'])){
         $error = 'Ce champ est obligatoire';
     }
     if(empty($url_media)){
         $url_media = $_POST['name_media'];
     }
-
 
     if(  empty($error) && empty($error3) ){
         $intMediaType = intval($_POST['id_media_type']);
@@ -71,10 +68,9 @@ if(!empty($_POST) && $ok ){
                 VALUES (:title_media,:name_media,:id_media_type,:id_page)", 
                 array(':title_media'=> $_POST['title_media'],
                     ':name_media'=> $url_media,
-                    ':id_media_type'=>$intMediaType,
-                    ':id_page'=>$intIdPage
+                    ':id_media_type'=>intval($intMediaType),
+                    ':id_page'=>intval($intIdPage)
                 ));
-    // debug( $success); die();
 
         if($success){
             $_SESSION['message']['success']='Média ajouté';
@@ -85,7 +81,6 @@ if(!empty($_POST) && $ok ){
     }
 }
 
-// $js = $action . '.js';
 $js = 'assets/js/controllers_js/'. $action . '.js';
 $motif = 'Ajouter un média';
 $content = "mediaView";
