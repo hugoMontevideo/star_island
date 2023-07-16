@@ -31,7 +31,6 @@ if(!empty($_POST)){
 
 $motif = 'Ajouter une page' ;
 $content = "pageView" ;
-include_once $header ;
 include_once 'back/indexBack.phtml' ;
-include_once $footer ;
+
 

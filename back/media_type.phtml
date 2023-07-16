@@ -12,7 +12,7 @@
             value="<?= $data1['title_media_type'] ?? '' ?>" 
             placeholder="Nom du type de média"
             aria-describedby="inputHelp">
-            <small class="text-danger"><?php $error ?? ''; ?></small>
+            <small class="text-danger"><?= $error ?? ''; ?></small>
         </div> 
         <input type="hidden" name="id_media_type" value="<?= $data1['id_media_type'] ?? '' ?>">       
         <button type="submit" class="btn btn-primary">Envoyer</button>
@@ -32,11 +32,11 @@
                 <td class="text-center">
                     <a href="<?= '?action=editMediaType&id='. $array['id_media_type'].'&back=true' ?>" 
                         class="btn btn-outline-info">
-                        Modifier
+                        <i class="fas fa-pen"></i>
                     </a>
                     <a href="<?= '?action=deleteMediaType&id='. $array['id_media_type'].'&back=true' ?>" 
                         onclick="return confirm('Etes-vous sûr')" class="btn btn-outline-danger">
-                        Supprimer
+                        <i class="fas fa-trash-alt"></i>
                     </a>
                 </td>
             </tr>

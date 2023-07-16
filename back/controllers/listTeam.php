@@ -3,19 +3,14 @@ $error = '';
 $error1 = '';
 $error2 = '';
 $error3 = '';
-$requete = execute("
-    SELECT *
-    FROM team",
-    array(':id_page'=>'1')
-    );
+
+$requete = execute("SELECT * FROM team");
 $data = $requete->fetchAll(PDO::FETCH_ASSOC);
 
 $requete = execute("SELECT *
                     FROM team_media 
                     INNER JOIN team ON team.id_team = team_media.id_team 
-                    INNER JOIN media ON media.id_media = team_media.id_media",
-                    array(':id_team' => 1)
-            );
+                    INNER JOIN media ON media.id_media = team_media.id_media");
 $data1 = $requete->fetchAll(PDO::FETCH_ASSOC);
 // var_dump(!empty($data1)); die;
 

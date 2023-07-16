@@ -1,18 +1,11 @@
 <?php
 $error = '';
 $error1 = '';
-$requete = execute("SELECT * FROM content
-                    ",
-    array(':id_content'=>'1')
-    );
+$requete = execute("SELECT * FROM content" );
 $data = $requete->fetchAll(PDO::FETCH_ASSOC);
 
 // requete pour le select - pages
-$requete = execute("
-    SELECT *
-    FROM page",
-    array(':id_page'=>'1')
-    );
+$requete = execute("SELECT * FROM page");
 $dataSelect = $requete->fetchAll(PDO::FETCH_ASSOC);
 
 if(!empty($_POST)){

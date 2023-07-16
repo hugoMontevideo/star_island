@@ -7,7 +7,7 @@ if ( !empty($_GET) && isset($_GET['id']) ) {
     $success = execute("DELETE FROM media 
                             WHERE id_media=:id", 
                             array(
-                            ':id' => $_GET['id']
+                            ':id' => intval($_GET['id'])
                         ));
     // var_dump($success); die();
     if ($success) {

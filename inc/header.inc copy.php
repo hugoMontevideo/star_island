@@ -10,11 +10,12 @@
     <link rel="shortcut icon" href="<?= BASE_PATH.'assets/pictures/favicon.ico' ?>" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.2.3/lux/bootstrap.min.css" integrity="sha512-+TCHrZDlJaieLxYGAxpR5QgMae/jFXNkrc6sxxYsIVuo/28nknKtf9Qv+J2PqqPXj0vtZo9AKW/SMWXe8i/o6w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="<?= BASE_PATH.'assets/css/style.css' ?>">
-    <link rel="stylesheet" href="<?= BASE_PATH.'assets/css/home.css' ?>">
-    <link rel="stylesheet" href="<?= BASE_PATH.'assets/css/galerie.css' ?>">
-    <link rel="stylesheet" href="<?= BASE_PATH.'assets/css/vip.css' ?>">
-    <link rel="stylesheet" href="<?= BASE_PATH.'assets/css/team.css' ?>">
-    <link rel="stylesheet" href="<?= BASE_PATH.'assets/fontawesome-free/css/all.css' ?>">
+    <link rel="stylesheet" href="<?= BASE_PATH.'assets/css/'. $action .'.css' ?>">
+    <!-- <link rel="stylesheet" href="<?php // BASE_PATH.'assets/css/galerie.css' ?>">
+    <link rel="stylesheet" href="<?php // BASE_PATH.'assets/css/vip.css' ?>">
+    <link rel="stylesheet" href="<?php // BASE_PATH.'assets/css/team.css' ?>">
+    <link rel="stylesheet" href="<?php // BASE_PATH.'assets/css/event.css' ?>"> -->
+    <link rel="stylesheet" href="<?php // BASE_PATH.'assets/fontawesome-free/css/all.css' ?>">
     <script src="<?= BASE_PATH . 'assets/js/links.js' ?>" defer></script>
 </head>
 <body>

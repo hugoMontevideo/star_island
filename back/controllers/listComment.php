@@ -1,8 +1,5 @@
 <?php
-$requete = execute("SELECT *
-            FROM comment" ,
-            array(':id_comment'=>'1')
-        );
+$requete = execute("SELECT * FROM comment");
 $data = $requete->fetchAll(PDO::FETCH_ASSOC);
 
 $motif = 'Validation des commentaires';

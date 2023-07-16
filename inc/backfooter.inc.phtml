@@ -28,17 +28,21 @@
             </div>
 
             <hr class="sidebar-divider">
-            <li class="nav-item listMedia " <?= ($action == 'listMedia')? "style='color:pink;'" : '' ; ?> >
-                <a class="nav-link collapsed" href="<?= BASE_PATH . '?action=listMedia&back=true' ?>" >
-                    <i class="fas fa-fw fa-wrench"></i>
+            <li class="nav-item listMedia " >
+                <a class="nav-link collapsed" 
+                   href="<?= BASE_PATH . '?action=listMedia&back=true' ?>" 
+                   style="<?= ($action=='listMedia' )?'color:#ea4c6f;' : '' ?>">
+                    <i class="fas fa-fw fa-wrench" style="<?= ($action=='listMedia' )?'color:#ea4c6f;' : '' ?>"></i>
                     <span>Gestion médias</span>
                 </a>
             </li>
 
             <hr class="sidebar-divider d-none d-md-block">
             <li class="nav-item">
-                <a class="nav-link collapsed" href="<?= BASE_PATH . '?action=media_type&back=true' ?>" >
-                    <i class="fas fa-fw fa-wrench"></i>
+                <a class="nav-link collapsed" 
+                   href="<?= BASE_PATH . '?action=media_type&back=true' ?>" 
+                   style="<?= ($action=='media_type' )?'color:#ea4c6f;' : '' ?>">
+                    <i class="fas fa-fw fa-wrench" style="<?= ($action=='media_type' )?'color:#ea4c6f;' : '' ?>"></i>
                     <span>Gestion type de médias</span>
                 </a>
             </li>
@@ -46,16 +50,20 @@
 
             <hr class="sidebar-divider">
             <li class="nav-item">
-                <a class="nav-link collapsed" href="<?= BASE_PATH . '?action=listPage&back=true' ?>" >
-                    <i class="fas fa-fw fa-wrench"></i>
+                <a class="nav-link collapsed" 
+                   href="<?= BASE_PATH . '?action=listPage&back=true' ?>" 
+                   style="<?= ($action=='listPage' )?'color:#ea4c6f;' : '' ?>" >
+                    <i class="fas fa-fw fa-wrench" style="<?= ($action=='listPage' )?'color:#ea4c6f;' : '' ?>"></i>
                     <span>Gestion des pages</span>
                 </a>
             </li>
 
             <hr class="sidebar-divider">
             <li class="nav-item">
-                <a class="nav-link collapsed" href="<?= BASE_PATH . '?action=listTeam&back=true' ?>" >
-                    <i class="fas fa-fw fa-wrench"></i>
+                <a class="nav-link collapsed" 
+                   href="<?= BASE_PATH . '?action=listTeam&back=true' ?>" 
+                   style="<?= ($action=='listTeam' )?'color:#ea4c6f;' : '' ?>">
+                    <i class="fas fa-fw fa-wrench" style="<?= ($action=='listTeam' )?'color:#ea4c6f;' : '' ?>"></i>
                     <span>Gestion team</span>
                 </a>
             </li>
@@ -63,9 +71,11 @@
 
             <hr class="sidebar-divider">
             <li class="nav-item">
-                <a class="nav-link collapsed" href="<?= BASE_PATH . '?action=listContent&back=true' ?>">
+                <a class="nav-link collapsed" 
+                   href="<?= BASE_PATH . '?action=listContent&back=true' ?>"
+                   style="<?= ($action=='listContent' )?'color:#ea4c6f;' : '' ?>">
 
-                    <i class="fas fa-fw fa-wrench"></i>
+                    <i class="fas fa-fw fa-wrench" style="<?= ($action=='listContent' )?'color:#ea4c6f;' : '' ?>"></i>
                     <span>Gestion des contenus</span>
                 </a>
             </li>
@@ -73,16 +83,20 @@
 
             <hr class="sidebar-divider">
             <li class="nav-item">
-                <a class="nav-link collapsed"  href="<?= BASE_PATH . '?action=listComment&back=true' ?>">
-                    <i class="fas fa-fw fa-wrench"></i>
+                <a class="nav-link collapsed"  
+                   href="<?= BASE_PATH . '?action=listComment&back=true' ?>"
+                   style="<?= ($action=='listComment' )?'color:#ea4c6f;' : '' ?>">
+                    <i class="fas fa-fw fa-wrench" tyle="<?= ($action=='listComment' )?'color:#ea4c6f;' : '' ?>"></i>
                     <span>Gestion commentaires</span>
                 </a>
             </li>
 
             <hr class="sidebar-divider">
             <li class="nav-item">
-                <a class="nav-link collapsed" href="<?= BASE_PATH . '?action=listEvent&back=true' ?>" >
-                    <i class="fas fa-fw fa-wrench"></i>
+                <a class="nav-link collapsed" 
+                   href="<?= BASE_PATH . '?action=listEvent&back=true' ?>" 
+                   style="<?= ($action=='listEvent' )?'color:#ea4c6f;' : '' ?>">
+                    <i class="fas fa-fw fa-wrench" style="<?= ($action=='listEvent' )?'color:#ea4c6f;' : '' ?>"></i>
                     <span>Gestion événements</span>
                 </a>
             </li>

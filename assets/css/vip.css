@@ -6,14 +6,6 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
-.vip .layout-section {
-  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 15%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 80%, rgb(0, 0, 0) 100%);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
 .vip .layout-section3 {
   position: absolute;
   background: linear-gradient(9deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.8267682073) 58%, rgba(130, 127, 127, 0) 71%, rgba(251, 247, 247, 0) 86%, rgba(0, 0, 0, 0.6278886555) 92%, rgb(0, 0, 0) 100%);
