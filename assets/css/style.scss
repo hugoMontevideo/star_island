@@ -32,6 +32,14 @@ header{
         z-index: 5;
         background-color: rgba(0, 0, 0, 0.85);
         padding: 0px 1em 0.5em;
+        .navbar-nav{  // ul
+            width: 100%;
+            justify-content: space-between;
+            .ul-1, .ul-2{
+                display: flex;
+                flex-direction: column;
+            }
+        }
     }
     .container-fluid{
         padding: 0;
@@ -49,6 +57,9 @@ header{
     .navbar-toggler{  // surcharge css bootstrap
         padding: 0 0.8rem;
         margin: 0;
+    }
+    .navbar-toggler:focus{
+        box-shadow: none;
     }
     
 }

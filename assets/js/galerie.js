@@ -1,4 +1,4 @@
-const home2Section = document.querySelector('#galerie');
+const galerie = document.querySelector('#galerie');
 const mainImg = document.querySelector('#main-img');
 const caption = document.querySelector('#caption');
 
@@ -20,7 +20,7 @@ const arrowPrev = document.querySelector("#arrowPrev");
 
 function loadImg(){
     // !!! l'url est a partir de index.php
-    home2Section.style.backgroundImage = `url("./assets/pictures/desktop/gta_decors13.png")`;
+    galerie.style.backgroundImage = `url("./assets/pictures/desktop/gta_decors13.png")`;
     
 }
 

@@ -9,13 +9,9 @@ $requete = execute("SELECT * FROM event e
                    INNER JOIN content c ON c.id_content = ec.id_content 
                    INNER JOIN event_media em ON ec.id_event = em.id_event
                    INNER JOIN media m ON m.id_media = em.id_media 
-                   ");
+                ");
 $data = $requete->fetchAll(PDO::FETCH_ASSOC);
 // debug($data);die;
-
-// requete pour le select - mediatype
-// $requete = execute("SELECT * FROM media_type");
-// $dataSelect = $requete->fetchAll(PDO::FETCH_ASSOC);
 
 if(!empty($_POST)){
 
@@ -82,14 +78,12 @@ if(!empty($_POST)){
             // insertion dans media
             $lastIdMedia = execute("INSERT INTO media (title_media,name_media,id_media_type,id_page) 
                                 VALUES (:title_media,:name_media,:id_media_type,:id_page)", 
-                                array(':title_media'=> $_POST['title_content'].'-img',
-                                    ':name_media'=> 'image1',
+                                array(':title_media'=>'image1',
+                                    ':name_media'=> $url_media,
                                     ':id_media_type'=>$intMediaType,
                                     ':id_page'=>13
                                 ),true
                             );
-      
-            // debug($lastIdMedia); die();
 
             $validateEvent = (isset($_POST['validate_event']))? 1 : 0 ;
             // debug($validateEvent); die();
@@ -126,7 +120,7 @@ if(!empty($_POST)){
                         )
                     );
 
-                //titre de l'événément title_content = 'texte 1'
+                //description de l'événément title_content = 'texte 1'
             $lastIdContent =  execute("INSERT INTO content (title_content, description_content, id_page)
                                     VALUES (:title_content, :description_content, :id_page)",
                                 array(
@@ -152,8 +146,7 @@ if(!empty($_POST)){
                             ':id_event' => $lastIdEvent
                         )
                     );
-            
-            // debug($_POST); die();
+
             $_SESSION['message']['success']='Evénement ajouté';
             header('Location:index.php?action=listEvent&back=true');
             exit();

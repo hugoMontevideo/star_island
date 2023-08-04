@@ -1,0 +1,6 @@
+	User-Agent: *
+    Disallow: /back
+    Disallow: /inc/backfooter.inc.phtml
+    Disallow: /inc/backheader.inc.phtml
+    Disallow: /security
+    Disallow: /docs

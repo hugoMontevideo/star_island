@@ -2,10 +2,10 @@
 // if (!empty($_GET) && isset($_GET['id']) && isset($_GET['a']) && $_GET['a'] == 'del') {
 if ( !empty($_GET) && isset($_GET['id']) ) {
 
-    $requete = execute("SELECT * FROM `team` 
-                    INNER JOIN team_media ON team.id_team=team_media.id_team
-                    INNER JOIN media ON media.id_media=team_media.id_media
-                    WHERE team.id_team= :id",
+    $requete = execute("SELECT * FROM team
+                        INNER JOIN team_media ON team.id_team=team_media.id_team
+                        INNER JOIN media ON media.id_media=team_media.id_media
+                        WHERE team.id_team= :id",
                     array(
                         ':id' => $_GET['id']
                     )
@@ -13,7 +13,7 @@ if ( !empty($_GET) && isset($_GET['id']) ) {
     $data = $requete->fetchAll(PDO::FETCH_ASSOC);   
 
 
-    //  ** la suppression vire en cascade les entrees de la table team media
+    //  ** la suppression vire en cascade les entrees de la table team_media
 
     $success = execute("DELETE FROM team 
                         WHERE id_team=:id", 

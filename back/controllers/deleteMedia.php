@@ -4,11 +4,9 @@
 if ( !empty($_GET) && isset($_GET['id']) ) {
 
     //$result false suppression pas effectué
-    $success = execute("DELETE FROM media 
-                            WHERE id_media=:id", 
-                            array(
-                            ':id' => intval($_GET['id'])
-                        ));
+    $success = execute("DELETE FROM media WHERE id_media=:id", 
+                        array(':id' => intval($_GET['id']))
+                    );
     // var_dump($success); die();
     if ($success) {
         $_SESSION['message']['success']= 'Média supprimé';
