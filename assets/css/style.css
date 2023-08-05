@@ -32,6 +32,14 @@ header .navbar-collapse {
   background-color: rgba(0, 0, 0, 0.85);
   padding: 0px 1em 0.5em;
 }
+header .navbar-collapse .navbar-nav {
+  width: 100%;
+  justify-content: space-between;
+}
+header .navbar-collapse .navbar-nav .ul-1, header .navbar-collapse .navbar-nav .ul-2 {
+  display: flex;
+  flex-direction: column;
+}
 header .container-fluid {
   padding: 0;
 }
@@ -48,6 +56,9 @@ header a.navbar-brand img {
 header .navbar-toggler {
   padding: 0 0.8rem;
   margin: 0;
+}
+header .navbar-toggler:focus {
+  box-shadow: none;
 }
 
 main.container {
@@ -245,5 +256,10 @@ a.reseaux img {
     max-width: 500px;
     font-size: 1.7em;
     padding: 0 0 0 4em;
+  }
+}
+@media (min-width: 992px) {
+  header .navbar-collapse .navbar-nav .ul-1, header .navbar-collapse .navbar-nav .ul-2 {
+    flex-direction: row;
   }
 }/*# sourceMappingURL=style.css.map */

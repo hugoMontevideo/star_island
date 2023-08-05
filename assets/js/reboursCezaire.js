@@ -1,5 +1,12 @@
+const startDate = document.querySelector('#start_date');
+let startDateArray = startDate.innerHTML.split('/');
+let startYear = parseInt(startDateArray[2]);
+let startMonth = parseInt(startDateArray[1]-1);
+let startDay = parseInt(startDateArray[0]);
+
 (function($){
 
+    
     // Number of seconds in every time division
     var days	= 24*60*60,
         hours	= 60*60,
@@ -20,10 +27,14 @@
 
         positions = this.find('.position');
 
+
+
         (function tick(){
 
             // Time left
             left = Math.floor((options.timestamp - (new Date())) / 1000);
+
+
 
             if(left < 0){
                 left = 0;
@@ -114,7 +125,8 @@
 $(function(){
 
     var note = $('#note'),
-        ts = new Date(2023, 5, 31),
+        ts = new Date(startYear, startMonth, startDay),
+        // ts = new Date(2023, 6, 5),
         newYear = true;
 
     if((new Date()) > ts){

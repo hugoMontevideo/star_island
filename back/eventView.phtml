@@ -68,15 +68,19 @@
                         id="media_file" name="media_file" class="form-control"
                         accept="image/png, image/jpeg, image/jpg, image/svg">
                     <small class="text-danger"><?php $error ?? ''; ?></small>
-                    <img src="<?= $urlImage ?>" 
-                        alt="Image choisie" 
-                        width="70" height="50" 
-                        style="object-fit: cover;border: #7d7070 2px solid;border-radius: 5px; ">
-
+                    <?php if(isset($urlImage)) : ?>
+                        <img src="<?= $urlImage ?>" 
+                            alt="Image choisie" 
+                            width="70" height="50" 
+                            style="object-fit: cover;border: #7d7070 2px solid;border-radius: 5px;margin: 10px 0 0; ">
+                            
+                        <input type="hidden" name="id_media" value="<?= $idImage ?>">
+                    <?php endif; ?>
                     <input type="hidden" name="id_media_type" value="16">
+
                 </div>
                 <div class="form-group input-group mb-3 div_input_file">
-                    <label for="media_file1">Choisir un audio ( optionnel )</label>
+                    <label for="media_file1">Choisir un audio ( optionnel * en dev * )</label>
                     <input type="file"
                         id="media_file1" name="media_file1" class="form-control"
                         >

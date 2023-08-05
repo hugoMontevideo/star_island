@@ -1,5 +1,6 @@
 <?php
 // titres aléatoires
+// var_dump($mainTitle); die;
 $arr_titres = [ $mainTitle, $mainTitle1 ,$mainTitle2 ];
 // $titres_ready = randElmtfromArray(3, $arr_titres);
 shuffle($arr_titres);
