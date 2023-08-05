@@ -257,4 +257,9 @@ a.reseaux img {
     font-size: 1.7em;
     padding: 0 0 0 4em;
   }
+}
+@media (min-width: 992px) {
+  header .navbar-collapse .navbar-nav .ul-1, header .navbar-collapse .navbar-nav .ul-2 {
+    flex-direction: row;
+  }
 }/*# sourceMappingURL=style.css.map */

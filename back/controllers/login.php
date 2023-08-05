@@ -1,42 +1,49 @@
-<?php      
+<?php  
+require_once '../../config/function.php';  
 
 if (!empty($_POST)){
-
-    if (empty($_POST['email'])) {
-        $email='Email obligatoire';
+    if(empty($_POST['password'])) {
+        $password='Mot de passe obligatoire';
         $error=true;
-
     }else{
-        $user = execute("
-                        SELECT * 
-                        FROM user 
-                        WHERE email_user = :email",
-                        array( ':email'=>$_POST['email'] )
-                );
 
-        // vérification de l'existence d'un utilisateur à cette adresse mail
-        // if ($user->rowCount()==1){ // rowCount() dysfonctionne
-        if ( $user ){
-            // verification du mot passe provenant du formulaire avec le mot de passe haché provenant de la BDD
-            $user = $user->fetch(PDO::FETCH_ASSOC);
-            if (password_verify($_POST['password'], $user['password_user'])){
-                
-                $_SESSION['user'] = $user; // array = array
-                // $_SESSION['messages']['success'][]="Bienvenue $user[nickname]!!!!";
-                header("Location:index.php?action=media_type&back=true");
-                exit();
-
-            }else{
-                $password='Erreur sur le mot de passe';
-            }
+        if (empty($_POST['email'])) {
+            $email='Email obligatoire';
+            $error=true;
+    
         }else{
+            $resultat = execute("
+                            SELECT * 
+                            FROM user 
+                            WHERE email_user = :email",
+                            array( ':email'=>$_POST['email'] )
+                    );
+    
+            $user = $resultat->fetch(PDO::FETCH_ASSOC);
+            
+            // vérification de l'existence d'un utilisateur à cette adresse mail
+            // if ($user->rowCount()==1){ // rowCount() dysfonctionne
+            if ( $user ){
+                // verification du mot passe provenant du formulaire avec le mot de passe haché provenant de la BDD
+                if (password_verify($_POST['password'], $user['password_user'])){
+                    
+                    $_SESSION['email_user'] = $user['email_user']; 
 
-            $email='Aucun compte existant à cette adresse mail';
+                    header("Location:../../index.php?action=listPage&back=true");
+                    exit();
+    
+                }else{
+                    $password='Entrez un mot de passe valable';
+                }
+            }else{
+    
+                $email='Aucun compte existant à cette adresse mail';
+            }
         }
+    
     }
 
+ 
 }// fin de soumission formulaire
 
-
-
-require_once 'security/login.phtml' ;
+require_once '../../security/login.phtml' ;

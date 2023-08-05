@@ -166,44 +166,6 @@ a.reseaux{
 }
 
 
-// #instagram.active{
-//     transform: translateY(-3em);
-//     transition: ease-in-out .9s;
-//     opacity: 1;
-// }
-// #tiktok.active{
-//     transform: translateY(-5.3em);
-//     transition: ease-in-out .9s;
-//     opacity: 1;
-// }
-// #twitch.active{
-//     transform: translateY(-7.6em);
-//     transition: ease-in-out .9s;
-//     opacity: 1;
-// }
-
-// #twitter.active{
-//     transform: translateY(-9.9em);
-//     transition: ease-in-out .9s;
-//     opacity: 1;
-// }
-
-// #facebook.active{
-//     transform: translateY(-12.2em);
-//     transition: ease-in-out .9s;
-//     opacity: 1;  
-// }
-// #youtube.active{
-//     transform: translateY(-14.5em);
-//     transition: ease-in-out .9s;
-//     opacity: 1;  
-// }
-// #discorde.active{
-//     // transform: translateY(-15em);
-//     // transition: ease-in-out .9s;
-//     z-index: 11;
-// }
-
 #compte{
     font-family: 'Iceland',cursive;
     color: #fba808;
@@ -322,7 +284,21 @@ a.reseaux{
 }
 
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px) { }
+@media (min-width: 992px) { 
+    header{
+        .navbar-collapse{
+       
+            .navbar-nav{  // ul
+               
+                .ul-1, .ul-2{
+                    flex-direction: row;
+                }
+            }
+        }
+
+    }
+    
+}
 
 // X-Large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) { }

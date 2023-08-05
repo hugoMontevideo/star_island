@@ -1,28 +1,8 @@
 <?php  
 require_once 'config/function.php';  
 
-// le chemin absolu de l'application
+// le chemin absolu de l'application depuis index.php
 const BASE_PATH_DIR = __DIR__ ;
-
-// ***************** teaser ******************
-// $current_date = new \DateTime();
-// $expected_delivery_date = '2023-06-30 00:00:00';
-// $nd = new \DateTime($expected_delivery_date);
-// // var_dump($current_date<$nd); die();
-// if($current_date<$nd){
-//     header('location:./front/teaser.php');
-//     exit();
-// }
-// ***************** end teaser ******************
-
-
-if (isset($_GET['a']) && $_GET['a']=='dis'){
-
-    unset($_SESSION['user']);
-    $_SESSION['messages']['info'][]='A bientôt !!';
-    header('location:./');
-    exit();
-}
 
 // grace a $action on pourra
 // inclure le contenu de la bonne page
@@ -33,13 +13,16 @@ if ( isset($_GET['action'])){
 }
 
 if(isset ($_GET['back']) && $_GET['back'] == 'true'){
-    $header = 'inc/backheader.inc.phtml';
-    $footer = 'inc/backfooter.inc.phtml';  
-    // require_once 'inc/backheader.inc.phtml';  
+    if(isConnect()){         // s'il est connecté  ***
+        $header = 'inc/backheader.inc.phtml';
+        $footer = 'inc/backfooter.inc.phtml';  
+    }else{
+        header("Location:back/controllers/login.php");
+    }
+
 }else{
-    $header = 'inc/header.inc.phtml';
+    $header = 'inc/header.inc.phtml'; // on passera le bon header au template
     $footer = 'inc/footer.inc.phtml'; 
-    // require_once 'inc/header.inc.php';
 
     if($action != 'event'){
         $requete = execute("SELECT * FROM page
@@ -61,7 +44,6 @@ if(isset ($_GET['back']) && $_GET['back'] == 'true'){
     }
 
     $data = $requete->fetchAll(PDO::FETCH_ASSOC);
-    // debug($data); die;
 
     foreach ($data as $key=>$array){
         if(isset($array['title_content'])){
@@ -111,52 +93,13 @@ if(isset ($_GET['back']) && $_GET['back'] == 'true'){
 
 require_once 'back/controllers/' .$action. '.php';  
 
-// if(isset ($_GET['back']) && $_GET['back'] == 'true'){
-//     // if(isset ($_GET['action']) && $_GET['action'] == 'indexBack'){
-//         require_once 'inc/footer.inc.phtml';  
-//     }else{
-//         require_once 'inc/footer.inc.php';         
+// ***************** teaser ******************
+// $current_date = new \DateTime();
+// $expected_delivery_date = '2023-06-30 00:00:00';
+// $nd = new \DateTime($expected_delivery_date);
+// // var_dump($current_date<$nd); die();
+// if($current_date<$nd){
+//     header('location:./front/teaser.php');
+//     exit();
 // }
-
-
-// ce bloc était avant require controlleur $action
-
-// $requete = execute("SELECT * FROM page
-//                 INNER JOIN content ON page.id_page = content.id_page 
-//                 INNER JOIN media ON page.id_page = media.id_page 
-//                 WHERE page.title_page=:title_page"  ,
-//                 array( ':title_page' => $action )
-//             );
-// $data = $requete->fetchAll(PDO::FETCH_ASSOC);
-
-// // debug($data); die;
-// foreach ($data as $key=>$array){
-//     if(isset($array['title_content'])){
-//         if($array['title_content'] == 'main title'){
-//             $mainTitle = $array['description_content'];
-//         }
-//         if($array['title_content'] == 'h2'){
-//             $h2Title = $array['description_content'];
-//         }
-//         if($array['title_content'] == 'h3 - 1'){
-//             $h3Title1 = $array['description_content'];
-//         }
-//         if($array['title_content'] == 'h3 - 2'){
-//             $h3Title2 = $array['description_content'];
-//         }
-//         if($array['title_content'] == 'texte 1'){
-//             $texte1 = $array['description_content'];
-//         }
-//         if($array['title_content'] == 'texte 2'){
-//             $texte2 = $array['description_content'];
-//         }
-//         if($array['title_media'] == 'personnage1'){
-//             $personnage1 = $array['name_media'];
-//             $altPerso1 = $array['title_media'];
-//         }
-//         if($array['title_media'] == 'personnage2'){
-//             $personnage2 = $array['name_media'];
-//             $altPerso2 = $array['title_media'];
-//         }
-//     }
-// }
+// ***************** end teaser ******************

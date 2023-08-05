@@ -30,14 +30,6 @@ function randElmtfromArray( int $nbr, array $monArray): array
     return $randomArray;
 }
 
-/**
- * Récuperer les données texte de la BDD
- * et créer des var pour les afficher
- */
-function displayText($data){
-
-}
-
 function insertIntoTeamMedia( $lastIdMedia, $lastIdTeam ){
     $pdo=Db::getDB();
     $resultat = $pdo->prepare("INSERT INTO team_media (id_media, id_team)
@@ -60,7 +52,7 @@ function execute(string $requete, array $data=[],$lastId=null)
     $pdo=Db::getDB(); // connexion à la BDD provenant de Db.php
     // var_dump($pdo); die();
     $resultat= $pdo->prepare($requete);// on prépare la requête envoyée avec marqueur (:marqueur)
-
+    
     $success=$resultat->execute($data);// on execute en passant notre tableau associatif de nos marqueurs avec leur valeurs
 
     if($success){ // si tout s'est bien passé ($success renvoi true ou false)
@@ -83,6 +75,35 @@ function execute(string $requete, array $data=[],$lastId=null)
 
 }
 
+/*
+ * valider mot de passe
+ * @param string $mdp
+ */
+function isValidMDP($mdp)
+{
+  return preg_match('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,20}$/', $mdp)  ;
+}
+
+
+function isConnect()
+{
+    if (isset($_SESSION['email_user'])){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function admin()
+{
+    if (isConnect() && $_SESSION['user']['role']=='ROLE_ADMIN'){
+
+        return true;
+    }else{
+        return false;
+    }
+
+}
 
 function password_strength_check($password, $min_len = 6, $max_len = 15, $req_digit = 1, $req_lower = 1, $req_upper = 1, $req_symbol = 1)
 {
@@ -111,36 +132,7 @@ function password_strength_check($password, $min_len = 6, $max_len = 15, $req_di
     }
 }
 
-/*
- * valider mot de passe
- * @param string $mdp
- */
-function isValidMDP($mdp)
-{
-  return preg_match('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,20}$/', $mdp)  ;
-}
 
 
-function connect()
-{
-    if (isset($_SESSION['user'])){
-
-        return true;
-    }else{
-
-        return false;
-    }
-}
-
-function admin()
-{
-    if (connect() && $_SESSION['user']['role']=='ROLE_ADMIN'){
-
-        return true;
-    }else{
-        return false;
-    }
-
-}
 
 
