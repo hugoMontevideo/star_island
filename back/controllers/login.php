@@ -1,5 +1,6 @@
 <?php  
 require_once '../../config/function.php';  
+require_once '../../inc/backheader.inc.phtml';  
 
 if (!empty($_POST)){
     if(empty($_POST['password'])) {
